@@ -1,6 +1,6 @@
 export default async function getData() {
   try {
-    const res = await fetch(process.env.APIBASEURL + "ge-all-project");
+    const res = await fetch(process.env.APIBASEURL + "get-all-project");
 
     if (!res.ok) {
       // Handle non-ok response (e.g., 404 or 500) by throwing an error

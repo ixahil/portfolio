@@ -2,6 +2,23 @@
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
+
+name: Build Next.js web application
+on: push
+jobs:
+  build-project:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: install NPM dependencies
+        run: npm install
+      - name: Build project assets
+        run: npm run build
+
+
+
 name: Deploy Next.js site to Pages
 
 on:

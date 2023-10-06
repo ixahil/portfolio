@@ -28,7 +28,7 @@ const page = (props: Props) => {
       <div className="max-md:self-center">
         <div className="h-[370px] w-[370px] rotate-3">
           <Image
-            src="/images/about.jpg"
+            src="images/about.jpg"
             className="w-[100%] h-[100%] max-w-none overflow-clip rounded-[10%]"
             width={500}
             height={500}

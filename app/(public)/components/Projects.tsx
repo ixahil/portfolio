@@ -33,7 +33,7 @@ async function projects() {
               >
                 <div className="text-[#fff] lg:max-w-[500px] lg:max-h-[250px] max-md:max-w-[100vw]">
                   <img
-                    src={PublicURL + project.thumbnail.imageURL}
+                    src={project.images[0].imageURL}
                     alt=""
                     className="w-full h-full object-cover"
                   />

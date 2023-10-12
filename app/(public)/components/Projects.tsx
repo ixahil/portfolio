@@ -32,11 +32,13 @@ async function projects() {
                 key={index}
               >
                 <div className="text-[#fff] lg:max-w-[500px] lg:max-h-[250px] max-md:max-w-[100vw]">
+                   { sliderImages &&
                   <img
                     src={project.images[0].imageURL}
                     alt=""
                     className="w-full h-full object-cover"
                   />
+                }
                 </div>
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="pb-2 font-bold ">

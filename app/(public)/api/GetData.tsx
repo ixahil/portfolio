@@ -2,6 +2,7 @@ export async function getAllProjects() {
   try {
     const res = await fetch(process.env.APIBASEURL + "projects", {
       method: "GET",
+      cache: "no-store",
     });
     if (res.status === 200) {
       const { projects } = await res.json();

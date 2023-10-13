@@ -43,3 +43,39 @@ export const authorizeRoles = (...roles) => {
     next();
   };
 };
+
+// Check Auth
+// Authenticate a user
+export const checkAuth = catchAsyncErrors(async (req, res, next) => {
+  try {
+    const _auth = req.cookies.access_token;
+
+    if (!_auth) {
+      return next(new ErrorHandler("Please Login to Access", 400));
+    }
+
+    jwt.verify(_auth, process.env.ACCESS_TOKEN, async (err, decoded) => {
+      if (err) {
+        return next(new ErrorHandler("Access token not valid", 401));
+      }
+
+      const user = await redis.get(decoded.id);
+
+      if (!user) {
+        return next(
+          new ErrorHandler("Please Login to access this resource!", 400)
+        );
+      }
+
+      req.user = JSON.parse(user);
+
+      res.status(200).json({
+        success: true,
+        user: req.user,
+        accessToken: _auth,
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});

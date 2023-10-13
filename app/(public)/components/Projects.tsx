@@ -4,7 +4,7 @@ import TechStackIcon from "./TechStackIcons";
 import Image from "next/image";
 
 async function projects() {
-  const data = await getData();
+  const data = await getAllProjects() || [];
 
   const PublicURL = process.env.BACKENDPUBLICURL;
 

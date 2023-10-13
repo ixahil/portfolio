@@ -6,6 +6,9 @@ import Image from "next/image";
 async function projects() {
   const data = await getAllProjects() || [];
 
+  console.log(data);
+
+  
   if (!data) {
     return <p>No data available.</p>;
   } else {

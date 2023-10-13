@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getData from "../api/GetData";
+import getAllProjects from "../api/GetData";
 import TechStackIcon from "./TechStackIcons";
 import Image from "next/image";
 

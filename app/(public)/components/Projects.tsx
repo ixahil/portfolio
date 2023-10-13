@@ -21,7 +21,7 @@ async function projects() {
           </h2>
         </div>
         <div className="flex flex-col gap-10">
-          {data..map((project: any, index: number) => {
+          {data.map((project: any, index: number) => {
             const sliderImages = project.images;
 
             return (

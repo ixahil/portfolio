@@ -48,13 +48,13 @@ export const authorizeRoles = (...roles) => {
 // Authenticate a user
 export const checkAuth = catchAsyncErrors(async (req, res, next) => {
   try {
-    const _auth = req.cookies.access_token;
+    const access_token = req.cookies.access_token;
 
-    if (!_auth) {
+    if (!access_token) {
       return next(new ErrorHandler("Please Login to Access", 400));
     }
 
-    jwt.verify(_auth, process.env.ACCESS_TOKEN, async (err, decoded) => {
+    jwt.verify(access_token, process.env.ACCESS_TOKEN, async (err, decoded) => {
       if (err) {
         return next(new ErrorHandler("Access token not valid", 401));
       }
@@ -72,7 +72,7 @@ export const checkAuth = catchAsyncErrors(async (req, res, next) => {
       res.status(200).json({
         success: true,
         user: req.user,
-        accessToken: _auth,
+        accessToken: access_token,
       });
     });
   } catch (error) {

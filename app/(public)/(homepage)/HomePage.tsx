@@ -34,7 +34,7 @@ const page = (props: Props) => {
 
         <div className=" rounded-[10%] rotate-3 max-md:self-center">
           <Image
-            src={"/images/homepage.jpg"}
+            src={"images/homepage.jpg"}
             alt=""
             width={370}
             height={370}

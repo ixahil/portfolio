@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ThemeProviderComponent from "./ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,15 @@ export default function PublicLayout({
 }) {
   return (
     <>
-      <div>
-        <Navbar />
-        <main className=" max-w-[1200px] mx-auto lg:py-8 max-md:pb-8 max-md:px-4">
-          {children}
-        </main>
-        <Footer />
-      </div>
+      <ThemeProviderComponent>
+        <div>
+          <Navbar />
+          <main className=" max-w-[1200px] mx-auto lg:py-8 max-md:pb-8 max-md:px-4">
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </ThemeProviderComponent>
     </>
   );
 }

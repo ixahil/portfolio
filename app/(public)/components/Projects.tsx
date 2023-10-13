@@ -5,15 +5,13 @@ import Image from "next/image";
 
 async function projects() {
   const data = await getAllProjects() || [];
-
-  console.log(data);
-
   
   if (!data) {
     return <p>No data available.</p>;
   } else {
     return (
       <>
+        {data}
         <div className="text-center px-4 py-6 flex items-center flex-col">
           <h2 className="text-[#1aa1ed] text-2xl md:text-3xl font-bold leading-[24px] tracking-[1em]">
             FEATURED

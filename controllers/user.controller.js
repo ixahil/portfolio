@@ -116,19 +116,19 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return next(new ErrorHandler("Please enter email and password", 404));
+      return next(new ErrorHandler("Please enter email and password", 401));
     }
 
     const user = await userModel.findOne({ email }).select("+password");
 
     if (!user) {
-      return next(new ErrorHandler("Please enter email and password", 404));
+      return next(new ErrorHandler("Please enter email and password", 401));
     }
 
     const isPasswordMatch = await user.comparePassword(password);
 
     if (!isPasswordMatch) {
-      return next(new ErrorHandler("Please enter email and password", 404));
+      return next(new ErrorHandler("Please enter email and password", 401));
     }
     sendToken(user, 200, res);
   } catch (error) {

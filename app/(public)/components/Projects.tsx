@@ -1,17 +1,16 @@
 import Link from "next/link";
-import {getAllProjects} from "../api/GetData";
+import { getAllProjects } from "../api/GetData";
 import TechStackIcon from "./TechStackIcons";
 import Image from "next/image";
 
 async function projects() {
-  const data = await getAllProjects() || [];
-  
+  const data = (await getAllProjects()) || [];
+
   if (!data) {
     return <p>No data available.</p>;
   } else {
     return (
       <>
-        {data}
         <div className="text-center px-4 py-6 flex items-center flex-col">
           <h2 className="text-[#1aa1ed] text-2xl md:text-3xl font-bold leading-[24px] tracking-[1em]">
             FEATURED
@@ -31,13 +30,13 @@ async function projects() {
                 key={index}
               >
                 <div className="text-[#fff] lg:max-w-[500px] lg:max-h-[250px] max-md:max-w-[100vw]">
-                   { sliderImages &&
-                  <img
-                    src={project.images[0].imageURL}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                }
+                  {sliderImages && (
+                    <img
+                      src={project.images[0].imageURL}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="pb-2 font-bold ">
@@ -52,7 +51,7 @@ async function projects() {
                     id="tab-description"
                     className="prose prose-lg text-gray-700 overflow-hidden block text-ellipsis max-h-52 mb-4"
                     dangerouslySetInnerHTML={{
-                      __html: project.htmlDescription,
+                      __html: project.description,
                     }}
                   ></div>
                   <Link href={"/project/" + project._id}>

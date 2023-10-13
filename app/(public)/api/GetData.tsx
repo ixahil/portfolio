@@ -1,6 +1,6 @@
 export async function getAllProjects() {
   try {
-    const res = await fetch(process.env.API_V1 + "projects", {
+    const res = await fetch(process.env.APIBASEURL + "projects", {
       method: "GET",
     });
     if (res.status === 200) {

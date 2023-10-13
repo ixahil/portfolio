@@ -14,7 +14,7 @@ export const accessTokenOptions = {
   httpOnly: true,
   sameSite: "None",
   Domain: "localhost",
-  Secure: true,
+  secure: true,
 };
 export const refreshTokenOptions = {
   expires: new Date(Date.now() + refreshTokenExpire * 24 * 60 * 60 * 1000),
@@ -22,7 +22,7 @@ export const refreshTokenOptions = {
   httpOnly: true,
   sameSite: "None",
   domain: "localhost",
-  Secure: true,
+  secure: true,
 };
 
 export const sendToken = (user, statusCode, res) => {

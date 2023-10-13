@@ -1,12 +1,10 @@
 import Link from "next/link";
-import getAllProjects from "../api/GetData";
+import {getAllProjects} from "../api/GetData";
 import TechStackIcon from "./TechStackIcons";
 import Image from "next/image";
 
 async function projects() {
   const data = await getAllProjects() || [];
-
-  const PublicURL = process.env.BACKENDPUBLICURL;
 
   if (!data) {
     return <p>No data available.</p>;
@@ -23,7 +21,7 @@ async function projects() {
           </h2>
         </div>
         <div className="flex flex-col gap-10">
-          {data.projects.map((project: any, index: number) => {
+          {data..map((project: any, index: number) => {
             const sliderImages = project.images;
 
             return (

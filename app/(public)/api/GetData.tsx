@@ -1,16 +1,16 @@
-export default async function getData() {
+export async function getAllProjects() {
   try {
-    const res = await fetch(process.env.APIBASEURL + "projects");
-
-    if (!res.ok) {
-      // Handle non-ok response (e.g., 404 or 500) by throwing an error
-      throw new Error("Failed to fetch data");
+    const res = await fetch(process.env.API_V1 + "projects", {
+      method: "GET",
+    });
+    if (res.status === 200) {
+      const { projects } = await res.json();
+      return projects; // Return the data if the request was successful
     }
-
-    const data = await res.json();
-    return data; // Return the data if the request was successful
+    console.error("Failed to fetch data");
+    return;
   } catch (error) {
     console.error("Error fetching data:", error);
-    return null; // Return a default value (null) in case of an error
+    return; // Return an error in case of an error
   }
 }

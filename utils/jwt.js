@@ -13,12 +13,14 @@ export const accessTokenOptions = {
   maxAge: accessTokenExpire * 60 * 60 * 1000,
   httpOnly: true,
   sameSite: "None",
+  domain: "github.com",
 };
 export const refreshTokenOptions = {
   expires: new Date(Date.now() + refreshTokenExpire * 24 * 60 * 60 * 1000),
   maxAge: refreshTokenExpire * 24 * 60 * 60 * 1000,
   httpOnly: true,
   sameSite: "None",
+  domain: "github.com",
 };
 
 export const sendToken = (user, statusCode, res) => {

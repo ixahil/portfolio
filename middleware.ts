@@ -9,7 +9,6 @@ export async function middleware(request: NextRequest) {
   const refresh_token = request.cookies.get("refresh_token")?.value || "";
 
   const isPublicPath = path === "/admin/login";
-  console.log("access token: ", access_token);
   let auth = true;
   if (access_token) {
     const fetchAuth = async () => {

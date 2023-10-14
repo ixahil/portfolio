@@ -4,14 +4,14 @@ type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div className="flex justify-evenly py-8">
+    <div className="flex justify-evenly py-8 md:p-4">
       <div className="flex flex-col gap-8">
-        <div className="w-[70%] text-justify max-md:w-full">
+        <div className="w-[70%] text-justify md:w-full">
           <h1 className="text-3xl">
             Let's Get in Touch: Ways to Connect with Me
           </h1>
         </div>
-        <p className="text-[#65656d] text-xl w-[70%] text-justify max-md:w-full">
+        <p className="text-[#65656d] text-xl w-[70%] text-justify md:text-sm md:w-full">
           Thank you for your interest in getting in touch with me. I welcome
           your feedback, questions, and suggestions. If you have a specific
           question or comment, please feel free to email me directly at

@@ -7,14 +7,14 @@ type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div className="flex justify-evenly py-8 max-md:flex-col max-md:gap-8 ">
+    <div className="flex justify-evenly py-8 md:flex-col md:gap-8 md:p-4">
       <div className="flex gap-8 flex-col ">
-        <div className="w-[70%] text-justify max-md:w-[100%]">
-          <h1 className="text-3xl  text-justify">
+        <div className="w-[70%] text-justify md:w-full">
+          <h1 className="text-3xl  text-justify md:w-full">
             I’m Sahil S. I live in Surat, Gujarat, where I design the future.
           </h1>
         </div>
-        <p className="text-[#65656d] text-xl w-[70%] text-justify max-md:w-[100%]">
+        <p className="text-[#65656d] text-xl w-[70%] text-justify md:w-full md:text-sm">
           I've worked on a variety of projects over the years and I'm proud of
           the progress I've made. Many of these projects are open-source and
           available for others to explore and contribute to. If you're
@@ -25,10 +25,10 @@ const page = (props: Props) => {
         </p>
         <SocialIcons />
       </div>
-      <div className="max-md:self-center">
+      <div className="md:self-center">
         <div className="h-[370px] w-[370px] rotate-3">
           <Image
-            src="images/about.jpg"
+            src="/images/about.jpg"
             className="w-[100%] h-[100%] max-w-none overflow-clip rounded-[10%]"
             width={500}
             height={500}

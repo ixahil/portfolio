@@ -8,10 +8,10 @@ type Props = {};
 const page = (props: Props) => {
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-evenly py-8 mx-auto md:w-full gap-8">
-        <div className="flex flex-col gap-8 w-full md:w-[70%]">
+      <div className="flex flex-row md:flex-col justify-evenly py-8 mx-auto w-full gap-8 md:p-4">
+        <div className="flex flex-col gap-8 w-full">
           <div className="w-full">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl __title_head">
+            <h1 className="md:text-3xl text-4xl __title_head">
               I am a
               <span className="__title_sub_section">
                 <span className="__title_sub">Full-Stack Developer!</span>
@@ -20,7 +20,7 @@ const page = (props: Props) => {
               </span>
             </h1>
           </div>
-          <p className="text-[#65656d] text-lg md:text-sm lg:text-xl xl:text-xl w-full text-justify">
+          <p className="text-[#65656d] text-lg md:text-sm w-full text-justify">
             I am a backend developer with expertise in Node.js. I have
             experience in building scalable, secure, and reliable web
             applications using various frameworks and technologies. I enjoy

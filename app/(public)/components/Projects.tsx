@@ -12,10 +12,10 @@ async function projects() {
     return (
       <>
         <div className="text-center px-4 py-6 flex items-center flex-col">
-          <h2 className="text-[#1aa1ed] text-2xl md:text-3xl font-bold leading-[24px] tracking-[1em]">
+          <h2 className="text-[#1aa1ed] md:text-2xl text-3xl font-bold leading-[24px] tracking-[1em]">
             FEATURED
           </h2>
-          <h2 className="text-3xl md:text-5xl">
+          <h2 className="md:text-3xl text-5xl">
             Sneak peek from the latest{" "}
             <span className="leading-[24px] text-[#1aa1ed]">Projects</span>
           </h2>
@@ -26,10 +26,10 @@ async function projects() {
 
             return (
               <div
-                className="flex flex-col gap-10 md:flex-row lg:flex-row"
+                className="flex gap-10 flex-row md:flex-col md:items-center"
                 key={index}
               >
-                <div className="text-[#fff] lg:max-w-[500px] lg:max-h-[250px] max-md:max-w-[100vw]">
+                <div className="text-[#fff] max-w-[500px] max-h-[250px] md:max-w-full md:max-h-full">
                   {sliderImages && (
                     <img
                       src={project.images[0].imageURL}
@@ -41,9 +41,9 @@ async function projects() {
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="pb-2 font-bold ">
                     <Link href={"/project/" + project._id}>
-                      <h4 className="text-xl md:text-2xl">{project.title}</h4>
+                      <h4 className="md:text-xl text-2xl">{project.title}</h4>
                     </Link>
-                    <p className="text-[#65656d] text-base md:text-xl">
+                    <p className="text-[#65656d] md:text-base text-xl">
                       4 Months ago
                     </p>
                   </div>
@@ -55,11 +55,11 @@ async function projects() {
                     }}
                   ></div>
                   <Link href={"/project/" + project._id}>
-                    <button className="read-more-button bg-[#000] text-[#fff] px-6 md:px-10 py-2 cursor-pointer hover:bg-[#302e2e] dark:bg-[#302e2e] dark:hover:[#584f4f]">
+                    <button className="read-more-button bg-[#000] text-[#fff] md:px-6 px-10 py-2 cursor-pointer hover:bg-[#302e2e] dark:bg-[#302e2e] dark:hover:[#584f4f]">
                       Read More
                     </button>
                   </Link>
-                  <div className="flex p-2 md:p-5 justify-between border-b-2 flex-wrap">
+                  <div className="flex md:p-2 py-5 gap-2 border-b-2 flex-wrap justify-left">
                     {project.selectedTech.map((tech: string, index: number) => (
                       <TechStackIcon tech={tech} key={index} />
                     ))}

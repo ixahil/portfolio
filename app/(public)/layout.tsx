@@ -19,7 +19,7 @@ export default function PublicLayout({
   return (
     <>
       <ThemeProviderComponent>
-        <div>
+        <div className="text-text-light dark:text-text-dark">
           <Navbar />
           <main className=" max-w-[1200px] mx-auto lg:py-8 max-md:pb-8 max-md:px-4">
             {children}

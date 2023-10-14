@@ -35,17 +35,13 @@ const Navbar = (props: Props) => {
   return (
     <>
       {/* Desktop Navigation */}
-      <header className="hidden lg:flex flex-wrap items-center p-4 md:px-20 sticky top-[20px] z-50 py-[20px] justify-between">
+      <header className="md:hidden flex flex-wrap items-center p-4 md:px-20 sticky top-[20px] z-50 py-[20px] justify-between">
         <div className="flex flex-1">
-          <h1
-            className={`text-2xl md:text-3xl lg:text-4xl ${myFont.className}`}
-          >
-            &lt;Dev. Sahil&gt;
-          </h1>
+          <h1 className={`text-4xl ${myFont.className}`}>&lt;Dev. Sahil&gt;</h1>
         </div>
-        <div className="flex flex-1 w-full md:w-1/2">
-          <nav className="bg-[#fff] dark:bg-gray-dark py-2 px-4 rounded-[40px] shadow-lg">
-            <ul className="flex gap-10 flex-col md:flex-row md:gap-10">
+        <div className="flex flex-1 w-full">
+          <nav className="bg-[#fff] dark:bg-gray-dark py-2 px-4 rounded-[40px] shadow-lg dark:bg-dark">
+            <ul className="flex gap-10 flex-row">
               <Link
                 key={1}
                 className={` active:text-[#1aa1ed] hover:text-[#1aa1ed] ${
@@ -112,24 +108,20 @@ const Navbar = (props: Props) => {
       </header>
 
       {/* Mobile Navigation */}
-      <header className="md:hidden flex flex-wrap items-center p-4 md:px-20">
+      <header className="hidden md:flex flex-wrap items-center p-4 ">
         {/* Burger Icon (Visible on mobile) */}
-        <div className="md:hidden">
+        <div className="flex">
           <BiMenu size={30} cursor="pointer" onClick={toggleMobileMenu} />
         </div>
 
         {/* Logo (Visible on all screens) */}
         <div className="flex flex-1">
-          <h1
-            className={`text-3xl md:text-3xl lg:text-4xl ${myFont.className}`}
-          >
-            Dev Sahil
-          </h1>
+          <h1 className={`text-3xl ${myFont.className}`}>Dev Sahil</h1>
         </div>
 
         {/* Content (Visible when the menu is closed) */}
         {/* Social Icons and Theme Switch (Visible on all screens) */}
-        <div className="md:hidden flex gap-5 items-center">
+        <div className="flex gap-5 items-center">
           <div>
             <ThemeSwitch taglineDay={""} taglineNight={""} />
           </div>
@@ -148,8 +140,8 @@ const Navbar = (props: Props) => {
 
         {/* Mobile Navigation (Visible on mobile when the menu is open) */}
         {isMobileMenuOpen && (
-          <nav className="w-full bg-white">
-            <ul className=" text-center">
+          <nav className="w-full bg-white dark:bg-dark">
+            <ul className="text-center">
               <li className="my-4">
                 <Link
                   key={1}

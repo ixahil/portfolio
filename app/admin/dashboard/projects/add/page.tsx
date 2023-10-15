@@ -24,11 +24,10 @@ const initialValues: InitialValues = {
 const page = () => {
   return (
     <div>
-      Add Page (
+      Add Page
       <FormProvider initialValues={initialValues}>
         <ProjectForm />
       </FormProvider>
-      )
     </div>
   );
 };

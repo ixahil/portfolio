@@ -7,7 +7,7 @@ async function projects() {
   const data = (await getAllProjects()) || [];
 
   if (!data) {
-    return <p>No data available.</p>;
+    return <p>No Projects available.</p>;
   } else {
     return (
       <>
@@ -54,7 +54,7 @@ async function projects() {
                       __html: project.description,
                     }}
                   ></div>
-                  <Link href={"/project/" + project._id}>
+                  <Link href={"/projects/" + project._id}>
                     <button className="read-more-button bg-[#000] text-[#fff] md:px-6 px-10 py-2 cursor-pointer hover:bg-[#302e2e] dark:bg-[#302e2e] dark:hover:[#584f4f]">
                       Read More
                     </button>

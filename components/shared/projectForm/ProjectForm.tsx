@@ -1,6 +1,4 @@
 "use client";
-
-import React, { useEffect, useMemo, useState } from "react";
 import { useFormik } from "formik";
 
 import * as Yup from "yup";
@@ -8,11 +6,10 @@ import { ImageGallery } from "./ImageGallery";
 import { useFormContext } from "@/context/FormContext";
 import TechStackIcons from "./TechStackIcons";
 // import Editor from "./Editor";
-import { API } from "@/utils/constants/constants";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
-import { isEqual } from "lodash";
+import dynamic from "next/dynamic";
 
 type Props = {
   initialValues: {
@@ -35,8 +32,7 @@ const projectSchema = Yup.object().shape({
 const ProjectForm = () => {
   const router = useRouter();
   const { slug } = useParams();
-  const { formData, updateFormData } = useFormContext();
-
+  const { formData } = useFormContext();
   const formik = useFormik({
     initialValues: formData,
     validationSchema: projectSchema,
@@ -94,6 +90,10 @@ const ProjectForm = () => {
   const { isSubmitting, handleChange, handleSubmit, values, errors, touched } =
     formik;
 
+  const RichEditor = dynamic(() => import("./Editor"), {
+    ssr: false,
+  });
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -122,9 +122,7 @@ const ProjectForm = () => {
             Project Accomplished
           </label>
           <input
-            defaultValue={
-              values.createdDate || new Date().toISOString().substring(0, 10)
-            }
+            defaultValue={values.createdDate}
             onChange={handleChange}
             type="date"
             id="date"
@@ -165,9 +163,6 @@ const ProjectForm = () => {
         {touched.selectedTech && errors.selectedTech && (
           <div className="text-red-500">{errors.selectedTech}</div>
         )}
-        {touched.images && errors.images && (
-          <div className="text-red-500">{errors.images}</div>
-        )}
         {touched.createdDate && errors.createdDate && (
           <div className="text-red-500">{errors.createdDate}</div>
         )}
@@ -176,7 +171,8 @@ const ProjectForm = () => {
         <label htmlFor="description" className="block text-gray-600 mb-2">
           Project Description
         </label>
-        {/* <Editor description={values.description} /> */}
+        {/* <Editor /> */}
+        <RichEditor initialValue={values.description} />
       </div>
     </form>
   );

@@ -1,25 +1,34 @@
 import ProjectForm from "@/components/shared/projectForm/ProjectForm";
 import { FormProvider } from "@/context/FormContext";
-import React from "react";
 
 type Props = {};
 
-const page = (props: Props) => {
+type InitialValues = {
+  title: string;
+  description: string;
+  images: []; // Use string[] instead of [string]
+  status: boolean;
+  selectedTech: []; // Use string[] instead of [string]
+  createdDate: string;
+};
+
+const initialValues: InitialValues = {
+  title: "",
+  description: "",
+  images: [],
+  status: false,
+  selectedTech: [],
+  createdDate: "",
+};
+
+const page = () => {
   return (
     <div>
-      Edit Page
-      <FormProvider
-        initialValues={{
-          title: "",
-          description: "",
-          images: [],
-          status: false,
-          selectedTech: [],
-          createdDate: new Date().toISOString().substring(0, 10),
-        }}
-      >
+      Add Page (
+      <FormProvider initialValues={initialValues}>
         <ProjectForm />
       </FormProvider>
+      )
     </div>
   );
 };

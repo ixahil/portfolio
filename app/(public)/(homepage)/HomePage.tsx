@@ -39,6 +39,8 @@ const page = (props: Props) => {
             width={370}
             height={370}
             className="max-w-none overflow-clip rounded-[10%]"
+            blurDataURL="data:..."
+            placeholder="blur" // Optional blur-up while loading
           />
         </div>
       </div>

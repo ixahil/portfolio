@@ -1,9 +1,6 @@
 import ProjectForm from "@/components/shared/projectForm/ProjectForm";
 import { FormProvider } from "@/context/FormContext";
 import { getSingleProject } from "@/utils/fetch/GetProjects";
-import toast from "react-hot-toast";
-import Loading from "../../../loading";
-import { Suspense } from "react";
 
 type Props = {};
 

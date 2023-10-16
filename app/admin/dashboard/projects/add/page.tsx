@@ -1,24 +1,17 @@
 import ProjectForm from "@/components/shared/projectForm/ProjectForm";
 import { FormProvider } from "@/context/FormContext";
 
-type Props = {};
-
-type InitialValues = {
-  title: string;
-  description: string;
-  images: []; // Use string[] instead of [string]
-  status: boolean;
-  selectedTech: []; // Use string[] instead of [string]
-  createdDate: string;
-};
-
-const initialValues: InitialValues = {
+const initialValues = {
   title: "",
   description: "",
   images: [],
   status: false,
   selectedTech: [],
   createdDate: "",
+  thumbnail: {
+    imageURL: "",
+    public_id: "",
+  },
 };
 
 const page = () => {

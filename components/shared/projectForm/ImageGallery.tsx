@@ -29,10 +29,7 @@ export function ImageGallery() {
     // data for submit
     // console.log(imageList, addUpdateIndex);
     setImages(imageList);
-    updateFormData({
-      ...formData,
-      images: imageList,
-    });
+    formData.images = imageList;
   };
 
   return (

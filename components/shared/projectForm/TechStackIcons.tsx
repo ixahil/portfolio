@@ -29,7 +29,7 @@ const techStackIconsData = [
 ];
 
 function TechStackIcons() {
-  const { formData, updateFormData } = useFormContext();
+  const { formData } = useFormContext();
 
   // Initialize local state with selectedTech from formData
   const [selectedIcons, setSelectedIcons] = useState<string[]>(
@@ -47,10 +47,7 @@ function TechStackIcons() {
 
     setSelectedIcons(updatedSelectedTech as []);
 
-    updateFormData({
-      ...formData,
-      selectedTech: updatedSelectedTech,
-    });
+    formData.selectedTech = updatedSelectedTech;
   };
 
   return (

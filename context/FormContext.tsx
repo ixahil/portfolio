@@ -1,43 +1,51 @@
 "use client";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useMemo,
+} from "react";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-
-type Children = {
-  children: React.ReactNode;
+// Define the types for your form fields
+type ImageObject = {
+  public_id: string;
+  imageURL: string;
 };
 
-type Form = {
+type ThumbnailObject = {
+  imageURL: string;
+  public_id: string;
+};
+
+export type Form = {
   title: string;
   description: string;
-  images: []; // Use string[] instead of [string]
+  images: ImageObject[];
+  selectedTech: string[];
   status: boolean;
-  selectedTech: string[]; // Use string[] instead of [string]
   createdDate: string;
+  thumbnail: ThumbnailObject;
 };
 
 // Define the context with an initial value of null
-const FormContext = createContext<null | {
+type FormContextType = {
   formData: Form;
-  updateFormData: (newData: Form) => void;
-}>(null);
+  updateFormData: (newData: Partial<Form>) => void;
+};
+
+const FormContext = createContext<FormContextType | undefined>(undefined);
 
 type FormProviderProps = {
-  children: React.ReactNode;
-  initialValues: {
-    title: string;
-    description: string;
-    images: []; // Use string[] instead of [string]
-    status: boolean;
-    selectedTech: string[]; // Use string[] instead of [string]
-    createdDate: string;
-  };
+  children: ReactNode;
+  initialValues: Form;
 };
 
 export function FormProvider({ children, initialValues }: FormProviderProps) {
   const [formData, setFormData] = useState<Form>(initialValues);
 
-  const updateFormData = (newData: Form) => {
-    setFormData((prevData) => ({ ...prevData, ...newData }));
+  const updateFormData = (newData: Partial<Form>) => {
+    setFormData((prevData) => ({ ...prevData, ...newData } as Form));
   };
 
   return (
@@ -49,7 +57,7 @@ export function FormProvider({ children, initialValues }: FormProviderProps) {
 
 export function useFormContext() {
   const context = useContext(FormContext);
-  if (!context) {
+  if (context === undefined) {
     throw new Error("useFormContext must be used within a FormProvider");
   }
   return context;

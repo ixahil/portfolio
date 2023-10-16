@@ -9,18 +9,7 @@ import TechStackIcons from "./TechStackIcons";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
-
-type Props = {
-  initialValues: {
-    title: string;
-    description: string;
-    images: []; // Use string[] instead of [string]
-    status: boolean;
-    selectedTech: []; // Use string[] instead of [string]
-    createdDate: string;
-  };
-};
+import RichEditor from "./Editor";
 
 const projectSchema = Yup.object().shape({
   title: Yup.string().required("Project Title is required"),
@@ -89,10 +78,6 @@ const ProjectForm = () => {
 
   const { isSubmitting, handleChange, handleSubmit, values, errors, touched } =
     formik;
-
-  const RichEditor = dynamic(() => import("./Editor"), {
-    ssr: false,
-  });
 
   return (
     <form
@@ -172,7 +157,7 @@ const ProjectForm = () => {
           Project Description
         </label>
         {/* <Editor /> */}
-        <RichEditor initialValue={values.description} />
+        <RichEditor />
       </div>
     </form>
   );

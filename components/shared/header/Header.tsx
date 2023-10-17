@@ -11,7 +11,7 @@ import UserInfo from "@/utils/userInfo/UserInfo";
 type Props = {};
 
 function Header({}: Props) {
-  const now = new Date();
+  const now = new Date().toDateString();
 
   return (
     <header className="flex w-full items-center border-b-2 border-light-lighter dark:border-dark-lighter shadow-lg dark:shadow-lg dark:shadow-[#27272a] px-8 pb-4">
@@ -22,7 +22,8 @@ function Header({}: Props) {
         </div>
         <div className="clock-wrapper  md:hidden">
           {/* <Clock time={now.getTime()} /> */}
-          <Clock time={now.getTime()} />
+          {/* <Clock time={now.getTime()} /> */}
+          {now}
         </div>
       </div>
       <div className="md:flex-1 flex items-center">

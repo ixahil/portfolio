@@ -40,7 +40,7 @@ async function projects() {
                 </div>
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="pb-2 font-bold ">
-                    <Link href={"/project/" + project._id}>
+                    <Link href={"/projects/" + project._id}>
                       <h4 className="md:text-xl text-2xl">{project.title}</h4>
                     </Link>
                     <p className="text-[#65656d] md:text-base text-xl">

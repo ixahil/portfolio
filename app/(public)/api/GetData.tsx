@@ -2,7 +2,7 @@ export async function getAllProjects() {
   try {
     const res = await fetch(process.env.APIBASEURL + "projects", {
       method: "GET",
-      cache: "reload",
+      cache: "no-cache",
     });
     if (res.status === 200) {
       const { projects } = await res.json();
@@ -20,7 +20,7 @@ export async function getSingleProject(id: string) {
   try {
     const res = await fetch(process.env.APIBASEURL + "projects/" + id, {
       method: "GET",
-      cache: "reload",
+      cache: "no-cache",
     });
     if (res.status === 200) {
       const { data } = await res.json();

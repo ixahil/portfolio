@@ -94,3 +94,42 @@ body {
 .ql-editor {
   min-height: 18em;
 }
+
+a:link {
+  text-decoration: none;
+}
+
+#tab-description ol {
+  padding: 15px 0 0 30px;
+}
+
+#tab-description ol li {
+  list-style: upper-roman;
+  padding: 5px 0 0 0;
+}
+
+#tab-description ul li {
+  list-style: none;
+  padding: 5px 0 0 0;
+}
+
+#tab-description ul {
+  padding: 15px 0 0 30px;
+}
+
+#tab-description p {
+  padding: 15px 0 0 0;
+}
+
+#tab-description ul li::before {
+  content: "✔"; /* Use any Unicode character or custom content here */
+  display: inline-block;
+  width: 16px; /* Adjust the size of the circle */
+  height: 16px; /* Adjust the size of the circle */
+  border-radius: 50%;
+  background-color: black; /* Color of the filled circle */
+  color: white; /* Color of the checkmark */
+  text-align: center;
+  line-height: 16px; /* Center the checkmark vertically */
+  margin-right: 10px; /* Adjust spacing between the circle and li text */
+}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllProjects } from "../api/GetData";
-import TechStackIcon from "./TechStackIcons";
+import TechStackIcon from "./landingPage/TechStackIcons";
 import Image from "next/image";
 
 async function projects() {
@@ -22,7 +22,7 @@ async function projects() {
         </div>
         <div className="flex flex-col gap-10">
           {data.map((project: any, index: number) => {
-            const sliderImages = project.images;
+            const sliderImages = project.images || [];
 
             return (
               <div
@@ -30,12 +30,14 @@ async function projects() {
                 key={index}
               >
                 <div className="text-[#fff] max-w-[500px] max-h-[250px] md:max-w-full md:max-h-full">
-                  {sliderImages && (
+                  {sliderImages.length > 0 ? (
                     <img
                       src={project.images[0].imageURL}
                       alt=""
                       className="w-full h-full object-cover"
                     />
+                  ) : (
+                    <div>No Images</div>
                   )}
                 </div>
                 <div className="flex-1 flex flex-col justify-between">

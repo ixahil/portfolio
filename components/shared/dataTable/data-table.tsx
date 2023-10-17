@@ -15,13 +15,6 @@ import {
 } from "@tanstack/react-table";
 
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-import {
   Table,
   TableBody,
   TableCell,
@@ -29,9 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Input } from "@nextui-org/react";
 import { DataTablePagination } from "./DataTablePagination";
 import { DataTableViewOptions } from "./DataTableViewOptions";
 
@@ -65,10 +56,10 @@ export function DataTable<TData, TValue>({
       columnVisibility,
     },
   });
-  const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: 5,
-  });
+  // const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
+  //   pageIndex: 0,
+  //   pageSize: 5,
+  // });
 
   return (
     <div className="">

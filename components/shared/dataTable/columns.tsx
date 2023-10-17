@@ -163,7 +163,7 @@ export const columns: ColumnDef<Projects>[] = [
     cell: ({ cell }) => {
       const status = cell.getValue();
       return (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center pl-4">
           {status ? <Check size={20} /> : <X size={20} />}
         </div>
       );
@@ -184,27 +184,39 @@ export const columns: ColumnDef<Projects>[] = [
     cell: ({ cell }) => getDate({ cell }),
   },
   {
-    accessorKey: "thumbnail.imageURL",
+    accessorKey: "images",
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Image" />;
     },
-    id: "thumbnail",
+    id: "images",
     cell({ cell, row, column }) {
-      const imageURL = cell.getValue() as string;
-      return (
-        <div className="inline-block md:max-w-[250px]">
-          <Image
-            src={imageURL}
-            alt={row.original.thumbnail.public_id}
-            className="dark:brightness-[.45] object-contain"
-            width={500}
-            height={200}
-          />
-        </div>
-      );
+      const images = cell.getValue() as Array<{
+        imageURL: string;
+        public_id: string;
+      }>;
+
+      if (images && images.length > 0) {
+        const { imageURL, public_id } = images[0];
+        const imageName = public_id.split("/")[1];
+
+        return (
+          <div className="max-w-[250px] h-[200px] overflow-hidden flex items-center justify-center">
+            <Image
+              src={imageURL}
+              alt={imageName}
+              width={500}
+              height={200}
+              layout="responsive"
+              objectFit="cover"
+              className="dark:brightness-[.45] object-cover"
+            />
+          </div>
+        );
+      } else {
+        return <div>No Image</div>;
+      }
     },
   },
-
   {
     accessorKey: "selectedTech",
     header: ({ column }) => {

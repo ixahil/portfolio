@@ -15,7 +15,8 @@ const projectSchema = Yup.object().shape({
   title: Yup.string().required("Project Title is required"),
   createdDate: Yup.date()
     .max(new Date(), "Date cannot be in the future")
-    .required("Date is required"),
+    .required("Date is required")
+    .default(new Date()),
 });
 
 const ProjectForm = () => {
@@ -37,7 +38,8 @@ const ProjectForm = () => {
               selectedTech: formData.selectedTech,
               images: formData.images,
               status: values.status,
-              createdDate: values.createdDate,
+              createdDate:
+                values.createdDate || new Date().toISOString().split("T")[0],
             },
             {
               withCredentials: true,
@@ -107,7 +109,9 @@ const ProjectForm = () => {
             Project Accomplished
           </label>
           <input
-            defaultValue={values.createdDate}
+            defaultValue={
+              values.createdDate || new Date().toISOString().split("T")[0]
+            }
             onChange={handleChange}
             type="date"
             id="date"

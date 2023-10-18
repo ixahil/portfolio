@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { FaNodeJs, FaReact } from "react-icons/fa6";
 import { SiExpress, SiMongodb } from "react-icons/si";
@@ -9,18 +10,19 @@ import {
   SiTypescript,
   SiJavascript,
 } from "react-icons/si";
+import { Tooltip } from "@nextui-org/react";
 
 const techStackIconsData = [
-  { id: "node", icon: FaNodeJs },
-  { id: "react", icon: FaReact },
-  { id: "express", icon: SiExpress },
-  { id: "mongo", icon: SiMongodb },
-  { id: "mysql", icon: SiMysql },
-  { id: "sass", icon: DiSass },
-  { id: "tailwind", icon: SiTailwindcss },
-  { id: "postgresql", icon: SiPostgresql },
-  { id: "typescript", icon: SiTypescript },
-  { id: "javascript", icon: SiJavascript },
+  { id: "node", icon: FaNodeJs, name: "Node" },
+  { id: "react", icon: FaReact, name: "React" },
+  { id: "express", icon: SiExpress, name: "Express" },
+  { id: "mongo", icon: SiMongodb, name: "MongoDB" },
+  { id: "mysql", icon: SiMysql, name: "MySQL" },
+  { id: "sass", icon: DiSass, name: "SASS" },
+  { id: "tailwind", icon: SiTailwindcss, name: "Tailwind CSS" },
+  { id: "postgresql", icon: SiPostgresql, name: "Postgre SQL" },
+  { id: "typescript", icon: SiTypescript, name: "TypeScript" },
+  { id: "javascript", icon: SiJavascript, name: "JavaScript" },
 ];
 
 interface TechStackIconProps {
@@ -36,13 +38,15 @@ const TechStackIcon = ({ tech }: TechStackIconProps) => {
     const IconComponent = techIcon.icon;
 
     return (
-      <div className="tech-icon">
-        {React.createElement(IconComponent, {
-          size: 48, // Adjust the icon size as needed
-          className:
-            "border rounded p-1 transition-colors duration-300 hover:bg-[#D3D3D3] ",
-        })}
-      </div>
+      <Tooltip content={techIcon.name}>
+        <div className="tech-icon">
+          {React.createElement(IconComponent, {
+            size: 48, // Adjust the icon size as needed
+            className:
+              "border rounded p-1 transition-colors duration-300 hover:bg-[#D3D3D3] ",
+          })}
+        </div>
+      </Tooltip>
     );
   }
 

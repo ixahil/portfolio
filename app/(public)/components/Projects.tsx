@@ -11,11 +11,11 @@ async function projects() {
   } else {
     return (
       <section
-        className="flex flex-col gap-8 pt-8 md:pt-0 w-[1200px] mx-auto"
+        className="flex flex-col gap-8 py-28 md:pt-0 w-[1200px] mx-auto"
         id="projects"
       >
-        <div className="text-center px-4 py-6 flex items-center flex-col">
-          <h2 className="text-[#1aa1ed] md:text-2xl text-3xl font-bold leading-[24px] tracking-[1em]">
+        <div className="text-center flex items-center flex-col">
+          <h2 className="text-[#1aa1ed] md:text-2xl text-3xl font-bold leading-12 tracking-[2rem]">
             FEATURED
           </h2>
           <h2 className="md:text-3xl text-5xl">

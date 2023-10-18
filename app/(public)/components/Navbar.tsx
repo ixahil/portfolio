@@ -40,7 +40,7 @@ const Navbar = (props: Props) => {
   const handleClickNav = () => {};
 
   const handleScroll = () => {
-    if (window.scrollY > 400) {
+    if (window.scrollY >= 400) {
       setIsScrollPast(true);
       console.log(isScrollPast);
     } else {
@@ -93,96 +93,85 @@ const Navbar = (props: Props) => {
             animate="animate"
             exit="exit"
             variants={navVariants}
-            className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-white bg-opacity-[.08] backdrop-blur-lg border border-white border-opacity-[.08]"
+            className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-white bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
           >
-            <nav className="bg-[#fff] dark:bg-gray-dark py-2 px-6 rounded-[40px] shadow-lg dark:bg-dark">
-              <ul className="flex gap-10 flex-row">
-                <LinkScroll
-                  key={1}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 1 && "__nav_li_active"
-                  }`}
-                  to={"home"}
-                  // onClick={() => setActive(1)}
-                  spy={true}
-                  smooth={true}
-                  offset={0}
-                  duration={100}
-                  onSetActive={() => setActive(1)}
-                >
-                  Home
-                </LinkScroll>
-                <LinkScroll
-                  key={2}
-                  // onClick={() => setActive(2)}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 2 && "__nav_li_active"
-                  }`}
-                  to={"projects"}
-                  spy={true}
-                  smooth={true}
-                  offset={-20}
-                  duration={100}
-                  onSetActive={() => setActive(2)}
-                >
-                  Projects
-                </LinkScroll>
-                <LinkScroll
-                  key={3}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 3 && "__nav_li_active"
-                  }`}
-                  to={"about"}
-                  spy={true}
-                  smooth={true}
-                  offset={-20}
-                  duration={100}
-                  onSetActive={() => setActive(3)}
-                >
-                  About
-                </LinkScroll>
-                <LinkScroll
-                  key={4}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 4 && "__nav_li_active"
-                  }`}
-                  to={"contact"}
-                  spy={true}
-                  smooth={true}
-                  offset={-20}
-                  duration={100}
-                  onSetActive={() => setActive(4)}
-                >
-                  Contact
-                </LinkScroll>
-              </ul>
-            </nav>
+            <ul className="flex gap-10 flex-row">
+              <Link
+                key={1}
+                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  active === 1 && "__nav_li_active"
+                }`}
+                href="/"
+                // onClick={() => setActive(1)}
+                onClick={() => setActive(1)}
+              >
+                Home
+              </Link>
+              <LinkScroll
+                key={2}
+                // onClick={() => setActive(2)}
+                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  active === 2 && "__nav_li_active"
+                }`}
+                to={"projects"}
+                spy={true}
+                smooth={true}
+                offset={-20}
+                duration={100}
+                onSetActive={() => setActive(2)}
+              >
+                Projects
+              </LinkScroll>
+              <LinkScroll
+                key={3}
+                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  active === 3 && "__nav_li_active"
+                }`}
+                to={"about"}
+                spy={true}
+                smooth={true}
+                offset={-20}
+                duration={100}
+                onSetActive={() => setActive(3)}
+              >
+                About
+              </LinkScroll>
+              <LinkScroll
+                key={4}
+                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  active === 4 && "__nav_li_active"
+                }`}
+                to={"contact"}
+                spy={true}
+                smooth={true}
+                offset={-20}
+                duration={100}
+                onSetActive={() => setActive(4)}
+              >
+                Contact
+              </LinkScroll>
+            </ul>
           </motion.div>
         ) : (
-          <header className="md:hidden flex flex-wrap items-center px-24 pt-8 justify-between bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover">
+          <header className="md:hidden flex flex-wrap items-center px-24 py-8 justify-between bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover">
             <div className="flex flex-1">
-              <h1 className={`text-4xl ${myFont.className}`}>
+              <h1 className={`text-4xl ${myFont.className} cursor-pointer`}>
                 &lt;Dev. Sahil&gt;
               </h1>
             </div>
             <div className="flex flex-1 w-full pr-20">
               <nav className="bg-[#fff] dark:bg-gray-dark py-2 px-6 rounded-[40px] shadow-lg dark:bg-dark">
                 <ul className="flex gap-10 flex-row">
-                  <LinkScroll
+                  <Link
                     key={1}
                     className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
                       active === 1 && "__nav_li_active"
                     }`}
-                    to={"home"}
-                    // onClick={() => setActive(1)}
-                    spy={true}
-                    smooth={true}
-                    offset={0}
-                    duration={100}
-                    onSetActive={() => setActive(1)}
+                    href="/"
+                    onClick={() => setActive(1)}
                   >
                     Home
-                  </LinkScroll>
+                  </Link>
                   <LinkScroll
                     key={2}
                     // onClick={() => setActive(2)}
@@ -294,7 +283,7 @@ const Navbar = (props: Props) => {
                   className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
                     active === 1 && "__nav_li_active"
                   }`}
-                  to={"home"}
+                  to={"/"}
                   // onClick={() => setActive(1)}
                   spy={true}
                   smooth={true}

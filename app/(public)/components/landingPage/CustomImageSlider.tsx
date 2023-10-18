@@ -16,7 +16,6 @@ const CustomImageSlider = ({ images }: Props) => {
   const [mainImage, setMainImage] = useState(images[0]);
 
   // Check if images is undefined or empty
-  console.log(images);
   if (images.length < 1) {
     return <div>No images to display</div>;
   }

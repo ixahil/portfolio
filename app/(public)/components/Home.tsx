@@ -5,6 +5,7 @@ import { Divider } from "@nextui-org/react";
 import { Separator } from "@/components/ui/separator";
 import { CornerRightDown } from "lucide-react";
 import TechIconsHome from "@/utils/shared/TechIconsHome";
+import { Tooltip } from "@nextui-org/react";
 
 const Home = () => {
   return (

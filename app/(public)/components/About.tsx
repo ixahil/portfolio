@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import SocialIcons from "../utils/SocialIcons";
 import Image from "next/image";
 import { TfiLinkedin } from "react-icons/tfi";
 import { SiGithub } from "react-icons/si";
+import { Avatar } from "@nextui-org/react";
 
 const About = () => {
   return (
@@ -10,11 +12,11 @@ const About = () => {
       className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-[#000c2c] to-[#2b0e30] "
       id="about"
     >
-      <div className="flex w-[1200px] justify-evenly mx-auto">
-        <div className="w-full h-full flex flex-col gap-4 py-16">
+      <div className="flex w-[1200px] justify-evenly mx-auto gap-8">
+        <div className="flex flex-col gap-4 py-32">
           <h1 className="md:text-3xl text-4xl text-white">Sahil Shaikh</h1>
           <h2 className="text-[#1aa1ed] md:text-xl text-2xl">Web Developer</h2>
-          <p className="text-[#c8c7c8]">
+          <p className="text-[#c8c7c8] text-justify">
             I've worked on a variety of projects over the years and I'm proud of
             the progress I've made. Many of these projects are open-source and
             available for others to explore and contribute to. If you're
@@ -31,6 +33,14 @@ const About = () => {
               <SiGithub fill="#8d8d90" />
             </div>
           </div>
+        </div>
+        <div className=" m-auto">
+          <Avatar
+            isBordered
+            color="primary"
+            src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
+            className="w-60 h-60 text-large"
+          />
         </div>
       </div>
       {/* <div className="flex items-center flex-col">

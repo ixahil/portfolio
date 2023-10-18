@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ThemeProviderComponent from "./ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Dev Sahil",
-  description: "A Personal Portfolio Website",
+  title: "Dev Sahil Portfolio",
+  description:
+    "I am a backend developer with expertise in Node.js. I have experience in building scalable, secure, and reliable web applications using various frameworks and technologies.",
 };
 
 export default function PublicLayout({
@@ -19,13 +17,11 @@ export default function PublicLayout({
   return (
     <>
       <ThemeProviderComponent>
-        <div className="text-text-light dark:text-text-dark">
-          <Navbar />
-          <main className=" max-w-[1200px] mx-auto lg:py-8 max-md:pb-8 max-md:px-4">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <Navbar />
+        <main className="mx-auto md:px-6 flex flex-col h-full w-full ">
+          {children}
+        </main>
+        <Footer />
       </ThemeProviderComponent>
     </>
   );

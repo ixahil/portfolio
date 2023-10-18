@@ -16,8 +16,19 @@
   }
 } */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
+}
+
+header nav ul a {
+  position: relative;
+}
+.__nav_li_active {
+  color: #1aa1ed;
 }
 
 @keyframes slide-up {

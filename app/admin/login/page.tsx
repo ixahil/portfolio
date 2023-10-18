@@ -10,12 +10,23 @@ import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import localFont from "next/font/local";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email")
     .required("Please enter your email!"),
   password: Yup.string().required("Please enter your password!").min(6),
+});
+
+const myFont = localFont({
+  src: [
+    {
+      path: "../../fonts/Agustina.woff",
+      weight: "normal",
+      style: "normal",
+    },
+  ],
 });
 
 const Login = () => {
@@ -62,7 +73,9 @@ const Login = () => {
       {/* <!-- component --> */}
       <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
         <div className="p-10 xs:p-0 mx-auto w-full max-w-md">
-          <h1 className="logo font-bold text-center text-2xl mb-5">
+          <h1
+            className={`logo font-bold text-center text-4xl mb-5 ${myFont.className}`}
+          >
             <span>&lt; Sahil Shaikh /&gt;</span>
           </h1>
           <div className="bg-white shadow w-full rounded-lg divide-y divide-gray">

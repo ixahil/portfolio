@@ -10,7 +10,10 @@ async function projects() {
     return <p>No Projects available.</p>;
   } else {
     return (
-      <>
+      <section
+        className="flex flex-col gap-8 pt-8 md:pt-0 w-[1200px] mx-auto"
+        id="projects"
+      >
         <div className="text-center px-4 py-6 flex items-center flex-col">
           <h2 className="text-[#1aa1ed] md:text-2xl text-3xl font-bold leading-[24px] tracking-[1em]">
             FEATURED
@@ -20,7 +23,7 @@ async function projects() {
             <span className="leading-[24px] text-[#1aa1ed]">Projects</span>
           </h2>
         </div>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 p-8 rounded-md">
           {data.map((project: any, index: number) => {
             const sliderImages = project.images || [];
 
@@ -34,7 +37,7 @@ async function projects() {
                     <img
                       src={project.images[0].imageURL}
                       alt=""
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover dark:brightness-50"
                     />
                   ) : (
                     <div>No Images</div>
@@ -71,7 +74,7 @@ async function projects() {
             );
           })}
         </div>
-      </>
+      </section>
     );
   }
 }

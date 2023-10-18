@@ -10,7 +10,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <section className="max-w-[1200px] mx-auto">
-      <div className="min-h-screen w-full py-6 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen w-full py-16 px-4 sm:px-6 lg:px-8">
         <div className=" ">
           {/* Project Images */}
           {project.images && (

@@ -93,7 +93,7 @@ const Navbar = (props: Props) => {
             animate="animate"
             exit="exit"
             variants={navVariants}
-            className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-white bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
+            className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-light bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
           >
             <ul className="flex gap-10 flex-row">
               <Link
@@ -160,7 +160,7 @@ const Navbar = (props: Props) => {
               </h1>
             </div>
             <div className="flex flex-1 w-full pr-20">
-              <nav className="bg-[#fff] dark:bg-gray-dark py-2 px-6 rounded-[40px] shadow-lg dark:bg-dark">
+              <nav className="bg-dark text-light dark:bg-gray-dark py-2 px-6 rounded-full shadow-lg dark:bg-dark">
                 <ul className="flex gap-10 flex-row">
                   <Link
                     key={1}

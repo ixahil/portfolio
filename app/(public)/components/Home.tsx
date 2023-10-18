@@ -11,12 +11,12 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="w-full h-[50%] flex justify-center pt-16 dark:bg-black bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover bg-brightness-150 "
+      className="w-full h-[50%] flex justify-center pt-16 bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover brightness-130 dark:brightness-100 text-text-light "
     >
       <div className="w-[1200px] flex justify-between gap-12">
         <div className="flex flex-col gap-8 w-full">
           <div className="">
-            <h1 className="md:text-3xl text-4xl __title_head">
+            <h1 className="md:text-3xl text-4xl __title_head dark:text-[#adacb5]">
               I am
               <span className="__title_sub_section">
                 <span className="__title_sub">A Enthusiastic Developer</span>
@@ -25,7 +25,7 @@ const Home = () => {
               </span>
             </h1>
           </div>
-          <p className="text-[#65656d] text-lg md:text-sm text-justify">
+          <p className="text-[#65656d] dark:text-[#adacb5] text-lg md:text-sm text-justify">
             I am a backend developer with expertise in Node.js. I have
             experience in building scalable, secure, and reliable web
             applications using various frameworks and technologies. I enjoy
@@ -44,7 +44,7 @@ const Home = () => {
         </div>
         <div className="h-[80%] border-2 border-dark-lighter"></div>
         <div className="flex flex-col gap-8 w-full pt-12">
-          <h1 className="md:text-3xl text-4xl flex items-center gap-4">
+          <h1 className="md:text-3xl text-4xl flex items-center gap-4 dark:text-[#adacb5]">
             Technologies I used to
             <CornerRightDown />
           </h1>

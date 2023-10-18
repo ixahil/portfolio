@@ -38,7 +38,7 @@ const TechIconsHome = (props: Props) => {
 
       {techStackIconsData.map((t, i) => {
         return (
-          <Tooltip content={t.name}>
+          <Tooltip content={t.name} className="dark:text-text-light">
             <div className="tech-icon" key={i}>
               {React.createElement(t.icon, {
                 size: 48,

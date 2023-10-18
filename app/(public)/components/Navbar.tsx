@@ -82,85 +82,116 @@ const Navbar = (props: Props) => {
     },
   };
 
+  const themeVariants = {
+    initial: {
+      y: -50,
+      x: "-50%",
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      x: "-50%",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: {
+      y: -50,
+      opacity: 0,
+    },
+  };
+
   return (
     <>
       {/* Desktop Navigation */}
       <AnimatePresence>
         {" "}
         {isScrollPast ? (
-          <motion.div
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={navVariants}
-            className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-light bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
-          >
-            <ul className="flex gap-10 flex-row">
-              <Link
-                key={1}
-                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                  active === 1 && "__nav_li_active"
-                }`}
-                href="/"
-                // onClick={() => setActive(1)}
-                onClick={() => setActive(1)}
-              >
-                Home
-              </Link>
-              <LinkScroll
-                key={2}
-                // onClick={() => setActive(2)}
-                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                  active === 2 && "__nav_li_active"
-                }`}
-                to={"projects"}
-                spy={true}
-                smooth={true}
-                offset={-20}
-                duration={100}
-                onSetActive={() => setActive(2)}
-              >
-                Projects
-              </LinkScroll>
-              <LinkScroll
-                key={3}
-                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                  active === 3 && "__nav_li_active"
-                }`}
-                to={"about"}
-                spy={true}
-                smooth={true}
-                offset={-20}
-                duration={100}
-                onSetActive={() => setActive(3)}
-              >
-                About
-              </LinkScroll>
-              <LinkScroll
-                key={4}
-                className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                  active === 4 && "__nav_li_active"
-                }`}
-                to={"contact"}
-                spy={true}
-                smooth={true}
-                offset={-20}
-                duration={100}
-                onSetActive={() => setActive(4)}
-              >
-                Contact
-              </LinkScroll>
-            </ul>
-          </motion.div>
+          <>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={navVariants}
+              className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
+            >
+              <ul className="flex gap-10 flex-row">
+                <Link
+                  key={1}
+                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                    active === 1 && "__nav_li_active"
+                  }`}
+                  href="/"
+                  // onClick={() => setActive(1)}
+                  onClick={() => setActive(1)}
+                >
+                  Home
+                </Link>
+                <LinkScroll
+                  key={2}
+                  // onClick={() => setActive(2)}
+                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                    active === 2 && "__nav_li_active"
+                  }`}
+                  to={"projects"}
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={100}
+                  onSetActive={() => setActive(2)}
+                >
+                  Projects
+                </LinkScroll>
+                <LinkScroll
+                  key={3}
+                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                    active === 3 && "__nav_li_active"
+                  }`}
+                  to={"about"}
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={100}
+                  onSetActive={() => setActive(3)}
+                >
+                  About
+                </LinkScroll>
+                <LinkScroll
+                  key={4}
+                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                    active === 4 && "__nav_li_active"
+                  }`}
+                  to={"contact"}
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={100}
+                  onSetActive={() => setActive(4)}
+                >
+                  Contact
+                </LinkScroll>
+              </ul>
+            </motion.div>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={themeVariants}
+              className="fixed z-[999] top-4 right-1 -translate-x-1/2 rounded-full p-1 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
+            >
+              <ThemeSwitch taglineDay={""} taglineNight={""} />
+            </motion.div>
+          </>
         ) : (
-          <header className="md:hidden flex flex-wrap items-center px-24 py-8 justify-between bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover">
+          <header className="md:hidden flex flex-wrap items-center px-24 py-8 justify-between bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover text-[#E1D9D1] dark:text-[#adacb5]">
             <div className="flex flex-1">
               <h1 className={`text-4xl ${myFont.className} cursor-pointer`}>
                 &lt;Dev. Sahil&gt;
               </h1>
             </div>
             <div className="flex flex-1 w-full pr-20">
-              <nav className="bg-dark text-light dark:bg-gray-dark py-2 px-6 rounded-full shadow-lg dark:bg-dark">
+              <nav className="bg-dark text-[#E1D9D1] dark:text-[#adacb5] dark:bg-gray-dark py-2 px-6 rounded-full shadow-lg dark:bg-dark">
                 <ul className="flex gap-10 flex-row">
                   <Link
                     key={1}

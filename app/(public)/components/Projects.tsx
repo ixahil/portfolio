@@ -64,7 +64,7 @@ async function projects() {
                       Read More
                     </button>
                   </Link>
-                  <div className="flex md:p-2 py-5 gap-2 border-b-2 flex-wrap justify-left">
+                  <div className="flex md:p-2 py-5 gap-2 border-b-2 dark:border-dark-lighter flex-wrap justify-left">
                     {project.selectedTech.map((tech: string, index: number) => (
                       <TechStackIcon tech={tech} key={index} />
                     ))}

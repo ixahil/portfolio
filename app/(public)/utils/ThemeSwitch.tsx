@@ -23,6 +23,18 @@ const ThemeSwitch = ({ taglineDay, taglineNight }: Props) => {
     return null;
   }
 
+  if (!taglineDay || !taglineNight) {
+    return (
+      <>
+        {theme === "dark" ? (
+          <BsSun size={30} cursor="pointer" onClick={() => setTheme("light")} />
+        ) : (
+          <FiMoon size={30} cursor="pointer" onClick={() => setTheme("dark")} />
+        )}
+      </>
+    );
+  }
+
   return (
     <>
       {theme === "dark" ? (

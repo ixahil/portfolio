@@ -9,11 +9,11 @@ import { Avatar } from "@nextui-org/react";
 const About = () => {
   return (
     <section
-      className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-[#000c2c] to-[#2b0e30] dark:text-[#adacb5]"
+      className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-[#000c2c] to-[#2b0e30] dark:text-[#adacb5] md:p-16 md:gap-4"
       id="about"
     >
-      <div className="flex w-[1200px] justify-evenly mx-auto gap-8">
-        <div className="flex flex-col gap-4 py-32">
+      <div className="flex max-w-[1200px] justify-evenly mx-auto gap-8 md:flex-col items-center md:justify-center">
+        <div className="flex flex-col gap-4 py-32 md:py-0">
           <h1 className="md:text-3xl text-4xl text-white dark:text-[#adacb5]">
             Sahil Shaikh
           </h1>
@@ -36,12 +36,12 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className=" m-auto">
+        <div className="m-auto">
           <Avatar
             isBordered
             color="primary"
             src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
-            className="w-60 h-60 text-large"
+            className="w-60 h-60 text-large md:w-40 md:h-40"
           />
         </div>
       </div>

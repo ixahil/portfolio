@@ -14,7 +14,7 @@ const Contact = () => {
             <p>xyz@gmail.com</p>
           </div>
         </div>
-        <div className="w-full md:w-1/2 max-w-xl">
+        <div className="w-full md:w-full max-w-xl">
           <form action="" className="">
             <input
               type="text"

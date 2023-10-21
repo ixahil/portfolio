@@ -11,7 +11,7 @@ async function projects() {
   } else {
     return (
       <section
-        className="flex flex-col gap-8 py-28 md:pt-0 w-[1200px] mx-auto"
+        className="flex flex-col gap-8 py-28 md:py-28 max-w-[1200px] mx-auto"
         id="projects"
       >
         <div className="text-center flex items-center flex-col">
@@ -29,7 +29,7 @@ async function projects() {
 
             return (
               <div
-                className="flex gap-10 flex-row md:flex-col md:items-center"
+                className="flex gap-10 flex-row md:flex-col md:items-start"
                 key={index}
               >
                 <div className="text-[#fff] max-w-[500px] max-h-[250px] md:max-w-full md:max-h-full">

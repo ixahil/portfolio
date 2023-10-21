@@ -11,9 +11,9 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="w-full h-[50%] flex justify-center pt-16 bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover brightness-130 dark:brightness-100 text-text-light "
+      className="md:p-16 w-full h-[50%] flex justify-center pt-16 bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover brightness-130 dark:brightness-100 text-text-light "
     >
-      <div className="w-[1200px] flex justify-between gap-12">
+      <div className="max-w-[1200px] flex justify-between gap-12 md:flex-col">
         <div className="flex flex-col gap-8 w-full">
           <div className="">
             <h1 className="md:text-3xl text-4xl __title_head dark:text-[#adacb5]">
@@ -48,28 +48,11 @@ const Home = () => {
             Technologies I used to
             <CornerRightDown />
           </h1>
-          <div className="flex flex-col h-[20%] gap-4 flex-wrap">
+          <div className="flex flex-col h-[20%] gap-4 flex-wrap md:flex-row">
             <TechIconsHome />
           </div>
         </div>
       </div>
-
-      {/* <div className=" rounded-[10%] rotate-3 max-md:self-center">
-        <Image
-          src={"/images/homepage.jpg"}
-          alt=""
-          width={100}
-          height={100}
-          sizes="100vw"
-          style={{
-            width: "auto",
-            height: "300px",
-          }}
-          className="max-w-none overflow-clip rounded-[10%]"
-          blurDataURL="data:..."
-          placeholder="blur" // Optional blur-up while loading
-        />
-      </div> */}
     </section>
   );
 };

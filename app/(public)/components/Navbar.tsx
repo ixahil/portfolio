@@ -114,7 +114,7 @@ const Navbar = (props: Props) => {
               animate="animate"
               exit="exit"
               variants={navVariants}
-              className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
+              className=" fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
             >
               <ul className="flex gap-10 flex-row">
                 <Link
@@ -178,7 +178,7 @@ const Navbar = (props: Props) => {
               animate="animate"
               exit="exit"
               variants={themeVariants}
-              className="fixed z-[999] top-4 right-1 -translate-x-1/2 rounded-full p-1 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
+              className="md:top-[90%] fixed z-[999] top-4 right-1 rounded-full p-2 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark shadow-lg dark:bg-dark"
             >
               <ThemeSwitch taglineDay={""} taglineNight={""} />
             </motion.div>

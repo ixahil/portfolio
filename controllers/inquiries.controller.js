@@ -6,7 +6,11 @@ import NotificationModel from "../models/notification.model.js";
 import sendMail from "../utils/sendMail.js";
 import path from "path";
 import { URL } from "url";
-import { getAllInquiriesServices } from "../services/inquiry.service.js";
+import {
+  deleteInquiryServices,
+  getAllInquiriesServices,
+  updateInquiryStatusServices,
+} from "../services/inquiry.service.js";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
@@ -63,6 +67,25 @@ export const createInquiry = catchAsyncErrors(async (req, res, next) => {
 export const getAllInquiries = catchAsyncErrors(async (req, res, next) => {
   try {
     getAllInquiriesServices(res);
+  } catch (error) {
+    return next(new ErrorHandler(error.message, 400));
+  }
+});
+
+export const updateInquiryStatus = catchAsyncErrors(async (req, res, next) => {
+  const id = req.params.id;
+  const status = req.body.status;
+  try {
+    updateInquiryStatusServices(id, status, res);
+  } catch (error) {
+    return next(new ErrorHandler(error.message, 400));
+  }
+});
+
+export const deleteInquiry = catchAsyncErrors(async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    deleteInquiryServices(id, res);
   } catch (error) {
     return next(new ErrorHandler(error.message, 400));
   }

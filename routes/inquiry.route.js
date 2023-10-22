@@ -12,11 +12,6 @@ const inquiryRouter = express.Router();
 inquiryRouter.post("/inquiry", createInquiry);
 
 // Admin Route
-inquiryRouter.get(
-  "/get-inquiry",
-  isAuthenticated,
-  authorizeRoles("admin"),
-  getAllInquiries
-);
+inquiryRouter.get("/get-inquiry", getAllInquiries);
 
 export default inquiryRouter;

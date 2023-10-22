@@ -36,7 +36,6 @@ export const registrationUser = catchAsyncErrors(async (req, res, next) => {
       password,
     };
 
-    console.log(process.cwd());
     const activationToken = createActivationToken(user);
 
     const activationCode = activationToken.activationCode;
@@ -47,8 +46,7 @@ export const registrationUser = catchAsyncErrors(async (req, res, next) => {
       await sendMail({
         email: user.email,
         subject: "Activate Your Account",
-        template:
-          "C:\\Users\\sahil\\Desktop\\full-stack-portfolio\\server\\mails\\activationMail.ejs",
+        template: "activationMail.ejs",
         data,
       });
 

@@ -51,14 +51,7 @@ export const uploadProject = catchAsyncErrors(async (req, res, next) => {
         });
       }
       data.images = uploadedImages;
-      const { public_id, imageURL } = data.images[0];
-      data.thumbnail = { public_id, imageURL };
     }
-
-    data.thumbnail = {
-      imageURL: "",
-      public_id: "",
-    };
 
     createProject(data, res, next);
   } catch (error) {

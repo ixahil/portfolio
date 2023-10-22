@@ -10,9 +10,17 @@ const inquiriesSchema = new Schema(
       type: String,
       required: [true, "please provide your email"],
     },
+    subject: {
+      type: String,
+      required: [true, "please provide your subject"],
+    },
     message: {
       type: String,
       required: [true, "enter your message/requirements"],
+    },
+    status: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }

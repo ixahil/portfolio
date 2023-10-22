@@ -23,6 +23,7 @@ export const createInquiry = catchAsyncErrors(async (req, res, next) => {
         _id: inquiry._id.toString().slice(0, 6),
         name: inquiry.name,
         email: inquiry.email,
+        subject: inquiry.subject,
         message: inquiry.message,
         date: new Date().toLocaleDateString("en-US", {
           year: "numeric",
@@ -32,17 +33,11 @@ export const createInquiry = catchAsyncErrors(async (req, res, next) => {
       },
     };
 
-    const html = await ejs.renderFile(
-      "C:\\Users\\sahil\\Desktop\\full-stack-portfolio\\server\\mails\\inquiryMail.ejs",
-      { inquiry: mailData }
-    );
-
     try {
       await sendMail({
         email: inquiry.email,
         subject: "Inquiry Confirmation",
-        template:
-          "C:\\Users\\sahil\\Desktop\\full-stack-portfolio\\server\\mails\\inquiryMail.ejs",
+        template: "inquiryMail.ejs",
         data: mailData,
       });
     } catch (error) {

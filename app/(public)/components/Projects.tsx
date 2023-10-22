@@ -42,17 +42,24 @@ async function projects() {
                     )}
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
-                    <div className="pb-2 font-bold ">
+                    <div className="pb-2 font-bold flex justify-between items-center">
                       <Link href={"/projects/" + project._id}>
                         <h4 className="md:text-xl text-2xl">{project.title}</h4>
                       </Link>
                       <p className="text-[#65656d] md:text-base text-xl">
-                        4 Months ago
+                        {new Date(project.createdDate).toLocaleDateString(
+                          undefined,
+                          {
+                            month: "long",
+                            day: "numeric",
+                            year: "numeric",
+                          }
+                        )}
                       </p>
                     </div>
                     <div
                       id="tab-description"
-                      className="prose prose-lg text-gray-700 overflow-hidden block text-ellipsis max-h-52 mb-4"
+                      className="prose prose-lg text-gray-700 overflow-hidden block text-ellipsis max-h-56 mb-4"
                       dangerouslySetInnerHTML={{
                         __html: project.description,
                       }}

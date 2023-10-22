@@ -36,7 +36,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
           {/* Project Tech */}
           {project.selectedTech && (
-            <div className="flex items-center mt-2 gap-10 py-4">
+            <div className="flex mt-2 justify-items-start gap-6 py-4 flex-wrap">
               {project.selectedTech.map((tech: string, index: number) => (
                 <TechStackIcon tech={tech} key={index} />
               ))}

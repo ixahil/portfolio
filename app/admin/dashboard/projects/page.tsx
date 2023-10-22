@@ -1,5 +1,4 @@
-import { DataTB } from "@/components/shared/dataTable/Data";
-import { columns } from "@/components/shared/dataTable/columns";
+import { columns } from "@/components/shared/dataTable/ProjectTbColumns";
 import { DataTable } from "@/components/shared/dataTable/data-table";
 import { getAllProjects } from "@/utils/fetch/GetProjects";
 import React from "react";

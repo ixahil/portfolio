@@ -10,7 +10,6 @@ import {
   VisibilityState,
   getSortedRowModel,
   ColumnFiltersState,
-  PaginationState,
   getFilteredRowModel,
 } from "@tanstack/react-table";
 

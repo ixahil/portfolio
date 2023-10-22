@@ -1,7 +1,6 @@
 "use client";
 
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { MixerHorizontalIcon } from "@radix-ui/react-icons";
 import { Table } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
@@ -10,8 +9,6 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@nextui-org/react";
 import Link from "next/link";
@@ -23,14 +20,14 @@ interface DataTableViewOptionsProps<TData> {
 export function DataTableViewOptions<TData>({
   table,
 }: DataTableViewOptionsProps<TData>) {
+  const column = table.getAllColumns()[0];
+
   return (
     <>
       <Input
         placeholder="Filter title..."
-        value={table.getColumn("title")?.getFilterValue() as string}
-        onChange={(event) =>
-          table.getColumn("title")?.setFilterValue(event.target.value)
-        }
+        value={column?.getFilterValue() as string}
+        onChange={(event) => column?.setFilterValue(event.target.value)}
         className="max-w-sm"
       />
       <div className="flex gap-4">

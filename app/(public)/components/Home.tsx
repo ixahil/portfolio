@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="md:p-16 w-full h-[50%] flex justify-center pt-16 bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover brightness-130 dark:brightness-100 text-text-light "
+      className="md:p-8 w-full h-[50%] flex justify-center pt-16 bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover brightness-130 dark:brightness-100 text-text-light "
     >
       <div className="max-w-[1200px] flex justify-between gap-12 md:flex-col">
         <div className="flex flex-col gap-8 w-full">
@@ -43,7 +43,7 @@ const Home = () => {
           </button>
         </div>
         <div className="h-[80%] border-2 border-dark-lighter"></div>
-        <div className="flex flex-col gap-8 w-full pt-12">
+        <div className="flex flex-col gap-8 w-full pt-12 md:pt-0">
           <h1 className="md:text-3xl text-4xl flex items-center gap-4 dark:text-[#adacb5]">
             Technologies I used to
             <CornerRightDown />

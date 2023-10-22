@@ -11,7 +11,7 @@ import { ArrowUpDown, Check, MoreHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import { Row } from "@tanstack/react-table";
-import { Projects } from "./columns";
+import { Projects } from "./ProjectTbColumns";
 
 export const getActions = ({ row }: { row: Row<Projects> }) => {
   const router = useRouter();

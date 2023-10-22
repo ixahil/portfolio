@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ThemeProviderComponent from "./ThemeProvider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Dev Sahil Portfolio",
@@ -22,6 +23,7 @@ export default function PublicLayout({
           {children}
         </main>
         <Footer />
+        <Toaster position="top-center" reverseOrder={false} />
       </ThemeProviderComponent>
     </>
   );

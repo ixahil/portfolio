@@ -9,7 +9,7 @@ import { Avatar } from "@nextui-org/react";
 const About = () => {
   return (
     <section
-      className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-[#000c2c] to-[#2b0e30] dark:text-[#adacb5] md:p-16 md:gap-4"
+      className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-[#000c2c] to-[#2b0e30] dark:text-[#adacb5] md:p-8 md:gap-4"
       id="about"
     >
       <div className="flex max-w-[1200px] justify-evenly mx-auto gap-8 md:flex-col items-center md:justify-center">

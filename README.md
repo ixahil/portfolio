@@ -1,7 +1,7 @@
 # Full Stack Portfolio
 
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/your-repo)
-![GitHub](https://img.shields.io/github/license/your-username/your-repo)
+![GitHub last commit](https://img.shields.io/github/last-commit/ixahil/portfolio)
+![GitHub](https://img.shields.io/github/license/ixahil/portfolio)
 
 ## Demo
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This is my Full Stack Portfolio, showcasing my skills and projects. It's built using Next.js, React, MongoDB, TypeScript, Express, and Tailwind CSS.
+This is my Full Stack Portfolio, showcasing my skills and projects. It's built using:
 
 - **Next.js**
 - **React**

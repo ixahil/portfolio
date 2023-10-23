@@ -70,7 +70,7 @@ async function projects() {
                     </div>
                     <div
                       id="tab-description"
-                      className="prose prose-lg text-gray-700 overflow-hidden block text-ellipsis max-h-56 mb-4"
+                      className="prose prose-lg overflow-hidden block text-ellipsis max-h-56 mb-4"
                       dangerouslySetInnerHTML={{
                         __html: project.description,
                       }}

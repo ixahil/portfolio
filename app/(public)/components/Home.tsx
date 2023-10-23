@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="md:p-8 w-full max-h-[50%] flex justify-center pt-16 brightness-100 dark:brightness-100 text-text-light relative"
+      className="md:p-8 w-full max-h-[50%] flex justify-center pt-16 dark:brightness-100 text-text-light relative"
     >
       <Image
         src="/images/12071161_SL-093020-35920-01.jpg"

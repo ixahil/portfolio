@@ -33,11 +33,11 @@ const Tabs = ({ description }: Props) => {
         </button>
       </div>
       {/* Content */}
-      <div className="text-gray-700 mb-4">
+      <div className=" mb-4">
         {activeTab === "description" && (
           <div
             id="tab-description"
-            className="prose prose-lg text-gray-700"
+            className="prose prose-lg "
             dangerouslySetInnerHTML={{ __html: description }}
           ></div>
         )}

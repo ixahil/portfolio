@@ -33,7 +33,7 @@ const CustomImageSlider = ({ images }: Props) => {
               objectFit="cover"
               style={{ width: "100%", height: "100%" }} // optional
               alt={mainImage.public_id.split("/")[1]}
-              className="dark:brightness-[.45] rounded-xl"
+              className=" rounded-xl"
             />
           </figure>
         </div>
@@ -48,7 +48,7 @@ const CustomImageSlider = ({ images }: Props) => {
                 sizes="100vw"
                 objectFit="contain"
                 alt={image.public_id.split("/")[1]}
-                className="dark:brightness-[.45] rounded-xl"
+                className=" rounded-xl"
                 key={index}
                 onClick={() => setMainImage(image)}
               />

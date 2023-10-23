@@ -1,4 +1,4 @@
-# Full Stack Portfolio
+# Full Stack Dynamic Portfolio - Personal
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ixahil/portfolio)
 ![GitHub](https://img.shields.io/github/license/ixahil/portfolio)
@@ -33,4 +33,6 @@ This is my Full Stack Portfolio, showcasing my skills and projects. It's built u
 - **Project Management:** Created, Update, Read, Delete (CRUD Operations).
 - **Inquiry Management:** Read, Delete.
 
-## Getting Started
+## Contact
+
+- **sahilshaiikh@hotmail.com**

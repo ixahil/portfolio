@@ -1,4 +1,4 @@
-Full Stack Dynamic Portfolio - Sahil Shaikh
+Full Stack Dynamic Portfolio - Server
 
-Build with MERN Stack using TypeScript
+Build Nodejs, Express, Mongodb
 

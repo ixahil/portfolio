@@ -1,4 +1,3 @@
-import SocialIcons from "./utils/SocialIcons";
 import HomePage from "./(homepage)/HomePage";
 
 type Props = {};

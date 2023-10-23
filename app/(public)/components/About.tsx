@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import SocialIcons from "../utils/SocialIcons";
-import Image from "next/image";
 import { TfiLinkedin } from "react-icons/tfi";
 import { SiGithub } from "react-icons/si";
 import { Avatar } from "@nextui-org/react";
@@ -40,7 +38,7 @@ const About = () => {
           <Avatar
             isBordered
             color="primary"
-            src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
+            src="/images/avatar.jpg"
             className="w-60 h-60 text-large md:w-40 md:h-40"
           />
         </div>

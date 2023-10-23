@@ -32,13 +32,24 @@ async function projects() {
                 >
                   <div className="text-[#fff] max-w-[500px] max-h-[250px] md:max-w-full md:max-h-full">
                     {sliderImages.length > 0 ? (
-                      <img
+                      <Image
                         src={project.images[0].imageURL}
-                        alt=""
-                        className="w-full h-full object-cover dark:brightness-50"
+                        alt={project.title}
+                        width={500}
+                        height={100}
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto",
+                        }}
+                        objectFit="cover"
                       />
                     ) : (
-                      <div>No Images</div>
+                      <Image
+                        src={"/images/no-image.jpg"}
+                        alt="no-image"
+                        width={100}
+                        height={100}
+                      />
                     )}
                   </div>
                   <div className="flex-1 flex flex-col justify-between">

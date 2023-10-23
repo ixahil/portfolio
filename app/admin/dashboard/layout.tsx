@@ -38,6 +38,7 @@ export default function DashboardLayout({
             </Suspense>
           </div>
         </div>
+        <Toaster position="top-center" reverseOrder={false} />
       </div>
     </ThemeProviderComponent>
   );

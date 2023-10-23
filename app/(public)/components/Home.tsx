@@ -1,18 +1,25 @@
 import Image from "next/image";
 import React from "react";
 import SocialIcons from "../utils/SocialIcons";
-import { Divider } from "@nextui-org/react";
-import { Separator } from "@/components/ui/separator";
 import { CornerRightDown } from "lucide-react";
 import TechIconsHome from "@/utils/shared/TechIconsHome";
-import { Tooltip } from "@nextui-org/react";
 
 const Home = () => {
   return (
     <section
       id="home"
-      className="md:p-8 w-full h-[50%] flex justify-center pt-16 bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover brightness-130 dark:brightness-100 text-text-light "
+      className="md:p-8 w-full max-h-[50%] flex justify-center pt-16 brightness-100 dark:brightness-100 text-text-light relative"
     >
+      <Image
+        src="/images/12071161_SL-093020-35920-01.jpg"
+        priority
+        alt="header-bg"
+        quality={100}
+        fill
+        sizes="100vw"
+        objectFit="cover"
+        className="z-[-1]"
+      />
       <div className="max-w-[1200px] flex justify-between gap-12 md:flex-col">
         <div className="flex flex-col gap-8 w-full">
           <div className="">

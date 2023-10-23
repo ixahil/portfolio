@@ -3,6 +3,23 @@ import CustomImageSlider from "../../components/landingPage/CustomImageSlider";
 import Tabs from "../../components/landingPage/Tabs";
 import TechStackIcon from "../../components/landingPage/TechStackIcons";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  // read route params
+  const id = params.slug;
+
+  // fetch data
+  const project = (await getSingleProject(id)) || [];
+
+  return {
+    title: project.title,
+    description: project.description,
+  };
+}
+
 const page = async ({ params }: { params: { slug: string } }) => {
   const project = (await getSingleProject(params.slug)) || [];
 

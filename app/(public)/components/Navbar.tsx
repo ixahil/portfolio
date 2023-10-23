@@ -11,6 +11,7 @@ import localFont from "next/font/local";
 import debounce from "lodash/debounce";
 import { Link as LinkScroll } from "react-scroll";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 type Props = {};
 
 const myFont = localFont({
@@ -35,17 +36,6 @@ const Navbar = (props: Props) => {
   const contentStyle = {
     transition: "transform 0.3s ease-in-out",
     transform: isMobileMenuOpen ? "translateY(100%)" : "translateY(0)",
-  };
-
-  const handleClickNav = () => {};
-
-  const handleScroll = () => {
-    if (window.scrollY >= 400) {
-      setIsScrollPast(true);
-      console.log(isScrollPast);
-    } else {
-      setIsScrollPast(false);
-    }
   };
 
   const debouncedHandleScroll = debounce(() => {
@@ -184,7 +174,16 @@ const Navbar = (props: Props) => {
             </motion.div>
           </>
         ) : (
-          <header className="md:hidden flex flex-wrap items-center px-24 py-8 justify-between bg-[url('/images/12071161_SL-093020-35920-01.jpg')] bg-cover text-[#E1D9D1] dark:text-[#adacb5]">
+          <header className="md:hidden flex flex-wrap items-center px-24 py-8 justify-between relative text-[#E1D9D1] dark:text-[#adacb5]">
+            <Image
+              src="/images/header-bg.jpg"
+              alt="header-bg"
+              quality={100}
+              fill
+              sizes="100vw"
+              objectFit="cover"
+              className="z-[-1]"
+            />
             <div className="flex flex-1">
               <h1 className={`text-4xl ${myFont.className} cursor-pointer`}>
                 &lt;Dev. Sahil&gt;
@@ -215,6 +214,7 @@ const Navbar = (props: Props) => {
                     offset={-20}
                     duration={100}
                     onSetActive={() => setActive(2)}
+                    href="#projects"
                   >
                     Projects
                   </LinkScroll>
@@ -229,6 +229,7 @@ const Navbar = (props: Props) => {
                     offset={-20}
                     duration={100}
                     onSetActive={() => setActive(3)}
+                    href="#about"
                   >
                     About
                   </LinkScroll>
@@ -243,6 +244,7 @@ const Navbar = (props: Props) => {
                     offset={-20}
                     duration={100}
                     onSetActive={() => setActive(4)}
+                    href="#contact"
                   >
                     Contact
                   </LinkScroll>
@@ -274,7 +276,16 @@ const Navbar = (props: Props) => {
       </AnimatePresence>
 
       {/* Mobile Navigation */}
-      <header className="hidden md:flex flex-wrap items-center p-4 ">
+      <header className="hidden md:flex flex-wrap items-center p-4 text-[#E1D9D1] dark:text-[#adacb5] relative">
+        <Image
+          src="/images/header-bg.jpg"
+          alt="header-bg"
+          quality={100}
+          fill
+          sizes="100vw"
+          objectFit="cover"
+          className="z-[-1]"
+        />
         {/* Burger Icon (Visible on mobile) */}
         <div className="flex">
           <BiMenu size={30} cursor="pointer" onClick={toggleMobileMenu} />
@@ -306,7 +317,7 @@ const Navbar = (props: Props) => {
 
         {/* Mobile Navigation (Visible on mobile when the menu is open) */}
         {isMobileMenuOpen && (
-          <nav className="w-full bg-white dark:bg-dark">
+          <nav className="w-full rounded-sm m-4 bg-dark">
             <ul className="text-center">
               <li className="my-4">
                 <LinkScroll
@@ -321,6 +332,7 @@ const Navbar = (props: Props) => {
                   offset={-100}
                   duration={100}
                   onSetActive={() => setActive(1)}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Home
                 </LinkScroll>
@@ -338,6 +350,7 @@ const Navbar = (props: Props) => {
                   offset={-100}
                   duration={100}
                   onSetActive={() => setActive(2)}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Projects
                 </LinkScroll>
@@ -355,6 +368,7 @@ const Navbar = (props: Props) => {
                   offset={-100}
                   duration={100}
                   onSetActive={() => setActive(3)}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   About
                 </LinkScroll>
@@ -372,6 +386,7 @@ const Navbar = (props: Props) => {
                   offset={-100}
                   duration={100}
                   onSetActive={() => setActive(4)}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact
                 </LinkScroll>

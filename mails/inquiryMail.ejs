@@ -4,16 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inquiry</title>
+    <style>
+        /* Add your CSS styles here */
+        @font-face {
+            font-family: Agustina;
+            src: url('/public/Agustina.woff');
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: grid;
+            max-width: 600px;
+            border: 2px solid black;
+            margin: auto;
+            grid-gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Agustina;
+            height: 4rem;
+            padding: 2rem 0;
+        }
+
+        .banner {
+            display: grid;
+            align-items: center;
+            grid-gap: 1rem;
+            background-image: linear-gradient(to right, #000c2c, #2b0e30);
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .email-content {
+            padding: 0 2rem;
+        }
+
+        .social-container {
+            display: grid;
+            align-items: center;
+            grid-gap: 1rem
+        }
+
+        .icon {
+            display: grid;
+            grid-gap: 1rem;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>
-        <%= inquiry.name %>, Thank you very much for contacting Me
-    </h1>
-    <p>
-        I will definately get back to you asap!
-    </p>
+    <div class="container">
+
+        <h1>Sahil</h1>
+        <div class="banner">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0 0 48 48">
+                <path fill="#c8e6c9" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                </path>
+                <path fill="#4caf50"
+                    d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
+                </path>
+            </svg>
+            <div>
+
+                <h2>Thank you!</h2>
+                <h3>For your interest in working with me</h3>
+            </div>
+        </div>
+        <div class="email-content">
+
+            <p>Hey <%= inquiry.name %>,</p>
+            <p>Thank you for your interest in working with me. I'm here to assist you with your tasks and projects.</p>
+            <p>I'll get back to you as soon as possible.</p>
+            <p>Best regards,<br>Sahil</p>
+        </div>
+        <div class="border"></div>
+
+        <div class="social-container">
+            <h2>Follow Me On</h2>
+            <div class="icon">
+                <a href="https://www.linkedin.com/in/xahilshaikh/" target="_blank">
+                    <img src="portfolioserver.up.railway.app/public/linkedin.png" alt="linkedin">
+                </a>
+                <a href="https://www.instagram.com/imxahil/" target="_blank">
+                    <img src="portfolioserver.up.railway.app/public/instagram.png" alt="instagram">
+                </a>
+            </div>
+            <p>www.ixahil.dev</p>
+        </div>
+
+    </div>
+
 </body>
 
 </html>

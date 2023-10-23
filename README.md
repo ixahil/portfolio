@@ -20,14 +20,14 @@ This is my Full Stack Portfolio, showcasing my skills and projects. It's built u
 
 ## Features
 
--  ## Client
+ ## Client
 
 - **Project Showcase:** Display your projects and achievements.
 - **Responsive Design:** Mobile-friendly and responsive across all devices.
 - **Contact Form:** Allows visitors to get in touch with you easily.
 - **Dark Mode:** Stylish dark mode for better user experience.
 
-- ## Admin
+ ## Admin
 
 - **Authentication:** JWT Token in HTTP cookies.
 - **Project Management:** Created, Update, Read, Delete (CRUD Operations).

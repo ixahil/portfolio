@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="md:p-8 w-full max-h-[50%] flex justify-center pt-16 dark:brightness-100 text-text-light relative"
+      className="md:p-8 w-full h-full py-28 flex justify-center dark:brightness-100 text-text-light relative"
     >
       <Image
         src="/images/12071161_SL-093020-35920-01.jpg"
@@ -45,7 +45,7 @@ const Home = () => {
           <button className="p-3 bg-[#1aa1ed] text-light hover:animate-pulse rounded-md">
             Let's Connect
           </button>
-          <button className="p-3 bg-dark-darker text-light hover:animate-pulse rounded-md">
+          <button className="p-3 bg-[#302e2e] text-light hover:animate-pulse rounded-md">
             Download Resume
           </button>
         </div>

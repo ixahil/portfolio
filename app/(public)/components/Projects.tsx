@@ -52,12 +52,12 @@ async function projects() {
                       />
                     )}
                   </div>
-                  <div className="flex-1 flex flex-col justify-between">
+                  <div className="flex-1 flex flex-col justify-between gap-4">
                     <div className="pb-2 font-bold flex justify-between items-center">
                       <Link href={"/projects/" + project._id}>
                         <h4 className="md:text-xl text-2xl">{project.title}</h4>
                       </Link>
-                      <p className="text-[#65656d] md:text-base text-xl">
+                      <p className=" md:text-base text-xl">
                         {new Date(project.createdDate).toLocaleDateString(
                           undefined,
                           {
@@ -76,7 +76,7 @@ async function projects() {
                       }}
                     ></div>
                     <Link href={"/projects/" + project._id}>
-                      <button className="read-more-button bg-[#000] text-[#fff] md:px-6 px-10 py-2 cursor-pointer hover:bg-[#302e2e] dark:bg-[#302e2e] dark:hover:[#584f4f]">
+                      <button className="read-more-button bg-[#1aa1ed] rounded-md text-[#fff] md:px-6 px-10 py-3 cursor-pointer hover:bg-blue-500 dark:bg-[#302e2e] dark:hover:[#584f4f]">
                         Read More About the Project
                       </button>
                     </Link>

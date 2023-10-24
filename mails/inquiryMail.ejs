@@ -5,15 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inquiry</title>
-    <link rel="stylesheet" href="portfolioserver.up.railway.app/public/css/style.css">
+    <style>
+        /* Add your CSS styles here */
+        @font-face {
+            font-family: 'Agustina Regular';
+            font-style: normal;
+            font-weight: normal;
+            src: local('Agustina Regular'), url('/public/Agustina.woff') format('woff');
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: grid;
+            max-width: 600px;
+            border: 2px solid black;
+            margin: auto;
+            grid-gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Agustina Regular;
+            height: 4rem;
+        }
+
+        .banner {
+            display: grid;
+            align-items: center;
+            grid-gap: 1rem;
+            background-image: linear-gradient(to right, #000c2c, #2b0e30);
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .email-content {
+            padding: 0 2rem;
+        }
+
+        .social-container {
+            display: grid;
+            align-items: center;
+            text-align: center;
+            grid-gap: 1rem;
+        }
+
+        .icon {
+            display: grid;
+            grid-gap: 1rem;
+        }
+    </style>
 </head>
 
 <body>
+
     <div class="container">
 
-        <h1>Sahil</h1>
+        <img src="portfolioserver.up.railway.app/public/images/Logo.png" alt="">
         <div class="banner">
-            <img src="portfolioserver.up.railway.app/images/public/correct.svg" alt="" srcset="">
+            <img src="portfolioserver.up.railway.app/public/images/correct.svg" alt="" srcset="">
             <div>
 
                 <h2>Thank you!</h2>
@@ -43,6 +98,7 @@
         </div>
 
     </div>
+
 
 </body>
 

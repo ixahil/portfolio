@@ -40,7 +40,7 @@ export const createInquiry = catchAsyncErrors(async (req, res, next) => {
     try {
       await sendMail({
         email: inquiry.email,
-        subject: "Inquiry Confirmation",
+        subject: "Inquiry Confirmation - " + inquiry.subject,
         template: "inquiryMail.ejs",
         data: mailData,
       });

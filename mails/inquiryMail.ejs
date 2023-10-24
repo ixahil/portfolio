@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inquiry</title>
     <style>
-        /* Add your CSS styles here */
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f0f0f0;
@@ -17,13 +16,16 @@
             border: 2px solid black;
             display: block;
             margin: auto;
-            padding: 20px;
+            padding: 30px 0;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
 
         .banner {
             text-align: center;
-            background: linear-gradient(to right, #000c2c, #2b0e30);
+            background: linear-gradient(90deg,
+                    rgba(0, 12, 44, 1) 0%,
+                    rgba(43, 14, 48, 1) 30%,
+                    rgba(90, 27, 101, 1) 100%);
             color: white;
             padding: 20px;
         }
@@ -36,7 +38,9 @@
         }
 
         .email-content {
-            padding: 0 20px;
+            padding: 30px;
+            font-size: 16px;
+            line-height: 2rem;
         }
 
         .social-container {
@@ -50,44 +54,43 @@
 
         .icon img {
             max-width: 32px;
-            /* Adjust the image size */
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <img src="portfolioserver.up.railway.app/public/images/Logo.png" alt="" class="logo"
-            style="display: block; margin: 0 auto;">
+            style="display: block; margin: 0 auto" />
 
         <div class="banner">
-            <img src="portfolioserver.up.railway.app/public/images/correct.png" alt="" srcset="">
+            <img src="portfolioserver.up.railway.app/public/images/correct.png" alt="" srcset="" />
             <h2>Thank you!</h2>
             <h3>For your interest in working with me</h3>
         </div>
         <div class="email-content">
             <p>Hey <%= inquiry.name %>,</p>
-            <p>Thank you for your interest in working with me. I'm here to assist you with your tasks and projects.</p>
+            <p>
+                Thank you for your interest in working with me. I'm here to assist you
+                with your tasks and projects.
+            </p>
             <p>I'll get back to you as soon as possible.</p>
-            <p>Best regards,<br>Sahil</p>
+            <p>Best regards,<br />Sahil</p>
         </div>
-        <div class="border" style="border-top: 2px solid black;"></div>
+        <div class="border" style="border-top: 2px solid black"></div>
         <div class="social-container">
             <h2>Follow Me On</h2>
             <div class="icon">
                 <a href="https://www.linkedin.com/in/xahilshaikh/" target="_blank">
-                    <img src="portfolioserver.up.railway.app/public/images/linkedin.png" alt="linkedin">
+                    <img src="portfolioserver.up.railway.app/public/images/linkedin.png" alt="linkedin" />
                 </a>
                 <a href="https://www.instagram.com/imxahil/" target="_blank">
-                    <img src="portfolioserver.up.railway.app/public/images/instagram.png" alt="instagram">
+                    <img src="portfolioserver.up.railway.app/public/images/instagram.png" alt="instagram" />
                 </a>
             </div>
             <p>www.ixahil.dev</p>
         </div>
     </div>
-
-
 </body>
 
 </html>

@@ -7,57 +7,50 @@
     <title>Inquiry</title>
     <style>
         /* Add your CSS styles here */
-        @font-face {
-            font-family: 'Agustina Regular';
-            font-style: normal;
-            font-weight: normal;
-            src: local('Agustina Regular'), url('/public/Agustina.woff') format('woff');
-        }
-
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f0f0f0;
         }
 
         .container {
-            display: grid;
             max-width: 600px;
             border: 2px solid black;
+            display: block;
             margin: auto;
-            grid-gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        h1 {
-            text-align: center;
-            font-family: Agustina Regular;
-            height: 4rem;
+            padding: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
 
         .banner {
-            display: grid;
-            align-items: center;
-            grid-gap: 1rem;
-            background-image: linear-gradient(to right, #000c2c, #2b0e30);
             text-align: center;
+            background: linear-gradient(to right, #000c2c, #2b0e30);
             color: white;
-            padding: 2rem 0;
+            padding: 20px;
+        }
+
+        .banner img {
+            max-width: 100px;
+            /* Adjust the image size */
+            display: block;
+            margin: 0 auto;
         }
 
         .email-content {
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
         .social-container {
-            display: grid;
-            align-items: center;
             text-align: center;
-            grid-gap: 1rem;
         }
 
-        .icon {
-            display: grid;
-            grid-gap: 1rem;
+        .icon a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .icon img {
+            max-width: 32px;
+            /* Adjust the image size */
         }
     </style>
 </head>
@@ -65,38 +58,33 @@
 <body>
 
     <div class="container">
+        <img src="portfolioserver.up.railway.app/public/images/Logo.png" alt="" class="logo"
+            style="display: block; margin: 0 auto;">
 
-        <img src="portfolioserver.up.railway.app/public/images/Logo.png" alt="">
         <div class="banner">
-            <img src="portfolioserver.up.railway.app/public/images/correct.svg" alt="" srcset="">
-            <div>
-
-                <h2>Thank you!</h2>
-                <h3>For your interest in working with me</h3>
-            </div>
+            <img src="portfolioserver.up.railway.app/public/images/correct.png" alt="" srcset="">
+            <h2>Thank you!</h2>
+            <h3>For your interest in working with me</h3>
         </div>
         <div class="email-content">
-
             <p>Hey <%= inquiry.name %>,</p>
             <p>Thank you for your interest in working with me. I'm here to assist you with your tasks and projects.</p>
             <p>I'll get back to you as soon as possible.</p>
             <p>Best regards,<br>Sahil</p>
         </div>
-        <div class="border"></div>
-
+        <div class="border" style="border-top: 2px solid black;"></div>
         <div class="social-container">
             <h2>Follow Me On</h2>
             <div class="icon">
                 <a href="https://www.linkedin.com/in/xahilshaikh/" target="_blank">
-                    <img src="portfolioserver.up.railway.app/public/linkedin.png" alt="linkedin">
+                    <img src="portfolioserver.up.railway.app/public/images/linkedin.png" alt="linkedin">
                 </a>
                 <a href="https://www.instagram.com/imxahil/" target="_blank">
-                    <img src="portfolioserver.up.railway.app/public/instagram.png" alt="instagram">
+                    <img src="portfolioserver.up.railway.app/public/images/instagram.png" alt="instagram">
                 </a>
             </div>
             <p>www.ixahil.dev</p>
         </div>
-
     </div>
 
 

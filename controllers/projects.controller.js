@@ -82,7 +82,6 @@ export const editProject = catchAsyncErrors(async (req, res, next) => {
     for (const deletedImage of deletedImages) {
       await cloudinary.v2.uploader.destroy(deletedImage.public_id);
     }
-
     // Handle image updates (if any)
     if (data.images && data.images.length > 0) {
       const uploadedImages = [];
@@ -91,7 +90,7 @@ export const editProject = catchAsyncErrors(async (req, res, next) => {
         // Upload new images if needed
         if (!image.public_id) {
           const myCloud = await cloudinary.v2.uploader.upload(image.data_url, {
-            folder: "projects/" + data.title,
+            folder: "projects/" + projectId,
           });
 
           uploadedImages.push({
@@ -122,6 +121,7 @@ export const editProject = catchAsyncErrors(async (req, res, next) => {
     // Send a response indicating success
     res.status(201).json({ success: true, data: updatedProject });
   } catch (error) {
+    console.log(error);
     return next(new ErrorHandler(error.message, 500));
   }
 });

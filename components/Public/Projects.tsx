@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllProjects } from "../api/GetData";
+import { getAllProjects } from "@/utils/public/api/GetData";
 import TechStackIcon from "./landingPage/TechStackIcons";
 import Image from "next/image";
 

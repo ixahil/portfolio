@@ -1,10 +1,8 @@
 import React from "react";
-import Image from "next/image";
-import SocialIcons from "../utils/SocialIcons";
-import Projects from "../components/Projects";
-import Home from "../components/Home";
-import About from "../components/About";
-import Contact from "../components/Contact";
+import Projects from "../../../components/Public/Projects";
+import Home from "../../../components/Public/Home";
+import About from "../../../components/Public/About";
+import Contact from "../../../components/Public/Contact";
 
 type Props = {};
 

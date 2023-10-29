@@ -1,8 +1,8 @@
-import { ArrowLeft, ArrowLeftCircle } from "lucide-react";
-import { getSingleProject } from "../../api/GetData";
-import CustomImageSlider from "../../components/landingPage/CustomImageSlider";
-import Tabs from "../../components/landingPage/Tabs";
-import TechStackIcon from "../../components/landingPage/TechStackIcons";
+import { ArrowLeftCircle } from "lucide-react";
+import { getSingleProject } from "@/utils/public/api/GetData";
+import CustomImageSlider from "../../../../components/Public/landingPage/CustomImageSlider";
+import Tabs from "../../../../components/Public/landingPage/Tabs";
+import TechStackIcon from "../../../../components/Public/landingPage/TechStackIcons";
 import Link from "next/link";
 
 export async function generateMetadata({

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { ColumnDef, Row } from "@tanstack/react-table";
 import { MailOpen, MailWarning, MoreHorizontal } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Admin/ui/button";
 import { Button as NextButton } from "@nextui-org/react";
 import {
   DropdownMenu,
@@ -12,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/Admin/ui/dropdown-menu";
 import { DataTableColumnHeader } from "./DataTableColumnHeader";
 import toast from "react-hot-toast";
 import { useDisclosure } from "@nextui-org/react";

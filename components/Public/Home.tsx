@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import SocialIcons from "../utils/SocialIcons";
+import SocialIcons from "@/utils/public/SocialIcons";
 import { ChevronDownCircle, CornerRightDown } from "lucide-react";
-import TechIconsHome from "@/utils/shared/TechIconsHome";
+import TechIconsHome from "@/utils/Admin/shared/TechIconsHome";
 import Link from "next/link";
 
 const Home = () => {

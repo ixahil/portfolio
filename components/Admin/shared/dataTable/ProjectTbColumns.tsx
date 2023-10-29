@@ -1,23 +1,20 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
 import { ColumnDef, Row } from "@tanstack/react-table";
-import { ArrowUpDown, Check, MoreHorizontal, X } from "lucide-react";
+import { Check, MoreHorizontal, X } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Admin/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/Admin/ui/dropdown-menu";
 import { DataTableColumnHeader } from "./DataTableColumnHeader";
 import Image from "next/image";
-import { publicAPI } from "@/utils/constants/constants";
-import { techStackIconsData } from "@/utils/shared/icons/TechIcons";
+import { techStackIconsData } from "@/utils/Admin/shared/icons/TechIcons";
 import toast from "react-hot-toast";
 
 // types

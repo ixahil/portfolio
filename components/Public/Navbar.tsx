@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { BsGithub } from "react-icons/bs";
-import ThemeSwitch from "../utils/ThemeSwitch";
+import ThemeSwitch from "@/utils/public/ThemeSwitch";
 import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { BiMenu } from "react-icons/bi";
 import localFont from "next/font/local";
@@ -11,15 +11,13 @@ import localFont from "next/font/local";
 import debounce from "lodash/debounce";
 import { Link as LinkScroll } from "react-scroll";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
-import { useViewportScroll, useTransform } from "framer-motion";
 
 type Props = {};
 
 const myFont = localFont({
   src: [
     {
-      path: "../../fonts/Agustina.woff",
+      path: "../../public/fonts/Agustina.woff",
       weight: "normal",
       style: "normal",
     },
@@ -93,15 +91,6 @@ const Navbar = (props: Props) => {
       opacity: 0,
     },
   };
-
-  const { scrollY } = useViewportScroll();
-  const background = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(0, 183, 255, 0)", "rgba(0, 183, 255, 1)"]
-  );
-  const height = useTransform(scrollY, [0, 100], [120, 60]);
-
   return (
     <>
       {/* Desktop Navigation */}

@@ -1,6 +1,6 @@
-import ProjectForm from "@/components/shared/projectForm/ProjectForm";
+import ProjectForm from "@/components/Admin/shared/projectForm/ProjectForm";
 import { FormProvider } from "@/context/FormContext";
-import { getSingleProject } from "@/utils/fetch/GetProjects";
+import { getSingleProject } from "@/utils/Admin/fetch/GetProjects";
 
 type Props = {};
 

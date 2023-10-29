@@ -5,8 +5,11 @@ import Link from "next/link";
 import React, { useState, useMemo } from "react";
 import localFont from "next/font/local";
 
-import { IconLogout, CollapsIcon } from "@/utils/shared/icons/SidebarIcons";
-import { MenuItem, menuItems } from "@/utils/shared/menu/MenuItems";
+import {
+  IconLogout,
+  CollapsIcon,
+} from "@/utils/Admin/shared/icons/SidebarIcons";
+import { MenuItem, menuItems } from "@/utils/Admin/shared/menu/MenuItems";
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -21,7 +24,7 @@ type MenuInterface = {
 const AgustinaRegular = localFont({
   src: [
     {
-      path: "../../../public/fonts/Agustina.woff",
+      path: "../../../../public/fonts/Agustina.woff",
       weight: "normal",
       style: "normal",
     },
@@ -101,7 +104,7 @@ const Sidebar = () => {
             </div>
             <span
               className={classNames(
-                `mt-2 text-text-light dark:text-[#ADACB5] md:hidden text-3xl font-bold ${AgustinaRegular.className}`,
+                `mt-2 text-dark dark:text-light md:hidden text-3xl font-bold ${AgustinaRegular.className}`,
                 {
                   hidden: toggleCollapse,
                 }
@@ -127,7 +130,7 @@ const Sidebar = () => {
                     {!toggleCollapse && (
                       <span
                         className={classNames(
-                          "text-md font-medium text-text-light dark:text-[#ADACB5] md:hidden"
+                          "text-md font-medium text-dark dark:text-light md:hidden"
                         )}
                       >
                         {menu.label}

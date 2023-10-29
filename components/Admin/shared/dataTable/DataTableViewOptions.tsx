@@ -3,13 +3,13 @@
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { Table } from "@tanstack/react-table";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Admin/ui/button";
 
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/Admin/ui/dropdown-menu";
 import { Input } from "@nextui-org/react";
 import Link from "next/link";
 

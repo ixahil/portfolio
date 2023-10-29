@@ -6,9 +6,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/Admin/ui/dropdown-menu";
 import { ArrowUpDown, Check, MoreHorizontal, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Admin/ui/button";
 
 import { Row } from "@tanstack/react-table";
 import { Projects } from "./ProjectTbColumns";

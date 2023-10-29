@@ -3,8 +3,8 @@ import { Toaster } from "react-hot-toast";
 
 import { Inter } from "next/font/google";
 import ThemeProviderComponent from "./ThemeProvider";
-import Sidebar from "@/components/shared/sidebar/Sidebar";
-import Header from "@/components/shared/header/Header";
+import Sidebar from "@/components/Admin/shared/sidebar/Sidebar";
+import Header from "@/components/Admin/shared/header/Header";
 import { Suspense } from "react";
 import Loading from "./loading";
 
@@ -24,10 +24,10 @@ export default function DashboardLayout({
 }) {
   return (
     <ThemeProviderComponent>
-      <div className="h-screen bg-light text-text-light dark:bg-dark dark:text-[#ADACB5] overflow-hidden">
+      <div className="h-screen bg-light text-dark dark:bg-dark dark:text-light overflow-hidden">
         <div className="flex flex-row justify-start h-full">
           <Sidebar />
-          <div className="flex-1 pt-8 pb-4 text-text-light dark:text-[#ADACB5] h-full overflow-auto">
+          <div className="flex-1 pt-8 pb-4 text-dark dark:text-light h-full overflow-auto">
             <Header />
             <Suspense fallback={<Loading />}>
               <main className="w-full text-text-light p-4 h-full">

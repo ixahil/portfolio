@@ -71,7 +71,7 @@ const Login = () => {
   return (
     <>
       {/* <!-- component --> */}
-      <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
+      <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12 text-dark">
         <div className="p-10 xs:p-0 mx-auto w-full max-w-md">
           <h1
             className={`logo font-bold text-center text-4xl mb-5 ${myFont.className}`}

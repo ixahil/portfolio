@@ -1,7 +1,9 @@
+import { ArrowLeft, ArrowLeftCircle } from "lucide-react";
 import { getSingleProject } from "../../api/GetData";
 import CustomImageSlider from "../../components/landingPage/CustomImageSlider";
 import Tabs from "../../components/landingPage/Tabs";
 import TechStackIcon from "../../components/landingPage/TechStackIcons";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,
@@ -26,8 +28,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const modifiedDate = new Date(project.updatedAt).toDateString();
 
   return (
-    <section className="max-w-[1200px] mx-auto">
-      <div className="min-h-screen w-full py-16 px-4 sm:px-6 lg:px-8">
+    <section className="w-full mx-auto" id="landinaPage">
+      <div className="min-h-screen w-[1200px] m-auto py-16 px-4 sm:px-6 lg:px-8">
+        <Link className="flex items-center py-4" href={"/"}>
+          <ArrowLeftCircle size={42} color="#dfdfdf" fill="black" /> Back to
+          Home
+        </Link>
         <div className=" ">
           {/* Project Images */}
           {project.images && (

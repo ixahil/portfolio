@@ -19,7 +19,7 @@ export default function PublicLayout({
     <>
       <ThemeProviderComponent>
         <Navbar />
-        <main className="mx-auto flex flex-col h-full w-full dark:text-[#adacb5] dark:bg-[#18181b] ">
+        <main className="mx-auto flex flex-col h-full w-full text-text-dark dark:text-text-light dark:bg-dark ">
           {children}
         </main>
         <Footer />

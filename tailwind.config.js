@@ -30,20 +30,22 @@ module.exports = {
         },
       },
       colors: {
-        primary: "#3B81F6",
+        primary: "#0a64bc",
+        primaryLight: "#1aa1ed",
         white: "#ffffff",
         text: {
           DEFAULT: "#1F2937",
-          light: "#6C7281",
-          dark: "#18181b",
+          light: "#FCF6F5",
+          dark: "#0c1618",
           darker: "#09090b",
+          primaryLight: "#1aa1ed",
         },
         light: {
           DEFAULT: "#FAFBFC",
           lighter: "#e5e7eb",
         },
         dark: {
-          DEFAULT: "#18181b",
+          DEFAULT: "#0c1618",
           darker: "#09090b",
           lighter: "#52525b",
         },

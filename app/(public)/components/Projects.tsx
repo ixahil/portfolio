@@ -10,15 +10,15 @@ async function projects() {
     return <p>No Projects available.</p>;
   } else {
     return (
-      <section className="py-28 md:p-8 w-full" id="projects">
+      <section className="py-14 md:p-8 w-full" id="projects">
         <div className="max-w-[1200px] mx-auto flex flex-col gap-8">
           <div className="text-center flex items-center flex-col justify-center">
-            <h2 className="text-[#1aa1ed] md:text-2xl text-3xl font-bold leading-12 tracking-[2rem]">
+            <h2 className="text-primary md:text-2xl text-3xl font-bold leading-12 tracking-[2rem]">
               FEATURED
             </h2>
             <h2 className="md:text-3xl text-5xl">
               Sneak peek from the latest{" "}
-              <span className="leading-[24px] text-[#1aa1ed]">Projects</span>
+              <span className="leading-[24px] text-primary">Projects</span>
             </h2>
           </div>
           <div className="flex flex-col gap-10 p-8 md:p-0 rounded-md">
@@ -30,7 +30,7 @@ async function projects() {
                   className="flex gap-10 flex-row md:flex-col md:items-start"
                   key={index}
                 >
-                  <div className="text-[#fff] max-w-[500px] max-h-[250px] md:max-w-full md:max-h-full">
+                  <div className="max-w-[500px] max-h-[250px] md:max-w-full md:max-h-full self-center">
                     {sliderImages.length > 0 ? (
                       <Image
                         src={project.images[0].imageURL}
@@ -76,7 +76,7 @@ async function projects() {
                       }}
                     ></div>
                     <Link href={"/projects/" + project._id}>
-                      <button className="read-more-button bg-[#1aa1ed] rounded-md text-[#fff] md:px-6 px-10 py-3 cursor-pointer hover:bg-blue-500 dark:bg-[#302e2e] dark:hover:[#584f4f]">
+                      <button className="read-more-button bg-primary dark:bg-primary rounded-md text-text-light md:px-6 px-10 py-3 cursor-pointer border-2 border-primary hover:bg-transparent hover:text-dark hover:border-primary dark:hover:text-light">
                         Read More About the Project
                       </button>
                     </Link>

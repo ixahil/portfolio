@@ -12,6 +12,8 @@ import debounce from "lodash/debounce";
 import { Link as LinkScroll } from "react-scroll";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useViewportScroll, useTransform } from "framer-motion";
+
 type Props = {};
 
 const myFont = localFont({
@@ -63,7 +65,7 @@ const Navbar = (props: Props) => {
       x: "-50%",
       opacity: 1,
       transition: {
-        duration: 0.3,
+        duration: 0.4,
       },
     },
     exit: {
@@ -83,7 +85,7 @@ const Navbar = (props: Props) => {
       x: "-50%",
       opacity: 1,
       transition: {
-        duration: 0.3,
+        duration: 0.4,
       },
     },
     exit: {
@@ -91,6 +93,14 @@ const Navbar = (props: Props) => {
       opacity: 0,
     },
   };
+
+  const { scrollY } = useViewportScroll();
+  const background = useTransform(
+    scrollY,
+    [0, 100],
+    ["rgba(0, 183, 255, 0)", "rgba(0, 183, 255, 1)"]
+  );
+  const height = useTransform(scrollY, [0, 100], [120, 60]);
 
   return (
     <>
@@ -104,13 +114,13 @@ const Navbar = (props: Props) => {
               animate="animate"
               exit="exit"
               variants={navVariants}
-              className=" fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
+              className=" fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-light bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
             >
               <ul className="flex gap-10 flex-row">
                 <Link
                   key={1}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 1 && "__nav_li_active"
+                  className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                    active === 1 && "text-text-primaryLight"
                   }`}
                   href="/"
                   // onClick={() => setActive(1)}
@@ -121,8 +131,8 @@ const Navbar = (props: Props) => {
                 <LinkScroll
                   key={2}
                   // onClick={() => setActive(2)}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 2 && "__nav_li_active"
+                  className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                    active === 2 && "text-text-primaryLight"
                   }`}
                   to={"projects"}
                   spy={true}
@@ -135,8 +145,8 @@ const Navbar = (props: Props) => {
                 </LinkScroll>
                 <LinkScroll
                   key={3}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 3 && "__nav_li_active"
+                  className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                    active === 3 && "text-text-primaryLight"
                   }`}
                   to={"about"}
                   spy={true}
@@ -149,8 +159,8 @@ const Navbar = (props: Props) => {
                 </LinkScroll>
                 <LinkScroll
                   key={4}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                    active === 4 && "__nav_li_active"
+                  className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                    active === 4 && "text-text-primaryLight"
                   }`}
                   to={"contact"}
                   spy={true}
@@ -168,14 +178,14 @@ const Navbar = (props: Props) => {
               animate="animate"
               exit="exit"
               variants={themeVariants}
-              className="md:top-[90%] fixed z-[999] top-4 right-1 rounded-full p-2 bg-dark text-[#E1D9D1] bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark shadow-lg dark:bg-dark"
+              className="md:top-[90%] fixed z-[999] top-4 right-1 rounded-full p-2 text-text-light bg-dark bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark shadow-lg dark:bg-dark"
             >
               <ThemeSwitch taglineDay={""} taglineNight={""} />
             </motion.div>
           </>
         ) : (
-          <header className="md:hidden flex flex-wrap items-center px-24 py-8 justify-between relative text-[#E1D9D1] dark:text-[#adacb5]">
-            <Image
+          <header className="md:hidden lg:hidden flex flex-wrap items-center justify-between relative text-text-light px-16 bg-gradient-header dark:bg-gradient-dark py-4">
+            {/* <Image
               src="/images/header-bg.jpg"
               alt="header-bg"
               quality={100}
@@ -183,19 +193,19 @@ const Navbar = (props: Props) => {
               sizes="100vw"
               objectFit="cover"
               className="z-[-1]"
-            />
-            <div className="flex flex-1">
-              <h1 className={`text-4xl ${myFont.className} cursor-pointer`}>
-                &lt;Dev. Sahil&gt;
+            /> */}
+            <div className="flex bg-dark py-2 pt-5 px-6 font-bold rounded-full">
+              <h1 className={`text-3xl ${myFont.className} cursor-pointer`}>
+                &lt;Dev. <span className="text-primaryLight">Sahil </span>&gt;
               </h1>
             </div>
-            <div className="flex flex-1 w-full pr-20">
-              <nav className="bg-dark text-[#E1D9D1] dark:text-[#adacb5] dark:bg-gray-dark py-2 px-6 rounded-full shadow-lg dark:bg-dark">
+            <div className="flex pr-24">
+              <nav className="bg-dark py-2 px-6 rounded-full shadow-lg">
                 <ul className="flex gap-10 flex-row">
                   <Link
                     key={1}
-                    className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                      active === 1 && "__nav_li_active"
+                    className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                      active === 1 && "text-text-primaryLight"
                     }`}
                     href="/"
                     onClick={() => setActive(1)}
@@ -205,8 +215,8 @@ const Navbar = (props: Props) => {
                   <LinkScroll
                     key={2}
                     // onClick={() => setActive(2)}
-                    className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                      active === 2 && "__nav_li_active"
+                    className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                      active === 2 && "text-text-primaryLight"
                     }`}
                     to={"projects"}
                     spy={true}
@@ -220,8 +230,8 @@ const Navbar = (props: Props) => {
                   </LinkScroll>
                   <LinkScroll
                     key={3}
-                    className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                      active === 3 && "__nav_li_active"
+                    className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                      active === 3 && "text-text-primaryLight"
                     }`}
                     to={"about"}
                     spy={true}
@@ -235,8 +245,8 @@ const Navbar = (props: Props) => {
                   </LinkScroll>
                   <LinkScroll
                     key={4}
-                    className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
-                      active === 4 && "__nav_li_active"
+                    className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
+                      active === 4 && "text-text-primaryLight"
                     }`}
                     to={"contact"}
                     spy={true}
@@ -259,15 +269,15 @@ const Navbar = (props: Props) => {
                   taglineNight={"Not a Night Owl?"}
                 />
               </div>
-              <div className="flex gap-3 justify-center items-center">
+              <div className="flex gap-3 justify-center items-center bg-primary py-0 px-6 rounded-full">
                 <Link href={"https://github.com/ixahil"} target="_blank">
                   <BsGithub size={30} cursor="pointer" />
                 </Link>
                 <Link
-                  href={"https://www.linkedin.com/in/xahilshaikh/"}
+                  href={"https://www.linkedin.com/in/ixahil/"}
                   target="_blank"
                 >
-                  <TiSocialLinkedinCircular size={42} cursor="pointer" />
+                  <TiSocialLinkedinCircular size={40} cursor="pointer" />
                 </Link>
               </div>
             </div>
@@ -276,8 +286,8 @@ const Navbar = (props: Props) => {
       </AnimatePresence>
 
       {/* Mobile Navigation */}
-      <header className="hidden md:flex flex-wrap items-center p-4 text-[#E1D9D1] dark:text-[#adacb5] relative">
-        <Image
+      <header className="hidden md:flex lg:flex bg-dark flex-wrap items-center p-4 text-light relative">
+        {/* <Image
           src="/images/header-bg.jpg"
           alt="header-bg"
           quality={100}
@@ -285,7 +295,7 @@ const Navbar = (props: Props) => {
           sizes="100vw"
           objectFit="cover"
           className="z-[-1]"
-        />
+        /> */}
         {/* Burger Icon (Visible on mobile) */}
         <div className="flex">
           <BiMenu size={30} cursor="pointer" onClick={toggleMobileMenu} />
@@ -306,10 +316,7 @@ const Navbar = (props: Props) => {
             <Link href={"https://github.com/ixahil"} target="_blank">
               <BsGithub size={30} cursor="pointer" />
             </Link>
-            <Link
-              href={"https://www.linkedin.com/in/xahilshaikh/"}
-              target="_blank"
-            >
+            <Link href={"https://www.linkedin.com/in/ixahil/"} target="_blank">
               <TiSocialLinkedinCircular size={42} cursor="pointer" />
             </Link>
           </div>
@@ -322,7 +329,7 @@ const Navbar = (props: Props) => {
               <li className="my-4">
                 <LinkScroll
                   key={1}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
                     active === 1 && "__nav_li_active"
                   }`}
                   to={"/"}
@@ -340,7 +347,7 @@ const Navbar = (props: Props) => {
               <li className="my-4">
                 <LinkScroll
                   key={2}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
                     active === 2 && "__nav_li_active"
                   }`}
                   to={"projects"}
@@ -358,7 +365,7 @@ const Navbar = (props: Props) => {
               <li className="my-4">
                 <LinkScroll
                   key={3}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
                     active === 3 && "__nav_li_active"
                   }`}
                   to={"about"}
@@ -376,7 +383,7 @@ const Navbar = (props: Props) => {
               <li className="my-4">
                 <LinkScroll
                   key={4}
-                  className={`__nav_li hover:cursor-pointer hover:text-[#1aa1ed] ${
+                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
                     active === 4 && "__nav_li_active"
                   }`}
                   to={"contact"}

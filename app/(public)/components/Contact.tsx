@@ -45,7 +45,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="w-full h-full md:p-8">
-      <div className="flex flex-row md:flex-col max-w-[1200px] mx-auto h-full py-32 md:py-16 justify-between">
+      <div className="flex flex-row md:flex-col max-w-[1200px] mx-auto h-full py-20 md:py-16 justify-between">
         <div className="md:mr-8 text-start md:text-left">
           <h1 className="text-5xl md:text-3xl font-bold mb-4 leading-16 tracking-widest">
             Let's Work

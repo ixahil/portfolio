@@ -8,41 +8,41 @@ type Props = {};
 
 const SocialIcons = (props: Props) => {
   return (
-    <div className="flex gap-6 items-center">
+    <div className="flex gap-6 items-center md:gap-1 flex-wrap">
       <Link
         href={"#"}
         target="_blank"
-        className="p-3 bg-[#000] rounded-full hover:bg-[#464141]"
+        className="p-3 bg-dark rounded-full hover:bg-[#464141]"
       >
-        <LuTwitter size={22} cursor="pointer" color="#E1D9D1" fill="white" />
+        <LuTwitter size={22} cursor="pointer" color="white" fill="white" />
       </Link>
       <Link
         href={"https://www.instagram.com/imxahil/"}
         target="_blank"
-        className="p-3 bg-[#000] rounded-full hover:bg-[#464141]"
+        className="p-3 bg-dark rounded-full hover:bg-[#464141]"
       >
-        <LuInstagram size={22} cursor="pointer" color="#E1D9D1" fill="" />
+        <LuInstagram size={22} cursor="pointer" color="white" fill="" />
       </Link>
       <Link
         href={"https://www.linkedin.com/in/xahilshaikh/"}
         target="_blank"
-        className="p-3 bg-[#000] rounded-full hover:bg-[#464141]"
+        className="p-3 bg-dark rounded-full hover:bg-[#464141]"
       >
-        <BsLinkedin size={22} cursor="pointer" color="#E1D9D1" />
+        <BsLinkedin size={22} cursor="pointer" color="white" />
       </Link>
       <Link
         href={"https://github.com/ixahil"}
         target="_blank"
-        className="p-3 bg-[#000] rounded-full hover:bg-[#464141]"
+        className="p-3 bg-dark rounded-full hover:bg-[#464141]"
       >
-        <BsGithub size={22} cursor="pointer" color="#E1D9D1" />
+        <BsGithub size={22} cursor="pointer" color="white" />
       </Link>
       <Link
         href={"mailto:sahilshaiikh@hotmail.com"}
         target="_blank"
-        className="p-3 bg-[#000] rounded-full hover:bg-[#464141]"
+        className="p-3 bg-dark rounded-full hover:bg-[#464141]"
       >
-        <LuMail size={22} cursor="pointer" color="#E1D9D1" />
+        <LuMail size={22} cursor="pointer" color="white" />
       </Link>
     </div>
   );

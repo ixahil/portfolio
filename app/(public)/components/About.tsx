@@ -7,16 +7,14 @@ import { Avatar } from "@nextui-org/react";
 const About = () => {
   return (
     <section
-      className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-[#000c2c] to-[#2b0e30] dark:text-[#adacb5] md:p-8 md:gap-4"
+      className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-primary to-[#2b0e30] md:p-8 md:gap-4"
       id="about"
     >
       <div className="flex max-w-[1200px] justify-evenly mx-auto gap-8 md:flex-col items-center md:justify-center">
         <div className="flex flex-col gap-4 py-32 md:py-0">
-          <h1 className="md:text-3xl text-4xl text-white dark:text-[#adacb5]">
-            Sahil Shaikh
-          </h1>
-          <h2 className="text-[#1aa1ed] md:text-xl text-2xl">Web Developer</h2>
-          <p className="text-[#c8c7c8] text-justify dark:text-[#adacb5]">
+          <h1 className="md:text-3xl text-4xl text-text-light">Sahil Shaikh</h1>
+          <h2 className="text-dark md:text-xl text-2xl">Web Developer</h2>
+          <p className="text-[#c8c7c8] text-justify">
             I've worked on a variety of projects over the years and I'm proud of
             the progress I've made. Many of these projects are open-source and
             available for others to explore and contribute to. If you're
@@ -25,12 +23,12 @@ const About = () => {
             you might have in mind. Collaborating with others is a great way to
             learn and grow, and I'm always open to new ideas and feedback.
           </p>
-          <div className="flex">
-            <div className="border-2 border-[#373738] rounded-sm p-4 cursor-pointer hover:bg-dark-lighter">
-              <TfiLinkedin fill="#8d8d90" />
+          <div className="flex gap-2">
+            <div className="border-2 border-dark rounded-sm p-4 cursor-pointer hover:bg-transparent bg-dark">
+              <TfiLinkedin fill="white" className="text-xl" />
             </div>
-            <div className="border-2 border-[#373738] rounded-sm p-4 cursor-pointer hover:bg-dark-lighter">
-              <SiGithub fill="#8d8d90" />
+            <div className="border-2 border-dark rounded-sm p-4 cursor-pointer hover:bg-transparent bg-dark">
+              <SiGithub fill="white" className="text-xl" />
             </div>
           </div>
         </div>

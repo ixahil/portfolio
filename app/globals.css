@@ -21,14 +21,13 @@ html {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 header nav ul a {
   position: relative;
-}
-.__nav_li_active {
-  color: #1aa1ed;
 }
 
 @keyframes slide-up {
@@ -57,7 +56,7 @@ header nav ul a {
 
 .__title_sub_section {
   font-size: 1em;
-  color: #1aa1ed;
+  color: #fcf6f5;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -68,7 +67,7 @@ header nav ul a {
 }
 
 .__title_sub {
-  color: #1aa1ed;
+  color: #fcf6f5;
   padding-top: 5px;
   position: absolute;
   width: 100%;
@@ -143,4 +142,32 @@ a:link {
   text-align: center;
   line-height: 16px; /* Center the checkmark vertically */
   margin-right: 10px; /* Adjust spacing between the circle and li text */
+}
+
+.bg-gradient {
+  background: linear-gradient(110deg, #0a64bc 50%, #0c1618 50%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(110deg, yellow 50%, #0c1618 50%);
+}
+
+.bg-gradient-header {
+  background: linear-gradient(110deg, #0a64bc 57.5%, #0c1618 50%);
+}
+
+#landinaPage {
+  background: #dfdfdf;
+}
+
+@media screen and (max-width: 767px) {
+  .bg-gradient {
+    background: linear-gradient(180deg, #0a64bc 70%, #0c1618 50%);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .bg-gradient {
+    background: linear-gradient(110deg, #0a64bc 50%, #0c1618 50%);
+  }
 }

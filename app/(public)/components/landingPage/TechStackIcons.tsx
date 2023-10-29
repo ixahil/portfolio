@@ -38,7 +38,10 @@ const TechStackIcon = ({ tech }: TechStackIconProps) => {
     const IconComponent = techIcon.icon;
 
     return (
-      <Tooltip content={techIcon.name}>
+      <Tooltip
+        content={techIcon.name}
+        className="text-text-dark dark:text-light"
+      >
         <div className="tech-icon">
           {React.createElement(IconComponent, {
             size: 48, // Adjust the icon size as needed

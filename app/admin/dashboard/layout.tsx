@@ -30,7 +30,7 @@ export default function DashboardLayout({
           <div className="flex-1 pt-8 pb-4 text-dark dark:text-light h-full overflow-auto">
             <Header />
             <Suspense fallback={<Loading />}>
-              <main className="w-full text-text-light p-4 h-full">
+              <main className="w-full text-dark dark:text-light p-4 h-full">
                 <section className="border-2 border-light-lighter dark:border-dark-lighter rounded-lg p-4  dark:text-[#ADACB5] h-full">
                   {children}
                 </section>

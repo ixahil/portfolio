@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import SocialIcons from "@/utils/public/SocialIcons";
 import { ChevronDownCircle, CornerRightDown } from "lucide-react";
@@ -9,18 +8,8 @@ const Home = () => {
   return (
     <section
       id="home"
-      className={`md:p-8 w-full h-full py-14 flex justify-center relative bg-gradient dark:bg-gradient-dark`}
+      className={`md:p-8 w-full h-full py-14 flex justify-center relative bg-gradient`}
     >
-      {/* <Image
-        src="/images/12071161_SL-093020-35920-01.jpg"
-        priority
-        alt="header-bg"
-        quality={100}
-        fill
-        sizes="100vw"
-        objectFit="cover"
-        className="z-[-1]"
-      /> */}
       <div className="max-w-[1200px] flex gap-56 md:flex-col md:gap-12 justify-between">
         <div className="flex flex-col gap-8 w-1/2 text-black md:w-full">
           <div className="">

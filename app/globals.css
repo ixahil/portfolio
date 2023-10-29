@@ -153,10 +153,6 @@ a:link {
   background: linear-gradient(110deg, #0a64bc 50%, #0c1618 50%);
 }
 
-.bg-gradient-dark {
-  background: linear-gradient(110deg, yellow 50%, #0c1618 50%);
-}
-
 .bg-gradient-header {
   background: linear-gradient(110deg, #0a64bc 57.5%, #0c1618 50%);
 }

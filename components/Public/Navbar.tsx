@@ -173,7 +173,7 @@ const Navbar = (props: Props) => {
             </motion.div>
           </>
         ) : (
-          <header className="md:hidden lg:hidden flex flex-wrap items-center justify-between relative text-text-light px-16 bg-gradient-header dark:bg-gradient-dark py-4">
+          <header className="md:hidden lg:hidden flex flex-wrap items-center justify-between relative text-text-light px-16 bg-gradient-header py-4">
             {/* <Image
               src="/images/header-bg.jpg"
               alt="header-bg"
@@ -273,7 +273,6 @@ const Navbar = (props: Props) => {
           </header>
         )}
       </AnimatePresence>
-
       {/* Mobile Navigation */}
       <header className="hidden md:flex lg:flex bg-dark flex-wrap items-center p-4 text-light relative">
         {/* <Image

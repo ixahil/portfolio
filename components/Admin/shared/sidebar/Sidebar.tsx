@@ -169,7 +169,7 @@ const Sidebar = () => {
             {!toggleCollapse && (
               <span
                 className={classNames(
-                  "text-md font-medium text-dark md:hidden"
+                  "text-md font-medium text-dark dark:text-light md:hidden"
                 )}
               >
                 {"Logout"}

@@ -111,10 +111,10 @@ const getActions = ({ row }: { row: Row<Inquiry> }) => {
 
   const modalTitle = `Inquiry from ${inquiry.name} | ${inquiry.email}`;
   const modalContent = (
-    <div className="p-4">
+    <div className="p-4 text-dark dark:text-light">
       <div className="mb-4">
         <div className="text-lg font-bold">{inquiry.subject}</div>
-        <div className="text-gray-600 mb-2">
+        <div className="mb-2">
           From: {inquiry.name} &lt;{inquiry.email}&gt;
         </div>
         <div className="border-t border-b border-gray-300 py-2 mb-2">
@@ -123,7 +123,7 @@ const getActions = ({ row }: { row: Row<Inquiry> }) => {
           </div>
         </div>
       </div>
-      <div className="text-gray-600">
+      <div className="text-gray-500">
         Sent: {new Date(inquiry.createdAt).toLocaleString()}
       </div>
     </div>

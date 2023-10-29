@@ -35,7 +35,9 @@ export default function Modal({
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1 text-dark dark:text-light">
+                {title}
+              </ModalHeader>
               <ModalBody>{content}</ModalBody>
               <ModalFooter>{footer}</ModalFooter>
             </>

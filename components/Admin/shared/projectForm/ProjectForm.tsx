@@ -84,14 +84,14 @@ const ProjectForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`flex flex-wrap form  ${isSubmitting && "loading"}`}
+      className={`flex flex-wrap form  ${isSubmitting && "loading"} h-full`}
     >
       <div className="md:w-1/2 w-[60%] p-4 flex justify-center items-center">
         <ImageGallery />
       </div>
       <div className="md:w-1/2 w-[40%] p-4">
         <div className="mb-4">
-          <label htmlFor="title" className="block text-gray-600">
+          <label htmlFor="title" className="block">
             Project Title
           </label>
           <input
@@ -105,7 +105,7 @@ const ProjectForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="date" className="block text-gray-600">
+          <label htmlFor="date" className="block">
             Project Accomplished
           </label>
           <input
@@ -157,7 +157,7 @@ const ProjectForm = () => {
         )}
       </div>
       <div className="w-full p-4">
-        <label htmlFor="description" className="block text-gray-600 mb-2">
+        <label htmlFor="description" className="block mb-2">
           Project Description
         </label>
         {/* <Editor /> */}

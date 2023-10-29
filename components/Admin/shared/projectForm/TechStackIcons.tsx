@@ -52,23 +52,20 @@ function TechStackIcons() {
 
   return (
     <fieldset className="mb-4">
-      <legend className="block text-gray-600">Choose Tech Stack:</legend>
+      <legend className="block">Choose Tech Stack:</legend>
       <div className="space-y-2 flex flex-wrap gap-2">
         {techStackIconsData.map((tech) => (
           <div className="flex items-center mt-2" key={tech.id}>
             <label
               htmlFor={tech.id}
-              className={`cursor-pointer rounded p-1 transition-colors duration-300 ${
-                isIconSelected(tech.id)
-                  ? "bg-gray-200 dark:bg-dark-lighter"
-                  : ""
+              className={`cursor-pointer rounded p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-500 ${
+                isIconSelected(tech.id) ? "bg-gray-200 dark:bg-gray-500" : ""
               }`}
               onClick={() => handleIconClick(tech.id)}
             >
               {React.createElement(tech.icon, {
                 size: 40, // Reduce the icon size for smaller screens
-                className:
-                  "border rounded p-1 transition-colors duration-300 hover:bg-gray-200",
+                className: "border rounded p-1 transition-colors duration-300",
               })}
             </label>
           </div>

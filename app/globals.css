@@ -102,7 +102,12 @@ header nav ul a {
 }
 
 .ql-editor {
-  min-height: 18em;
+  max-height: 18rem;
+  min-height: 18rem;
+}
+
+.dark .ql-editor {
+  background-color: #3b3b3b;
 }
 
 a:link {

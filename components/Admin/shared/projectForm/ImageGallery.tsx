@@ -79,7 +79,7 @@ export function ImageGallery() {
               {imageList.map((image, index) => (
                 <div
                   key={index}
-                  className="bg-white p-2 flex flex-col justify-center items-center gap-2"
+                  className=" p-2 flex flex-col justify-center items-center gap-2"
                 >
                   <div className="flex gap-4">
                     <button

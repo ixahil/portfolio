@@ -8,7 +8,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const data = await getSingleProject(params.slug);
 
   return (
-    <div>
+    <div className="h-full">
       Edit Page
       {data ? (
         <FormProvider initialValues={data}>

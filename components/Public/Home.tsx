@@ -11,7 +11,7 @@ const Home = () => {
       className={`md:p-8 w-full h-full py-14 flex justify-center relative bg-gradient`}
     >
       <div className="max-w-[1200px] flex gap-56 md:flex-col md:gap-12 justify-between">
-        <div className="flex flex-col gap-8 w-1/2 text-black md:w-full">
+        <div className="flex flex-col gap-8 w-1/2 text-black dark:text-light md:w-full">
           <div className="">
             <h1 className="md:text-2xl text-4xl __title_head font-bold">
               I am

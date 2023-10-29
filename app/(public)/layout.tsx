@@ -3,6 +3,7 @@ import Navbar from "../../components/Public/Navbar";
 import Footer from "../../components/Public/Footer";
 import ThemeProviderComponent from "./ThemeProvider";
 import { Toaster } from "react-hot-toast";
+import { ThemeTransitionOverlay } from "@/utils/public/ThemeTransitionOverlay";
 
 export const metadata: Metadata = {
   title: "Dev Sahil Portfolio",

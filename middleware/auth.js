@@ -13,15 +13,23 @@ export const isAuthenticated = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Please Login to Access", 400));
   }
 
-  const decoded = jwt.verify(_auth, process.env.ACCESS_TOKEN, (err) => {
-    if (err) {
-      return next(new ErrorHandler("You are not Authorized!", 400));
+  const decoded = jwt.verify(
+    _auth,
+    process.env.ACCESS_TOKEN,
+    (err, decoded) => {
+      if (err) {
+        return next(new ErrorHandler("You are not Authorized!", 400));
+      }
+      // if (!decoded) {
+      //   return next(new ErrorHandler("Access token not valid", 400));
+      // }
+      if (decoded) {
+        return decoded;
+      } else {
+        console.log("something wrong with jwt verification");
+      }
     }
-  });
-
-  if (!decoded) {
-    return next(new ErrorHandler("Access token not valid", 400));
-  }
+  );
 
   const user = await redis.get(decoded.id);
 

@@ -28,9 +28,9 @@ export const sendToken = (user, statusCode, res) => {
 
   // Only set secure to true in production
   if (process.env.NODE_ENV === "production") {
-    (accessTokenOptions.sameSite = "None"),
-      (refreshTokenOptions.sameSite = "None"),
-      (accessTokenOptions.secure = true);
+    accessTokenOptions.sameSite = "None";
+    refreshTokenOptions.sameSite = "None";
+    accessTokenOptions.secure = true;
     refreshTokenOptions.secure = true;
   }
 

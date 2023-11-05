@@ -4,6 +4,8 @@ import Footer from "../../components/Public/Footer";
 import ThemeProviderComponent from "./ThemeProvider";
 import { Toaster } from "react-hot-toast";
 import { ThemeTransitionOverlay } from "@/utils/public/ThemeTransitionOverlay";
+import { Suspense } from "react";
+import Loading from "../loading";
 
 export const metadata: Metadata = {
   title: "Dev Sahil Portfolio",
@@ -20,6 +22,7 @@ export default function PublicLayout({
     <>
       <ThemeProviderComponent>
         <Navbar />
+
         <main className="mx-auto flex flex-col h-full w-full text-text-dark dark:text-text-light dark:bg-dark ">
           {children}
         </main>

@@ -53,7 +53,7 @@ const Contact = () => {
           </h1>
           <div className="mb-4">
             <h2 className="font-semibold text-lg">Mail</h2>
-            <p>xyz@gmail.com</p>
+            <p>sahilshaiikh@hotmail.com</p>
           </div>
         </div>
         {isSubmitted ? (

@@ -2,9 +2,15 @@ import Link from "next/link";
 import { getAllProjects } from "@/utils/public/api/GetData";
 import TechStackIcon from "./landingPage/TechStackIcons";
 import Image from "next/image";
+import { Suspense } from "react";
+import { Skeleton } from "@nextui-org/react";
+import Loading from "@/app/loading";
 
 async function projects() {
+  setTimeout(() => {}, 20000);
   const data = (await getAllProjects()) || [];
+  const skeleton =
+    "w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700";
 
   if (!data) {
     return <p>No Projects available.</p>;
@@ -21,6 +27,7 @@ async function projects() {
               <span className="leading-[24px] text-primary">Projects</span>
             </h2>
           </div>
+
           <div className="flex flex-col gap-10 p-8 md:p-0 rounded-md">
             {data.map((project: any, index: number) => {
               const sliderImages = project.images || [];
@@ -34,6 +41,7 @@ async function projects() {
                     {sliderImages.length > 0 ? (
                       <Image
                         src={project.images[0].imageURL}
+                        loading="lazy"
                         alt={project.title}
                         width={500}
                         height={100}
@@ -42,13 +50,18 @@ async function projects() {
                           height: "auto",
                         }}
                         objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={project.images[0].imageURL}
                       />
                     ) : (
                       <Image
                         src={"/images/no-image.jpg"}
+                        loading="lazy"
                         alt="no-image"
                         width={100}
                         height={100}
+                        placeholder="blur"
+                        blurDataURL={"/images/no-image.jpg"}
                       />
                     )}
                   </div>

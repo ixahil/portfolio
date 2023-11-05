@@ -6,7 +6,7 @@ import ThemeProviderComponent from "./ThemeProvider";
 import Sidebar from "@/components/Admin/shared/sidebar/Sidebar";
 import Header from "@/components/Admin/shared/header/Header";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "@/app/loading";
 
 // Token refresh logic
 
@@ -29,13 +29,12 @@ export default function DashboardLayout({
           <Sidebar />
           <div className="flex-1 pt-8 pb-4 text-dark dark:text-light h-full overflow-auto">
             <Header />
-            <Suspense fallback={<Loading />}>
-              <main className="w-full text-dark dark:text-light p-4 h-screen">
-                <section className="border-2 border-light-lighter dark:border-dark-lighter rounded-lg p-4 text-dark dark:text-light h-full">
-                  {children}
-                </section>
-              </main>
-            </Suspense>
+
+            <main className="w-full text-dark dark:text-light p-4 h-screen">
+              <section className="border-2 border-light-lighter dark:border-dark-lighter rounded-lg p-4 text-dark dark:text-light h-full">
+                <Suspense fallback={<Loading />}>{children}</Suspense>
+              </section>
+            </main>
           </div>
         </div>
         <Toaster position="top-center" reverseOrder={false} />

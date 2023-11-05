@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
+import Imageplace from "@/public/images/avatar.jpg";
 // import { Carousel, IconButton } from "@material-tailwind/react";
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
     {
       imageURL: string;
       public_id: string;
+      _id: string;
     }
   ];
 };
@@ -27,13 +29,15 @@ const CustomImageSlider = ({ images }: Props) => {
           <figure>
             <Image
               src={mainImage.imageURL}
-              width={0}
-              height={0}
+              width={500}
+              height={500}
               sizes="100vw"
               objectFit="cover"
               style={{ width: "100%", height: "100%" }} // optional
-              alt={mainImage.public_id.split("/")[1]}
-              className=" rounded-xl"
+              alt={mainImage._id}
+              className="rounded-xl"
+              placeholder="blur"
+              blurDataURL={"/images/no-image.jpg"}
             />
           </figure>
         </div>
@@ -43,14 +47,16 @@ const CustomImageSlider = ({ images }: Props) => {
             <figure className="cursor-pointer">
               <Image
                 src={image.imageURL}
-                width={150}
-                height={150}
+                width={500}
+                height={500}
                 sizes="100vw"
                 objectFit="contain"
-                alt={image.public_id.split("/")[1]}
+                alt={image._id}
                 className=" rounded-xl"
                 key={index}
                 onClick={() => setMainImage(image)}
+                placeholder="blur"
+                blurDataURL={"/images/no-image.jpg"}
               />
             </figure>
           ))}

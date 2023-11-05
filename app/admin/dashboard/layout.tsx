@@ -32,7 +32,7 @@ export default function DashboardLayout({
 
             <main className="w-full text-dark dark:text-light p-4 h-screen">
               <section className="border-2 border-light-lighter dark:border-dark-lighter rounded-lg p-4 text-dark dark:text-light h-full">
-                <Suspense fallback={<Loading />}>{children}</Suspense>
+                {children}
               </section>
             </main>
           </div>

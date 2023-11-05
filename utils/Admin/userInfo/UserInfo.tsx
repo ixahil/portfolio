@@ -10,7 +10,7 @@ type UserInfoProps = {};
 
 function UserInfo({}: UserInfoProps) {
   return (
-    <div className="flex items-center gap-4 dark:text-[#ADACB5]">
+    <div className="flex items-center gap-4 text-text-dark dark:text-text-light">
       <Dropdown placement="bottom-start">
         <DropdownTrigger>
           <User
@@ -24,7 +24,11 @@ function UserInfo({}: UserInfoProps) {
             name="Sahil Shaikh"
           />
         </DropdownTrigger>
-        <DropdownMenu aria-label="User Actions" variant="flat">
+        <DropdownMenu
+          aria-label="User Actions"
+          variant="flat"
+          className="text-text-dark"
+        >
           <DropdownItem key="profile" className="h-14 gap-2">
             <p className="font-bold">Signed in as</p>
             <p className="font-bold">@ixahil</p>

@@ -7,10 +7,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Eye, EyeOff } from "lucide-react";
 // import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import localFont from "next/font/local";
+import { SyncLoader } from "react-spinners";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -60,7 +61,21 @@ const Login = () => {
           throw new Error("Invalid credentials");
         }
       } catch (error) {
-        console.log(error);
+        if (error instanceof AxiosError) {
+          // Handle Axios-specific errors
+          if (error.response && error.response.data) {
+            const axiosErr = error.response.data.message;
+            toast.error(axiosErr);
+          } else {
+            toast.error(
+              "An error occurred with Axios. Please try again later."
+            );
+          }
+        } else {
+          // Handle other types of errors
+          console.error(error); // Log the error for debugging
+          toast.error("An error occurred. Please try again later.");
+        }
       }
     },
   });
@@ -78,8 +93,17 @@ const Login = () => {
           >
             <span>&lt; Sahil Shaikh /&gt;</span>
           </h1>
-          <div className="bg-white shadow w-full rounded-lg divide-y divide-gray">
-            <div className="px-5 py-7">
+          <div className="bg-white shadow w-full rounded-lg divide-y divide-gray relative">
+            <div
+              className={`px-5 py-7 ${
+                isSubmitting ? "opacity-50 pointer-events-none" : ""
+              }`}
+            >
+              <div className="text-center absolute top-[25%] right-[40%] z-20">
+                <SyncLoader color="#0a64bc" size={15} loading={isSubmitting} />
+              </div>
+              {/* Conditionally render the spinner when isSubmitting is true */}
+
               <form onSubmit={handleSubmit}>
                 <label
                   htmlFor="email"
@@ -255,6 +279,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

@@ -33,7 +33,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     <>
       <Suspense fallback={<Loading />}>
         <section className="w-full mx-auto" id="landinaPage">
-          <div className="min-h-screen w-[1200px] m-auto py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1200px] m-auto py-16 px-4 sm:px-6 lg:px-8">
             <Link className="flex items-center py-4" href={"/"}>
               <ArrowLeftCircle size={42} color="#dfdfdf" fill="black" /> Back to
               Home

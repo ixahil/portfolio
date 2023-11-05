@@ -27,7 +27,7 @@ const ErrorMiddleware = (err, req, res, next) => {
 
   // JWT expire erro
   if (err.name === "TokenExpiredError") {
-    const message = `Jsown Web Token is Expired, try again`;
+    const message = `Json Web Token is Expired, try again`;
     err = new ErrorHandler(message, 400);
     return next(err);
   }

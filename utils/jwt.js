@@ -12,13 +12,11 @@ export const accessTokenOptions = {
   expires: new Date(Date.now() + accessTokenExpire * 60 * 60 * 1000),
   maxAge: accessTokenExpire * 60 * 60 * 1000,
   httpOnly: true,
-  sameSite: "None",
 };
 export const refreshTokenOptions = {
   expires: new Date(Date.now() + refreshTokenExpire * 24 * 60 * 60 * 1000),
   maxAge: refreshTokenExpire * 24 * 60 * 60 * 1000,
   httpOnly: true,
-  sameSite: "None",
 };
 
 export const sendToken = (user, statusCode, res) => {
@@ -30,7 +28,9 @@ export const sendToken = (user, statusCode, res) => {
 
   // Only set secure to true in production
   if (process.env.NODE_ENV === "production") {
-    accessTokenOptions.secure = true;
+    (accessTokenOptions.sameSite = "None"),
+      (refreshTokenOptions.sameSite = "None"),
+      (accessTokenOptions.secure = true);
     refreshTokenOptions.secure = true;
   }
 

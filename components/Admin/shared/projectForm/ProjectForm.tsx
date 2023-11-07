@@ -33,6 +33,8 @@ const ProjectForm = () => {
             process.env.NEXT_PUBLIC_API_V1 + "create-project",
             {
               title: values.title,
+              source: values.source,
+              demo: values.demo,
               description: formData.description,
               selectedTech: formData.selectedTech,
               images: formData.images,
@@ -161,6 +163,34 @@ const ProjectForm = () => {
             />
           </div>
           <TechStackIcons />
+          <div className="mb-4">
+            <label htmlFor="source" className="block">
+              Source Code
+            </label>
+            <input
+              type="text"
+              id="source"
+              name="source"
+              value={values.source}
+              placeholder="Enter Github URL"
+              onChange={handleChange}
+              className="w-full border rounded px-3 py-2 mt-1 border-light-lighter dark:border-dark-lighter"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="demo" className="block">
+              Demo URL
+            </label>
+            <input
+              type="text"
+              id="demo"
+              name="demo"
+              value={values.demo}
+              placeholder="Enter DEMO URL"
+              onChange={handleChange}
+              className="w-full border rounded px-3 py-2 mt-1 border-light-lighter dark:border-dark-lighter"
+            />
+          </div>
           <div className="flex gap-10 items-center pb-4">
             <h4>Publish: </h4>
             <input

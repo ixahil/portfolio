@@ -4,6 +4,8 @@ import { FormProvider } from "@/context/FormContext";
 const initialValues = {
   title: "",
   description: "",
+  source: "",
+  demo: "",
   images: [],
   status: false,
   selectedTech: [],

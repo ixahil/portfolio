@@ -20,6 +20,8 @@ type ThumbnailObject = {
 
 export type Form = {
   title: string;
+  source: string;
+  demo: string;
   description: string;
   images: ImageObject[];
   selectedTech: string[];

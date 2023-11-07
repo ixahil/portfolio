@@ -16,6 +16,8 @@ const projectSchema = Yup.object().shape({
     .max(new Date(), "Date cannot be in the future")
     .required("Date is required")
     .default(new Date()),
+  source: Yup.string().required("Project Source Code is required"),
+  demo: Yup.string().required("Project Demo URL is required"),
 });
 
 const ProjectForm = () => {
@@ -171,6 +173,7 @@ const ProjectForm = () => {
             </label>
             <input
               type="text"
+              required
               id="source"
               name="source"
               value={values.source}
@@ -185,6 +188,7 @@ const ProjectForm = () => {
             </label>
             <input
               type="text"
+              required
               id="demo"
               name="demo"
               value={values.demo}

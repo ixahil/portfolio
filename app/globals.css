@@ -55,19 +55,18 @@ header nav ul a {
 }
 
 .__title_sub_section {
-  font-size: 1em;
-  color: #fcf6f5;
+  color: #0a64bc;
   width: 100%;
   overflow: hidden;
   position: relative;
   display: inline-block;
-  height: 1.25em;
+  height: 1.5em;
   vertical-align: bottom;
   overflow: hidden;
 }
 
 .__title_sub {
-  color: #fcf6f5;
+  color: #0a64bc;
   padding-top: 5px;
   position: absolute;
   width: 100%;
@@ -148,7 +147,7 @@ a:link {
   line-height: 16px; /* Center the checkmark vertically */
   margin-right: 10px; /* Adjust spacing between the circle and li text */
 }
-
+/* 
 .bg-gradient {
   background: linear-gradient(110deg, #0a64bc 50%, #0c1618 50%);
 }
@@ -176,4 +175,4 @@ a:link {
   .bg-gradient {
     background: linear-gradient(110deg, #0a64bc 50%, #0c1618 50%);
   }
-}
+} */

@@ -10,8 +10,8 @@ const About = () => {
       className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-primary to-[#2b0e30] md:p-8 md:gap-4"
       id="about"
     >
-      <div className="flex max-w-[1200px] justify-evenly mx-auto gap-8 md:flex-col items-center md:justify-center">
-        <div className="flex flex-col gap-4 py-32 md:py-0">
+      <div className="flex w-2/3 md:w-full justify-evenly mx-auto gap-8 md:flex-col items-center md:justify-center">
+        <div className="flex flex-col gap-4 py-24 md:py-0">
           <h1 className="md:text-3xl text-4xl text-text-light">Sahil Shaikh</h1>
           <h2 className="text-dark md:text-xl text-2xl">Web Developer</h2>
           <p className="text-[#c8c7c8] text-justify">

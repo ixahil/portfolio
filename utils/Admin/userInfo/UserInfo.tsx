@@ -24,11 +24,7 @@ function UserInfo({}: UserInfoProps) {
             name="Sahil Shaikh"
           />
         </DropdownTrigger>
-        <DropdownMenu
-          aria-label="User Actions"
-          variant="flat"
-          className="text-text-dark"
-        >
+        <DropdownMenu aria-label="User Actions" variant="flat" className="">
           <DropdownItem key="profile" className="h-14 gap-2">
             <p className="font-bold">Signed in as</p>
             <p className="font-bold">@ixahil</p>

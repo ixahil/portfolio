@@ -35,7 +35,7 @@ const CustomImageSlider = ({ images }: Props) => {
               objectFit="cover"
               style={{ width: "100%", height: "100%" }} // optional
               alt={mainImage._id}
-              className="rounded-xl"
+              className="rounded-xl border-2"
               placeholder="blur"
               blurDataURL={"/images/no-image.jpg"}
             />
@@ -52,7 +52,7 @@ const CustomImageSlider = ({ images }: Props) => {
                 sizes="100vw"
                 objectFit="contain"
                 alt={image._id}
-                className=" rounded-xl"
+                className="rounded-xl border-2"
                 key={index}
                 onClick={() => setMainImage(image)}
                 placeholder="blur"

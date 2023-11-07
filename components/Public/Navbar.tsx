@@ -103,7 +103,7 @@ const Navbar = (props: Props) => {
               animate="animate"
               exit="exit"
               variants={navVariants}
-              className=" fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-light bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark"
+              className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-light bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark md:px-4"
             >
               <ul className="flex gap-10 flex-row">
                 <Link
@@ -173,7 +173,7 @@ const Navbar = (props: Props) => {
             </motion.div>
           </>
         ) : (
-          <header className="md:hidden lg:hidden flex flex-wrap items-center justify-between relative text-text-light px-16 bg-gradient-header py-4">
+          <header className="md:hidden lg:hidden flex flex-wrap items-center justify-between relative bg-dark text-text-light px-32 bg-gradient-header py-4">
             {/* <Image
               src="/images/header-bg.jpg"
               alt="header-bg"
@@ -188,7 +188,7 @@ const Navbar = (props: Props) => {
                 &lt;Dev. <span className="text-primaryLight">Sahil </span>&gt;
               </h1>
             </div>
-            <div className="flex pr-24">
+            <div className="flex">
               <nav className="bg-dark py-2 px-6 rounded-full shadow-lg">
                 <ul className="flex gap-10 flex-row">
                   <Link
@@ -290,8 +290,8 @@ const Navbar = (props: Props) => {
         </div>
 
         {/* Logo (Visible on all screens) */}
-        <div className="flex flex-1">
-          <h1 className={`text-3xl ${myFont.className}`}>Dev Sahil</h1>
+        <div className="flex flex-1 pl-4 pt-2">
+          <h1 className={`text-2xl ${myFont.className}`}>Dev Sahil</h1>
         </div>
 
         {/* Content (Visible when the menu is closed) */}

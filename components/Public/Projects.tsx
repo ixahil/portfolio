@@ -95,13 +95,21 @@ async function projects() {
                         </span>
                       </div>
                       <div className="flex gap-4 items-center text-sm">
-                        <Link href={project.demo}>
+                        <Link
+                          href={project.demo}
+                          target="_blank"
+                          rel="nofollow"
+                        >
                           <button className="py-1 flex gap-2 items-center read-more-button bg-primary dark:bg-primary rounded-md text-text-light md:px-6 px-4 cursor-pointer border-2 border-primary hover:bg-transparent hover:text-dark hover:border-primary dark:hover:text-light dark:hover:bg-transparent">
                             Live Demo
                             <ArrowUpRightFromCircle size={16} />
                           </button>
                         </Link>
-                        <Link href={project.source}>
+                        <Link
+                          href={project.source}
+                          target="_blank"
+                          rel="nofollow"
+                        >
                           <button className="px-4 py-1 flex items-center gap-2 bg-[#302e2e] text-light hover:bg-transparent hover:text-dark dark:hover:text-light border-1 border-[#302e2e] hover:border-[#1aa1ed] rounded-md">
                             Source
                             <GithubIcon size={18} />

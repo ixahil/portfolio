@@ -75,6 +75,8 @@ const ProjectForm = () => {
               title: values.title,
               description: formData.description,
               selectedTech: formData.selectedTech,
+              source: values.source,
+              demo: values.demo,
               images: formData.images,
               status: values.status,
               createdDate: values.createdDate,

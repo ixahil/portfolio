@@ -80,14 +80,14 @@ async function projects() {
                   </div>
 
                   <div className="flex-1 flex flex-col justify-between gap-4">
-                    <div className="md:text-base text-lg flex text-gray-500 justify-between items-center">
+                    <div className="md:text-sm text-lg flex text-gray-500 justify-between items-center md:flex-col md:gap-4">
                       <div className="flex gap-4">
                         <span className="font-semibold">Created: </span>
                         <span>
                           {new Date(project.createdDate).toLocaleDateString(
                             undefined,
                             {
-                              month: "long",
+                              month: "short",
                               day: "numeric",
                               year: "numeric",
                             }

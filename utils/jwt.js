@@ -28,8 +28,8 @@ export const sendToken = (user, statusCode, res) => {
 
   // Only set secure to true in production
   if (process.env.NODE_ENV === "production") {
-    accessTokenOptions.sameSite = "Lax";
-    refreshTokenOptions.sameSite = "Lax";
+    accessTokenOptions.sameSite = "None";
+    refreshTokenOptions.sameSite = "None";
     accessTokenOptions.domain = ".sahildev.pro"; // Add a dot before the domain
     refreshTokenOptions.domain = ".sahildev.pro"; // Add a dot before the domain
     accessTokenOptions.secure = true;

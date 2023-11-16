@@ -13,14 +13,13 @@ export async function middleware(request: NextRequest) {
   if (access_token) {
     const fetchAuth = async () => {
       try {
-        const res = await fetch(process.env.API_V1 + '/check-aut', {
+        const res = await fetch(process.env.API_V1 + '/check-auth', {
           method: 'GET',
           credentials: 'include',
           headers: {
             Cookie: `access_token=${access_token}`
           }
         });
-
         if (res.status === 200) {
           auth = true;
         }

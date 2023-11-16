@@ -13,33 +13,51 @@ export const isAuthenticated = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Please Login to Access", 400));
   }
 
-  const decoded = jwt.verify(
-    _auth,
-    process.env.ACCESS_TOKEN,
-    (err, decoded) => {
-      console.log(decoded);
-      if (err) {
-        return next(new ErrorHandler("You are not Authorized!", 400));
-      }
-      // if (!decoded) {
-      //   return next(new ErrorHandler("Access token not valid", 400));
-      // }
-      if (decoded) {
-        return decoded;
-      } else {
-        console.log("something wrong with jwt verification");
-      }
+  // const decoded = jwt.verify(
+  //   _auth,
+  //   process.env.ACCESS_TOKEN,
+  //   (err, decoded) => {
+  //     console.log(decoded);
+  //     if (err) {
+  //       return next(new ErrorHandler("You are not Authorized!", 400));
+  //     }
+  //     // if (!decoded) {
+  //     //   return next(new ErrorHandler("Access token not valid", 400));
+  //     // }
+  //     if (decoded) {
+  //       return decoded;
+  //     } else {
+  //       console.log("something wrong with jwt verification");
+  //     }
+  //   }
+  // );
+
+  jwt.verify(_auth, process.env.ACCESS_TOKEN, async (err, decoded) => {
+    if (err) {
+      return next(new ErrorHandler("You are not Authorized!", 400));
     }
-  );
 
-  const user = await redis.get(decoded.id);
+    const user = await redis.get(decoded.id);
 
-  if (!user) {
-    return next(new ErrorHandler("Please Login to access this resource!", 400));
-  }
+    if (!user) {
+      return next(
+        new ErrorHandler("Please Login to access this resource!", 400)
+      );
+    }
 
-  req.user = JSON.parse(user);
-  next();
+    req.user = JSON.parse(user);
+
+    next();
+  });
+
+  // const user = await redis.get(decoded.id);
+
+  // if (!user) {
+  //   return next(new ErrorHandler("Please Login to access this resource!", 400));
+  // }
+
+  // req.user = JSON.parse(user);
+  // next();
 });
 
 // Validate user Role

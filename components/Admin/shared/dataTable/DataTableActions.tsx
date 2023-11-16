@@ -1,17 +1,17 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/Admin/ui/dropdown-menu";
-import { ArrowUpDown, Check, MoreHorizontal, X } from "lucide-react";
-import { Button } from "@/components/Admin/ui/button";
+  DropdownMenuTrigger
+} from '@/components/Admin/ui/dropdown-menu';
+import { ArrowUpDown, Check, MoreHorizontal, X } from 'lucide-react';
+import { Button } from '@/components/Admin/ui/button';
 
-import { Row } from "@tanstack/react-table";
-import { Projects } from "./ProjectTbColumns";
+import { Row } from '@tanstack/react-table';
+import { Projects } from './ProjectTbColumns';
 
 export const getActions = ({ row }: { row: Row<Projects> }) => {
   const router = useRouter();
@@ -28,16 +28,12 @@ export const getActions = ({ row }: { row: Row<Projects> }) => {
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuItem
-          onClick={() =>
-            router.push("/admin/dashboard/projects/edit/" + project._id)
-          }
+          onClick={() => router.push('/admin/dashboard/projects/edit/' + project._id)}
           className="cursor-pointer hover:bg-light-lighter"
         >
           Edit
         </DropdownMenuItem>
-        <DropdownMenuItem className="cursor-pointer hover:bg-[#d11a2a]">
-          Delete
-        </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer hover:bg-[#d11a2a]">Delete</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

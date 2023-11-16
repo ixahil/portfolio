@@ -1,25 +1,23 @@
-"use client";
+'use client';
 
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { Table } from "@tanstack/react-table";
+import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
+import { Table } from '@tanstack/react-table';
 
-import { Button } from "@/components/Admin/ui/button";
+import { Button } from '@/components/Admin/ui/button';
 
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-} from "@/components/Admin/ui/dropdown-menu";
-import { Input } from "@nextui-org/react";
-import Link from "next/link";
+  DropdownMenuContent
+} from '@/components/Admin/ui/dropdown-menu';
+import { Input } from '@nextui-org/react';
+import Link from 'next/link';
 
 interface DataTableViewOptionsProps<TData> {
   table: Table<TData>;
 }
 
-export function DataTableViewOptions<TData>({
-  table,
-}: DataTableViewOptionsProps<TData>) {
+export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
   const column = table.getAllColumns()[0];
 
   return (
@@ -31,7 +29,7 @@ export function DataTableViewOptions<TData>({
         className="max-w-sm"
       />
       <div className="flex gap-4">
-        <Link href={"/admin/dashboard/projects/add"}>
+        <Link href={'/admin/dashboard/projects/add'}>
           <Button>Add</Button>
         </Link>
         <DropdownMenu>
@@ -50,9 +48,7 @@ export function DataTableViewOptions<TData>({
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
+                    onCheckedChange={(value) => column.toggleVisibility(!!value)}
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>

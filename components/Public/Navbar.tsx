@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { BsGithub } from "react-icons/bs";
-import ThemeSwitch from "@/utils/public/ThemeSwitch";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
-import { BiMenu } from "react-icons/bi";
-import localFont from "next/font/local";
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { BsGithub } from 'react-icons/bs';
+import ThemeSwitch from '@/utils/public/ThemeSwitch';
+import { TiSocialLinkedinCircular } from 'react-icons/ti';
+import { BiMenu } from 'react-icons/bi';
+import localFont from 'next/font/local';
 
-import debounce from "lodash/debounce";
-import { Link as LinkScroll } from "react-scroll";
-import { AnimatePresence, motion } from "framer-motion";
+import debounce from 'lodash/debounce';
+import { Link as LinkScroll } from 'react-scroll';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type Props = {};
 
 const myFont = localFont({
   src: [
     {
-      path: "../../public/fonts/Agustina.woff",
-      weight: "normal",
-      style: "normal",
-    },
-  ],
+      path: '../../public/fonts/Agustina.woff',
+      weight: 'normal',
+      style: 'normal'
+    }
+  ]
 });
 
 const Navbar = (props: Props) => {
@@ -34,8 +34,8 @@ const Navbar = (props: Props) => {
   };
 
   const contentStyle = {
-    transition: "transform 0.3s ease-in-out",
-    transform: isMobileMenuOpen ? "translateY(100%)" : "translateY(0)",
+    transition: 'transform 0.3s ease-in-out',
+    transform: isMobileMenuOpen ? 'translateY(100%)' : 'translateY(0)'
   };
 
   const debouncedHandleScroll = debounce(() => {
@@ -47,55 +47,55 @@ const Navbar = (props: Props) => {
   }, 100); // Adjust the debounce time as needed
 
   useEffect(() => {
-    window.addEventListener("scroll", debouncedHandleScroll);
+    window.addEventListener('scroll', debouncedHandleScroll);
 
-    return () => window.removeEventListener("scroll", debouncedHandleScroll);
+    return () => window.removeEventListener('scroll', debouncedHandleScroll);
   }, []);
 
   const navVariants = {
     initial: {
       y: -50,
-      x: "-50%",
-      opacity: 0,
+      x: '-50%',
+      opacity: 0
     },
     animate: {
       y: 0,
-      x: "-50%",
+      x: '-50%',
       opacity: 1,
       transition: {
-        duration: 0.4,
-      },
+        duration: 0.4
+      }
     },
     exit: {
       y: -50,
-      opacity: 0,
-    },
+      opacity: 0
+    }
   };
 
   const themeVariants = {
     initial: {
       y: -50,
-      x: "-50%",
-      opacity: 0,
+      x: '-50%',
+      opacity: 0
     },
     animate: {
       y: 0,
-      x: "-50%",
+      x: '-50%',
       opacity: 1,
       transition: {
-        duration: 0.4,
-      },
+        duration: 0.4
+      }
     },
     exit: {
       y: -50,
-      opacity: 0,
-    },
+      opacity: 0
+    }
   };
   return (
     <>
       {/* Desktop Navigation */}
       <AnimatePresence>
-        {" "}
+        {' '}
         {isScrollPast ? (
           <>
             <motion.div
@@ -103,13 +103,13 @@ const Navbar = (props: Props) => {
               animate="animate"
               exit="exit"
               variants={navVariants}
-              className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-dark text-light bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark py-2 px-6 shadow-lg dark:bg-dark md:px-4"
+              className="dark:bg-gray-dark fixed left-1/2 top-4 z-[999] -translate-x-1/2 rounded-full border border-white border-opacity-[.08] bg-dark bg-opacity-[1] p-1 px-6 py-2 text-light shadow-lg backdrop-blur-lg dark:bg-dark md:px-4"
             >
-              <ul className="flex gap-10 flex-row">
+              <ul className="flex flex-row gap-10">
                 <Link
                   key={1}
                   className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                    active === 1 && "text-text-primaryLight"
+                    active === 1 && 'text-text-primaryLight'
                   }`}
                   href="/"
                   // onClick={() => setActive(1)}
@@ -121,9 +121,9 @@ const Navbar = (props: Props) => {
                   key={2}
                   // onClick={() => setActive(2)}
                   className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                    active === 2 && "text-text-primaryLight"
+                    active === 2 && 'text-text-primaryLight'
                   }`}
-                  to={"projects"}
+                  to={'projects'}
                   spy={true}
                   smooth={true}
                   offset={-20}
@@ -135,9 +135,9 @@ const Navbar = (props: Props) => {
                 <LinkScroll
                   key={3}
                   className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                    active === 3 && "text-text-primaryLight"
+                    active === 3 && 'text-text-primaryLight'
                   }`}
-                  to={"about"}
+                  to={'about'}
                   spy={true}
                   smooth={true}
                   offset={-20}
@@ -149,9 +149,9 @@ const Navbar = (props: Props) => {
                 <LinkScroll
                   key={4}
                   className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                    active === 4 && "text-text-primaryLight"
+                    active === 4 && 'text-text-primaryLight'
                   }`}
-                  to={"contact"}
+                  to={'contact'}
                   spy={true}
                   smooth={true}
                   offset={-20}
@@ -167,13 +167,13 @@ const Navbar = (props: Props) => {
               animate="animate"
               exit="exit"
               variants={themeVariants}
-              className="md:top-[90%] fixed z-[999] top-4 right-1 rounded-full p-2 text-text-light bg-dark bg-opacity-[1] backdrop-blur-lg border border-white border-opacity-[.08] dark:bg-gray-dark shadow-lg dark:bg-dark"
+              className="dark:bg-gray-dark fixed right-1 top-4 z-[999] rounded-full border border-white border-opacity-[.08] bg-dark bg-opacity-[1] p-2 text-text-light shadow-lg backdrop-blur-lg dark:bg-dark md:top-[90%]"
             >
-              <ThemeSwitch taglineDay={""} taglineNight={""} />
+              <ThemeSwitch taglineDay={''} taglineNight={''} />
             </motion.div>
           </>
         ) : (
-          <header className="md:hidden lg:hidden flex flex-wrap items-center justify-between relative bg-dark text-text-light px-32 bg-gradient-header py-4">
+          <header className="bg-gradient-header relative flex flex-wrap items-center justify-between bg-dark px-32 py-4 text-text-light md:hidden lg:hidden xl:hidden 2xl:px-16">
             {/* <Image
               src="/images/header-bg.jpg"
               alt="header-bg"
@@ -183,18 +183,18 @@ const Navbar = (props: Props) => {
               objectFit="cover"
               className="z-[-1]"
             /> */}
-            <div className="flex bg-dark py-2 pt-5 px-6 font-bold rounded-full">
+            <div className="flex rounded-full bg-dark px-6 py-2 pt-5 font-bold">
               <h1 className={`text-3xl ${myFont.className} cursor-pointer`}>
                 &lt;Dev. <span className="text-primaryLight">Sahil </span>&gt;
               </h1>
             </div>
             <div className="flex">
-              <nav className="bg-dark py-2 px-6 rounded-full shadow-lg">
-                <ul className="flex gap-10 flex-row">
+              <nav className="rounded-full bg-dark px-6 py-2 shadow-lg">
+                <ul className="flex flex-row gap-10">
                   <Link
                     key={1}
                     className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                      active === 1 && "text-text-primaryLight"
+                      active === 1 && 'text-text-primaryLight'
                     }`}
                     href="/"
                     onClick={() => setActive(1)}
@@ -205,9 +205,9 @@ const Navbar = (props: Props) => {
                     key={2}
                     // onClick={() => setActive(2)}
                     className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                      active === 2 && "text-text-primaryLight"
+                      active === 2 && 'text-text-primaryLight'
                     }`}
-                    to={"projects"}
+                    to={'projects'}
                     spy={true}
                     smooth={true}
                     offset={-20}
@@ -220,9 +220,9 @@ const Navbar = (props: Props) => {
                   <LinkScroll
                     key={3}
                     className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                      active === 3 && "text-text-primaryLight"
+                      active === 3 && 'text-text-primaryLight'
                     }`}
-                    to={"about"}
+                    to={'about'}
                     spy={true}
                     smooth={true}
                     offset={-20}
@@ -235,9 +235,9 @@ const Navbar = (props: Props) => {
                   <LinkScroll
                     key={4}
                     className={`__nav_li hover:cursor-pointer hover:text-text-primaryLight ${
-                      active === 4 && "text-text-primaryLight"
+                      active === 4 && 'text-text-primaryLight'
                     }`}
-                    to={"contact"}
+                    to={'contact'}
                     spy={true}
                     smooth={true}
                     offset={-20}
@@ -251,21 +251,15 @@ const Navbar = (props: Props) => {
               </nav>
             </div>
 
-            <div className="flex gap-12 items-center">
+            <div className="flex items-center gap-12">
               <div className="w-[207px]">
-                <ThemeSwitch
-                  taglineDay={"Not a Day Dreamer?"}
-                  taglineNight={"Not a Night Owl?"}
-                />
+                <ThemeSwitch taglineDay={'Not a Day Dreamer?'} taglineNight={'Not a Night Owl?'} />
               </div>
-              <div className="flex gap-3 justify-center items-center bg-primary py-0 px-6 rounded-full">
-                <Link href={"https://github.com/ixahil"} target="_blank">
+              <div className="flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-0">
+                <Link href={'https://github.com/ixahil'} target="_blank">
                   <BsGithub size={30} cursor="pointer" />
                 </Link>
-                <Link
-                  href={"https://www.linkedin.com/in/ixahil/"}
-                  target="_blank"
-                >
+                <Link href={'https://www.linkedin.com/in/ixahil/'} target="_blank">
                   <TiSocialLinkedinCircular size={40} cursor="pointer" />
                 </Link>
               </div>
@@ -274,7 +268,7 @@ const Navbar = (props: Props) => {
         )}
       </AnimatePresence>
       {/* Mobile Navigation */}
-      <header className="hidden md:flex lg:flex bg-dark flex-wrap items-center p-4 text-light relative">
+      <header className="relative hidden flex-wrap items-center bg-dark p-4 text-light md:flex lg:flex xl:flex">
         {/* <Image
           src="/images/header-bg.jpg"
           alt="header-bg"
@@ -296,15 +290,15 @@ const Navbar = (props: Props) => {
 
         {/* Content (Visible when the menu is closed) */}
         {/* Social Icons and Theme Switch (Visible on all screens) */}
-        <div className="flex gap-5 items-center">
+        <div className="flex items-center gap-5">
           <div>
-            <ThemeSwitch taglineDay={""} taglineNight={""} />
+            <ThemeSwitch taglineDay={''} taglineNight={''} />
           </div>
-          <div className="flex gap-2 justify-center items-center">
-            <Link href={"https://github.com/ixahil"} target="_blank">
+          <div className="flex items-center justify-center gap-2">
+            <Link href={'https://github.com/ixahil'} target="_blank">
               <BsGithub size={30} cursor="pointer" />
             </Link>
-            <Link href={"https://www.linkedin.com/in/ixahil/"} target="_blank">
+            <Link href={'https://www.linkedin.com/in/ixahil/'} target="_blank">
               <TiSocialLinkedinCircular size={42} cursor="pointer" />
             </Link>
           </div>
@@ -312,15 +306,15 @@ const Navbar = (props: Props) => {
 
         {/* Mobile Navigation (Visible on mobile when the menu is open) */}
         {isMobileMenuOpen && (
-          <nav className="w-full rounded-sm m-4 bg-dark">
+          <nav className="m-4 w-full rounded-sm bg-dark">
             <ul className="text-center">
               <li className="my-4">
                 <LinkScroll
                   key={1}
-                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
-                    active === 1 && "__nav_li_active"
+                  className={`__nav_li hover:text-text-blue hover:cursor-pointer ${
+                    active === 1 && '__nav_li_active'
                   }`}
-                  to={"/"}
+                  to={'/'}
                   // onClick={() => setActive(1)}
                   spy={true}
                   smooth={true}
@@ -335,10 +329,10 @@ const Navbar = (props: Props) => {
               <li className="my-4">
                 <LinkScroll
                   key={2}
-                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
-                    active === 2 && "__nav_li_active"
+                  className={`__nav_li hover:text-text-blue hover:cursor-pointer ${
+                    active === 2 && '__nav_li_active'
                   }`}
-                  to={"projects"}
+                  to={'projects'}
                   // onClick={() => setActive(1)}
                   spy={true}
                   smooth={true}
@@ -353,10 +347,10 @@ const Navbar = (props: Props) => {
               <li className="my-4">
                 <LinkScroll
                   key={3}
-                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
-                    active === 3 && "__nav_li_active"
+                  className={`__nav_li hover:text-text-blue hover:cursor-pointer ${
+                    active === 3 && '__nav_li_active'
                   }`}
-                  to={"about"}
+                  to={'about'}
                   // onClick={() => setActive(1)}
                   spy={true}
                   smooth={true}
@@ -371,10 +365,10 @@ const Navbar = (props: Props) => {
               <li className="my-4">
                 <LinkScroll
                   key={4}
-                  className={`__nav_li hover:cursor-pointer hover:text-text-blue ${
-                    active === 4 && "__nav_li_active"
+                  className={`__nav_li hover:text-text-blue hover:cursor-pointer ${
+                    active === 4 && '__nav_li_active'
                   }`}
-                  to={"contact"}
+                  to={'contact'}
                   // onClick={() => setActive(1)}
                   spy={true}
                   smooth={true}

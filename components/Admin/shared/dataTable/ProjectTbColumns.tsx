@@ -1,21 +1,21 @@
-"use client";
-import React from "react";
-import { useRouter } from "next/navigation";
-import { ColumnDef, Row } from "@tanstack/react-table";
-import { Check, MoreHorizontal, X } from "lucide-react";
+'use client';
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { ColumnDef, Row } from '@tanstack/react-table';
+import { Check, MoreHorizontal, X } from 'lucide-react';
 
-import { Button } from "@/components/Admin/ui/button";
+import { Button } from '@/components/Admin/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/Admin/ui/dropdown-menu";
-import { DataTableColumnHeader } from "./DataTableColumnHeader";
-import Image from "next/image";
-import { techStackIconsData } from "@/utils/Admin/shared/icons/TechIcons";
-import toast from "react-hot-toast";
+  DropdownMenuTrigger
+} from '@/components/Admin/ui/dropdown-menu';
+import { DataTableColumnHeader } from './DataTableColumnHeader';
+import Image from 'next/image';
+import { techStackIconsData } from '@/utils/Admin/shared/icons/TechIcons';
+import toast from 'react-hot-toast';
 
 // types
 export type Projects = {
@@ -33,42 +33,32 @@ export type Projects = {
     _id: string;
   };
   selectedTech: [string];
-  status: "true" | "false";
+  status: 'true' | 'false';
   createdDate: string;
   createdAt: string;
   updatedAt: string;
 };
 
 // Date Converting
-const getDate = <TData, TValue>({
-  cell,
-}: {
-  cell: { getValue: () => TValue };
-}): string => {
+const getDate = <TData, TValue>({ cell }: { cell: { getValue: () => TValue } }): string => {
   const dateString = cell.getValue() as Date;
   const dateObj = new Date(dateString);
   return dateObj.toDateString();
 };
 
 // Icons Mapping and creating
-const getIcons = <TData, TValue>({
-  cell,
-}: {
-  cell: { getValue: () => TValue };
-}) => {
+const getIcons = <TData, TValue>({ cell }: { cell: { getValue: () => TValue } }) => {
   const Techs = cell.getValue() as [string];
-  const filteredTechstack = techStackIconsData.filter((tech) =>
-    Techs.includes(tech.id)
-  );
+  const filteredTechstack = techStackIconsData.filter((tech) => Techs.includes(tech.id));
   return (
-    <div className="flex gap-2 flex-wrap md:gap-0">
+    <div className="flex flex-wrap gap-2 md:gap-0">
       {filteredTechstack.map((T, index) => (
         <div key={index}>
           {React.createElement(T.icon, {
             size: 30,
             alt: T.id,
             className:
-              "border rounded-full p-0.5 transition-colors duration-300 hover:bg-[#D3D3D3] md:text-lg",
+              'border rounded-full p-0.5 transition-colors duration-300 hover:bg-[#D3D3D3] md:text-lg'
           })}
         </div>
       ))}
@@ -83,18 +73,15 @@ const getActions = ({ row }: { row: Row<Projects> }) => {
 
   const deleteProject = async (id: string) => {
     try {
-      const res = await fetch(
-        process.env.NEXT_PUBLIC_API_V1 + "delete-project/" + id,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
-      );
+      const res = await fetch(process.env.NEXT_PUBLIC_API_V1 + 'delete-project/' + id, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
 
       if (res.status === 200) {
         router.refresh();
       } else {
-        throw new Error("Failed to delete project");
+        throw new Error('Failed to delete project');
       }
     } catch (error) {
       throw error;
@@ -103,7 +90,7 @@ const getActions = ({ row }: { row: Row<Projects> }) => {
 
   const handleEditProject = (id: string) => {
     router.push(`/admin/dashboard/projects/edit/${id}`);
-    toast.loading("loading..");
+    toast.loading('loading..');
     setTimeout(() => {
       toast.dismiss();
     }, 500);
@@ -111,9 +98,9 @@ const getActions = ({ row }: { row: Row<Projects> }) => {
 
   const fetchDataWithToast = async () => {
     return toast.promise(deleteProject(project._id), {
-      loading: "Deleting...", // Message shown while loading
-      success: "Project Deleted Successfully!", // Shown on success
-      error: "Error Deleting Project!", // Shown on error
+      loading: 'Deleting...', // Message shown while loading
+      success: 'Project Deleted Successfully!', // Shown on success
+      error: 'Error Deleting Project!' // Shown on error
     });
   };
 
@@ -147,13 +134,13 @@ const getActions = ({ row }: { row: Row<Projects> }) => {
 // Table Columns
 export const columns: ColumnDef<Projects>[] = [
   {
-    accessorKey: "title",
+    accessorKey: 'title',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Title" />;
-    },
+    }
   },
   {
-    accessorKey: "status",
+    accessorKey: 'status',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Status" />;
     },
@@ -164,28 +151,28 @@ export const columns: ColumnDef<Projects>[] = [
           {status ? <Check size={20} /> : <X size={20} />}
         </div>
       );
-    },
+    }
   },
   {
-    accessorKey: "createdDate",
+    accessorKey: 'createdDate',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Created Date" />;
     },
-    cell: ({ cell }) => getDate({ cell }),
+    cell: ({ cell }) => getDate({ cell })
   },
   {
-    accessorKey: "updatedAt",
+    accessorKey: 'updatedAt',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Modified Date" />;
     },
-    cell: ({ cell }) => getDate({ cell }),
+    cell: ({ cell }) => getDate({ cell })
   },
   {
-    accessorKey: "images",
+    accessorKey: 'images',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Image" />;
     },
-    id: "images",
+    id: 'images',
     cell({ cell, row, column }) {
       const images = cell.getValue() as Array<{
         imageURL: string;
@@ -194,10 +181,10 @@ export const columns: ColumnDef<Projects>[] = [
 
       if (images && images.length > 0) {
         const { imageURL, public_id } = images[0];
-        const imageName = public_id.split("/")[1];
+        const imageName = public_id.split('/')[1];
 
         return (
-          <div className="max-w-[250px] h-[200px] overflow-hidden flex items-center justify-center">
+          <div className="flex h-[200px] max-w-[250px] items-center justify-center overflow-hidden">
             <Image
               src={imageURL}
               alt={imageName}
@@ -205,21 +192,21 @@ export const columns: ColumnDef<Projects>[] = [
               height={200}
               layout="responsive"
               objectFit="cover"
-              className="dark:brightness-[.45] object-cover"
+              className="object-cover dark:brightness-[.45]"
             />
           </div>
         );
       } else {
         return <div>No Image</div>;
       }
-    },
+    }
   },
   {
-    accessorKey: "selectedTech",
+    accessorKey: 'selectedTech',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Techs" />;
     },
-    cell: ({ cell }) => getIcons({ cell }),
+    cell: ({ cell }) => getIcons({ cell })
     // cell({ cell }) {
     //   const techs = cell.getValue() as string[]; // Assuming 'techs' is an array of strings
     //   return (
@@ -238,8 +225,8 @@ export const columns: ColumnDef<Projects>[] = [
   },
 
   {
-    id: "actions",
-    cell: ({ row }) => getActions({ row }),
+    id: 'actions',
+    cell: ({ row }) => getActions({ row })
 
     // cell: ({ row }) => {
     //   const router = useRouter();
@@ -270,5 +257,5 @@ export const columns: ColumnDef<Projects>[] = [
     //     </DropdownMenu>
     //   );
     // },
-  },
+  }
 ];

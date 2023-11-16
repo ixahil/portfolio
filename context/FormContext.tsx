@@ -1,11 +1,5 @@
-"use client";
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useMemo,
-} from "react";
+'use client';
+import React, { createContext, useContext, useState, ReactNode, useMemo } from 'react';
 
 // Define the types for your form fields
 type ImageObject = {
@@ -47,20 +41,18 @@ export function FormProvider({ children, initialValues }: FormProviderProps) {
   const [formData, setFormData] = useState<Form>(initialValues);
 
   const updateFormData = (newData: Partial<Form>) => {
-    setFormData((prevData) => ({ ...prevData, ...newData } as Form));
+    setFormData((prevData) => ({ ...prevData, ...newData }) as Form);
   };
 
   return (
-    <FormContext.Provider value={{ formData, updateFormData }}>
-      {children}
-    </FormContext.Provider>
+    <FormContext.Provider value={{ formData, updateFormData }}>{children}</FormContext.Provider>
   );
 }
 
 export function useFormContext() {
   const context = useContext(FormContext);
   if (context === undefined) {
-    throw new Error("useFormContext must be used within a FormProvider");
+    throw new Error('useFormContext must be used within a FormProvider');
   }
   return context;
 }

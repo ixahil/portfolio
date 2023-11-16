@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <footer className="py-8 border-t-4 border-[#acacb4] dark:border-dark-lighter text-center text-[#acacb4] dark:bg-dark">
-      <div className="flex px-16 justify-end md:items-center flex-col">
+    <footer className="border-t-4 border-[#acacb4] py-8 text-center text-[#acacb4] dark:border-dark-lighter dark:bg-dark">
+      <div className="flex flex-col justify-end px-16 md:items-center">
         <p>Made with &lt;3 by Sahil</p>
         <p>© 2023 Dev. Sahil. All Rights Reserved.</p>
       </div>

@@ -1,22 +1,22 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { ColumnDef, Row } from "@tanstack/react-table";
-import { MailOpen, MailWarning, MoreHorizontal } from "lucide-react";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ColumnDef, Row } from '@tanstack/react-table';
+import { MailOpen, MailWarning, MoreHorizontal } from 'lucide-react';
 
-import { Button } from "@/components/Admin/ui/button";
-import { Button as NextButton } from "@nextui-org/react";
+import { Button } from '@/components/Admin/ui/button';
+import { Button as NextButton } from '@nextui-org/react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/Admin/ui/dropdown-menu";
-import { DataTableColumnHeader } from "./DataTableColumnHeader";
-import toast from "react-hot-toast";
-import { useDisclosure } from "@nextui-org/react";
-import Modal from "../modal/Modal";
+  DropdownMenuTrigger
+} from '@/components/Admin/ui/dropdown-menu';
+import { DataTableColumnHeader } from './DataTableColumnHeader';
+import toast from 'react-hot-toast';
+import { useDisclosure } from '@nextui-org/react';
+import Modal from '../modal/Modal';
 
 // types
 export type Inquiry = {
@@ -30,11 +30,7 @@ export type Inquiry = {
 };
 
 // Date Converting
-const getDate = <TData, TValue>({
-  cell,
-}: {
-  cell: { getValue: () => TValue };
-}): string => {
+const getDate = <TData, TValue>({ cell }: { cell: { getValue: () => TValue } }): string => {
   const dateString = cell.getValue() as Date;
   const dateObj = new Date(dateString);
   return dateObj.toDateString();
@@ -47,20 +43,17 @@ const getActions = ({ row }: { row: Row<Inquiry> }) => {
 
   const deleteInquiry = async (id: string) => {
     try {
-      const res = await fetch(
-        process.env.NEXT_PUBLIC_API_V1 + "delete-inquiry/" + id,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
-      );
+      const res = await fetch(process.env.NEXT_PUBLIC_API_V1 + 'delete-inquiry/' + id, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
 
       console.log(res);
 
       if (res.status === 200) {
         router.refresh();
       } else {
-        throw new Error("Failed to delete project");
+        throw new Error('Failed to delete project');
       }
     } catch (error) {
       throw error;
@@ -69,31 +62,28 @@ const getActions = ({ row }: { row: Row<Inquiry> }) => {
 
   const fetchDataWithToast = async () => {
     return toast.promise(deleteInquiry(inquiry._id), {
-      loading: "Deleting...", // Message shown while loading
-      success: "Project Deleted Successfully!", // Shown on success
-      error: "Error Deleting Project!", // Shown on error
+      loading: 'Deleting...', // Message shown while loading
+      success: 'Project Deleted Successfully!', // Shown on success
+      error: 'Error Deleting Project!' // Shown on error
     });
   };
 
   const updateInquiryStatus = async (id: string, status: boolean) => {
     try {
-      const res = await fetch(
-        process.env.NEXT_PUBLIC_API_V1 + "update-inquiry/" + id,
-        {
-          method: "PUT",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json", // Specify JSON content type
-          },
-          body: JSON.stringify({ status: status }), // Convert object to JSON string
-        }
-      );
+      const res = await fetch(process.env.NEXT_PUBLIC_API_V1 + 'update-inquiry/' + id, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json' // Specify JSON content type
+        },
+        body: JSON.stringify({ status: status }) // Convert object to JSON string
+      });
 
       if (res.status === 200) {
         router.refresh();
         console.log(await res.json());
       } else {
-        throw new Error("Failed to update inquiry");
+        throw new Error('Failed to update inquiry');
       }
     } catch (error) {
       throw error;
@@ -117,15 +107,13 @@ const getActions = ({ row }: { row: Row<Inquiry> }) => {
         <div className="mb-2">
           From: {inquiry.name} &lt;{inquiry.email}&gt;
         </div>
-        <div className="border-t border-b border-gray-300 py-2 mb-2">
-          <div className="p-4 rounded-lg bg-gray-100">
+        <div className="mb-2 border-b border-t border-gray-300 py-2">
+          <div className="rounded-lg bg-gray-100 p-4">
             <div>{inquiry.message}</div>
           </div>
         </div>
       </div>
-      <div className="text-gray-500">
-        Sent: {new Date(inquiry.createdAt).toLocaleString()}
-      </div>
+      <div className="text-gray-500">Sent: {new Date(inquiry.createdAt).toLocaleString()}</div>
     </div>
   );
 
@@ -197,46 +185,44 @@ const getActions = ({ row }: { row: Row<Inquiry> }) => {
 // Table Columns
 export const columns: ColumnDef<Inquiry>[] = [
   {
-    accessorKey: "name",
+    accessorKey: 'name',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Name" />;
-    },
+    }
   },
   {
-    accessorKey: "email",
+    accessorKey: 'email',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Email" />;
-    },
+    }
   },
   {
-    accessorKey: "createdAt",
+    accessorKey: 'createdAt',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Inquiry Date" />;
     },
-    cell: ({ cell }) => getDate({ cell }),
+    cell: ({ cell }) => getDate({ cell })
   },
   {
-    accessorKey: "subject",
+    accessorKey: 'subject',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Subject" />;
-    },
+    }
   },
   {
-    accessorKey: "message",
+    accessorKey: 'message',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Message" />;
     },
     cell: ({ cell }) => {
       const message = cell.getValue() as string;
       return (
-        <div className="max-h-12 overflow-hidden text-ellipsis whitespace-nowrap">
-          {message}
-        </div>
+        <div className="max-h-12 overflow-hidden text-ellipsis whitespace-nowrap">{message}</div>
       );
-    },
+    }
   },
   {
-    accessorKey: "status",
+    accessorKey: 'status',
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Status" />;
     },
@@ -247,9 +233,7 @@ export const columns: ColumnDef<Inquiry>[] = [
           {status ? (
             <>
               <MailOpen size={25} className="mr-4" />
-              <span className="border-l-[6px] border-[#4BB543] pl-2">
-                Opened!
-              </span>
+              <span className="border-l-[6px] border-[#4BB543] pl-2">Opened!</span>
             </>
           ) : (
             <>
@@ -259,11 +243,11 @@ export const columns: ColumnDef<Inquiry>[] = [
           )}
         </div>
       );
-    },
+    }
   },
 
   {
-    id: "actions",
-    cell: ({ row }) => getActions({ row }),
-  },
+    id: 'actions',
+    cell: ({ row }) => getActions({ row })
+  }
 ];

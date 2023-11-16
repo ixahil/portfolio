@@ -1,13 +1,13 @@
-"use client";
-import { useFormContext } from "@/context/FormContext";
-import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+'use client';
+import { useFormContext } from '@/context/FormContext';
+import dynamic from 'next/dynamic';
+import { useMemo, useState } from 'react';
 
-import "react-quill/dist/quill.snow.css";
+import 'react-quill/dist/quill.snow.css';
 
-const ReactQuill = dynamic(() => import("react-quill"), {
+const ReactQuill = dynamic(() => import('react-quill'), {
   loading: () => <p>Loading...</p>,
-  ssr: false,
+  ssr: false
 });
 
 function RichEditor() {
@@ -19,15 +19,15 @@ function RichEditor() {
       toolbar: [
         [{ font: [] }],
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        ["bold", "italic", "underline", "strike"],
+        ['bold', 'italic', 'underline', 'strike'],
         [{ color: [] }, { background: [] }],
-        [{ script: "sub" }, { script: "super" }],
-        ["blockquote", "code-block"],
-        [{ list: "ordered" }, { list: "bullet" }],
-        [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
-        ["link", "image", "video"],
-        ["clean"],
-      ],
+        [{ script: 'sub' }, { script: 'super' }],
+        ['blockquote', 'code-block'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
+        ['link', 'image', 'video'],
+        ['clean']
+      ]
     }),
     []
   );

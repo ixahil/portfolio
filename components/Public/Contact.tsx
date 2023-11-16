@@ -1,6 +1,10 @@
-"use client";
-import React, { useState } from "react";
-import toast from "react-hot-toast";
+'use client';
+import { Mail } from 'lucide-react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { BsSkype } from 'react-icons/bs';
+import { FaSkype } from 'react-icons/fa6';
+import { SiSkype } from 'react-icons/si';
 interface FormObject {
   [key: string]: string; // This type allows keys (property names) of type string, and values of type string
 }
@@ -21,17 +25,17 @@ const Contact = () => {
     const submitForm = async () => {
       setIsSubmitting(true);
       try {
-        const res = await fetch(process.env.NEXT_PUBLIC_API_V1 + "inquiry", {
-          method: "POST",
-          credentials: "include",
+        const res = await fetch(process.env.NEXT_PUBLIC_API_V1 + 'inquiry', {
+          method: 'POST',
+          credentials: 'include',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify(formObject),
+          body: JSON.stringify(formObject)
         });
 
         if (res.ok) {
-          toast.success("Submitted Successfully!");
+          toast.success('Submitted Successfully!');
           setIsSubmitted(true);
         } else {
           console.log(res);
@@ -44,47 +48,59 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-full h-full md:px-8">
-      <div className="flex flex-row md:flex-col w-2/3 md:w-full mx-auto h-full py-36 md:py-16 justify-between">
-        <div className="md:mr-8 text-start md:text-left">
-          <h1 className="text-5xl md:text-3xl font-bold mb-4 leading-16 tracking-widest">
+    <section id="contact" className="h-full w-full md:px-8">
+      <div className="mx-auto flex h-full w-5/6 flex-row justify-between py-36 md:w-full md:flex-col md:py-16">
+        <div className="text-start md:mr-8 md:text-left">
+          <h1 className="leading-16 mb-4 text-5xl font-bold tracking-widest md:text-3xl">
             Let's Work
             <br /> Together!
           </h1>
           <div className="mb-4">
-            <h2 className="font-semibold text-lg">Mail</h2>
-            <p>sahilshaiikh@hotmail.com</p>
+            <h2 className="mb-2 text-lg font-semibold">Mail</h2>
+            <a href="mailto:sahilshaiikh@hotmail.com" className="flex items-center gap-2">
+              <Mail size={28} />
+              sahilshaiikh@hotmail.com
+            </a>
+          </div>
+          <div className="mb-4">
+            <h2 className="mb-2 text-lg font-semibold">Skype</h2>
+            <a href="skype:live:sahilshaiikh?chat" className="flex items-center gap-2">
+              <SiSkype size="28" />
+              Let's Chat
+            </a>
           </div>
         </div>
         {isSubmitted ? (
-          <div className="w-full md:w-full max-w-xl flex flex-col gap-4 ">
+          <div className="flex w-full max-w-xl flex-col gap-4 md:w-full ">
             <p>
-              Thank you for your submission! I got your inquiry, and I will get
-              back to you soon!.
+              Thank you for your submission! I got your inquiry, and I will get back to you soon!.
             </p>
             <p>You should have received a follow-up email.</p>
           </div>
         ) : (
-          <div className="w-full md:w-full max-w-xl">
+          <div className="w-full max-w-xl md:w-full">
+            <h2 className="mb-8 text-lg font-semibold">
+              Please fill out to fill out this form and I will get back to you ASAP!
+            </h2>
             <form action="" className="" onSubmit={handleSubmit}>
               <input
                 required
                 type="text"
-                className="w-full mb-4 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mb-4 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Name"
                 name="name"
               />
               <input
                 required
                 type="email"
-                className="w-full mb-4 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mb-4 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Email"
                 name="email"
               />
               <input
                 required
                 type="text"
-                className="w-full mb-4 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mb-4 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Subject"
                 name="subject"
               />
@@ -94,7 +110,7 @@ const Contact = () => {
                 id=""
                 cols={30}
                 rows={10}
-                className="w-full mb-4 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mb-4 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Message"
                 dirName="message"
               ></textarea>
@@ -102,12 +118,12 @@ const Contact = () => {
                 <button
                   disabled
                   type="submit"
-                  className="w-full bg-blue-500 text-white font-semibold py-4 rounded-md hover:bg-blue-600 transition duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 px-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 items-center"
+                  className="w-full items-center rounded-md bg-blue-500 px-5 py-4 text-center font-semibold text-white transition duration-300 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   <svg
                     aria-hidden="true"
                     role="status"
-                    className="inline mr-3 w-6 h-6 text-white animate-spin"
+                    className="mr-3 inline h-6 w-6 animate-spin text-white"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +143,7 @@ const Contact = () => {
                 <>
                   <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white font-semibold py-4 rounded-md hover:bg-blue-600 transition duration-300"
+                    className="w-full rounded-md bg-blue-500 py-4 font-semibold text-white transition duration-300 hover:bg-blue-600"
                   >
                     Submit
                   </button>

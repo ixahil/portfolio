@@ -1,33 +1,32 @@
-"use client";
-import React from "react";
-import { TfiLinkedin } from "react-icons/tfi";
-import { SiGithub } from "react-icons/si";
-import { Avatar } from "@nextui-org/react";
+'use client';
+import React from 'react';
+import { TfiLinkedin } from 'react-icons/tfi';
+import { SiGithub } from 'react-icons/si';
+import { Avatar } from '@nextui-org/react';
 
 const About = () => {
   return (
     <section
-      className="flex flex-col gap-8 w-full h-full bg-gradient-to-r from-primary to-[#2b0e30] md:p-8 md:gap-4"
+      className="flex h-full w-full flex-col gap-8 bg-gradient-to-r from-primary to-[#2b0e30] md:gap-4 md:p-8"
       id="about"
     >
-      <div className="flex w-2/3 md:w-full justify-evenly mx-auto gap-8 md:flex-col items-center md:justify-center">
+      <div className="mx-auto flex w-5/6 items-center justify-evenly gap-8 md:w-full md:flex-col md:justify-center">
         <div className="flex flex-col gap-4 py-24 md:py-0">
-          <h1 className="md:text-3xl text-4xl text-text-light">Sahil Shaikh</h1>
-          <h2 className="text-dark md:text-xl text-2xl">Web Developer</h2>
-          <p className="text-[#c8c7c8] text-justify">
-            I've worked on a variety of projects over the years and I'm proud of
-            the progress I've made. Many of these projects are open-source and
-            available for others to explore and contribute to. If you're
-            interested in any of the projects I've worked on, please feel free
-            to check out the code and suggest any improvements or enhancements
-            you might have in mind. Collaborating with others is a great way to
-            learn and grow, and I'm always open to new ideas and feedback.
+          <h1 className="text-4xl text-text-light md:text-3xl">Sahil Shaikh</h1>
+          <h2 className="text-2xl text-dark md:text-xl">Web Developer</h2>
+          <p className="text-justify text-[#c8c7c8]">
+            I've worked on a variety of projects over the years and I'm proud of the progress I've
+            made. Many of these projects are open-source and available for others to explore and
+            contribute to. If you're interested in any of the projects I've worked on, please feel
+            free to check out the code and suggest any improvements or enhancements you might have
+            in mind. Collaborating with others is a great way to learn and grow, and I'm always open
+            to new ideas and feedback.
           </p>
           <div className="flex gap-2">
-            <div className="border-2 border-dark rounded-sm p-4 cursor-pointer hover:bg-transparent bg-dark">
+            <div className="cursor-pointer rounded-sm border-2 border-dark bg-dark p-4 hover:bg-transparent">
               <TfiLinkedin fill="white" className="text-xl" />
             </div>
-            <div className="border-2 border-dark rounded-sm p-4 cursor-pointer hover:bg-transparent bg-dark">
+            <div className="cursor-pointer rounded-sm border-2 border-dark bg-dark p-4 hover:bg-transparent">
               <SiGithub fill="white" className="text-xl" />
             </div>
           </div>
@@ -37,7 +36,7 @@ const About = () => {
             isBordered
             color="primary"
             src="/images/avatar.jpg"
-            className="w-60 h-60 text-large md:w-40 md:h-40"
+            className="h-60 w-60 text-large md:h-40 md:w-40"
           />
         </div>
       </div>

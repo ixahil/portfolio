@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   ColumnDef,
@@ -10,8 +10,8 @@ import {
   VisibilityState,
   getSortedRowModel,
   ColumnFiltersState,
-  getFilteredRowModel,
-} from "@tanstack/react-table";
+  getFilteredRowModel
+} from '@tanstack/react-table';
 
 import {
   Table,
@@ -19,22 +19,19 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-} from "@/components/Admin/ui/table";
-import { Suspense, useState } from "react";
-import { DataTablePagination } from "./DataTablePagination";
-import { DataTableViewOptions } from "./DataTableViewOptions";
-import Loading from "@/app/loading";
+  TableRow
+} from '@/components/Admin/ui/table';
+import { Suspense, useState } from 'react';
+import { DataTablePagination } from './DataTablePagination';
+import { DataTableViewOptions } from './DataTableViewOptions';
+import Loading from '@/app/loading';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -53,8 +50,8 @@ export function DataTable<TData, TValue>({
     state: {
       sorting,
       columnFilters,
-      columnVisibility,
-    },
+      columnVisibility
+    }
   });
   // const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
   //   pageIndex: 0,
@@ -63,7 +60,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="">
-      <div className="flex items-center py-4 justify-between">
+      <div className="flex items-center justify-between py-4">
         <DataTableViewOptions table={table} />
       </div>
       <div className="rounded-md border-2 border-light-lighter dark:border-dark-lighter">
@@ -76,10 +73,7 @@ export function DataTable<TData, TValue>({
                     <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                        : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   );
                 })}
@@ -89,26 +83,17 @@ export function DataTable<TData, TValue>({
           <TableBody className="">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
+                <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="max-w-xs">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
+                <TableCell colSpan={columns.length} className="h-24 text-center">
                   No results.
                 </TableCell>
               </TableRow>

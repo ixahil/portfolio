@@ -1,7 +1,7 @@
-"use client";
-import Image from "next/image";
-import React, { Suspense, useState } from "react";
-import Imageplace from "@/public/images/avatar.jpg";
+'use client';
+import Image from 'next/image';
+import React, { Suspense, useState } from 'react';
+import Imageplace from '@/public/images/avatar.jpg';
 // import { Carousel, IconButton } from "@material-tailwind/react";
 
 type Props = {
@@ -24,7 +24,7 @@ const CustomImageSlider = ({ images }: Props) => {
 
   return (
     <>
-      <div className="flex flex-col gap-8 items-center">
+      <div className="flex flex-col items-center gap-8">
         <div className="">
           <figure>
             <Image
@@ -33,16 +33,16 @@ const CustomImageSlider = ({ images }: Props) => {
               height={500}
               sizes="100vw"
               objectFit="cover"
-              style={{ width: "100%", height: "100%" }} // optional
+              style={{ width: '100%', height: '100%' }} // optional
               alt={mainImage._id}
               className="rounded-xl border-2"
               placeholder="blur"
-              blurDataURL={"/images/no-image.jpg"}
+              blurDataURL={'/images/no-image.jpg'}
             />
           </figure>
         </div>
 
-        <div className="flex gap-4 items-center">
+        <div className="flex items-center gap-4">
           {images.map((image, index) => (
             <figure className="cursor-pointer">
               <Image
@@ -56,7 +56,7 @@ const CustomImageSlider = ({ images }: Props) => {
                 key={index}
                 onClick={() => setMainImage(image)}
                 placeholder="blur"
-                blurDataURL={"/images/no-image.jpg"}
+                blurDataURL={'/images/no-image.jpg'}
               />
             </figure>
           ))}

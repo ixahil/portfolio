@@ -30,8 +30,8 @@ export const sendToken = (user, statusCode, res) => {
   if (process.env.NODE_ENV === "production") {
     accessTokenOptions.sameSite = "Lax";
     refreshTokenOptions.sameSite = "Lax";
-    accessTokenOptions.domain = "sahildev.pro";
-    refreshToken.domain = "sahildev.pro";
+    accessTokenOptions.domain = ".sahildev.pro"; // Add a dot before the domain
+    refreshTokenOptions.domain = ".sahildev.pro"; // Add a dot before the domain
     accessTokenOptions.secure = true;
     refreshTokenOptions.secure = true;
   }

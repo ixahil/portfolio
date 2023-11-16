@@ -30,12 +30,19 @@ const Home = () => {
             am always looking for new challenges and opportunities to grow as a developer.
           </p>
           <SocialIcons />
-          <button className="rounded-md border-1 border-[#1aa1ed] bg-[#1aa1ed] p-3 text-light hover:bg-transparent hover:text-dark dark:hover:text-light">
+          <a
+            href="#contact"
+            className="rounded-md border-1 border-[#1aa1ed] bg-[#1aa1ed] p-3 text-center text-light hover:bg-transparent hover:text-dark dark:hover:text-light"
+          >
             Let's Connect
-          </button>
-          <button className="rounded-md border-1 border-[#302e2e] bg-[#302e2e] p-3 text-light hover:border-[#1aa1ed] hover:bg-transparent hover:text-dark dark:hover:text-light">
+          </a>
+          <a
+            href="/files/SahilCV.pdf"
+            className="button rounded-md border-1 border-[#302e2e] bg-[#302e2e] p-3 text-center text-light hover:border-[#1aa1ed] hover:bg-transparent hover:text-dark dark:hover:text-light"
+            download="Resume-SahilShaikh.pdf"
+          >
             Download Resume
-          </button>
+          </a>
         </div>
         <div className="h-full border-2 border-[#302e2e]"></div>
         <div className="flex w-1/2 flex-col gap-8 pt-12 md:w-full md:pt-0">

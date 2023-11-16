@@ -17,6 +17,7 @@ export const isAuthenticated = catchAsyncErrors(async (req, res, next) => {
     _auth,
     process.env.ACCESS_TOKEN,
     (err, decoded) => {
+      console.log(decoded);
       if (err) {
         return next(new ErrorHandler("You are not Authorized!", 400));
       }

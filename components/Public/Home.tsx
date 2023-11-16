@@ -10,7 +10,7 @@ const Home = () => {
       id="home"
       className={`md:pt-24 w-full h-full pt-36 flex justify-center relative bg-gradient px-8`}
     >
-      <div className="w-2/3 md:w-full flex gap-20 md:flex-col md:gap-12 justify-between">
+      <div className="w-2/3 md:w-full lg:w-full flex gap-20 md:flex-col md:gap-12 justify-between">
         <div className="flex flex-col gap-8 w-1/2 md:w-full">
           <div className="">
             <h1 className="md:text-2xl text-4xl __title_head font-bold">

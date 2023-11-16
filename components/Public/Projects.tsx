@@ -17,8 +17,8 @@ async function projects() {
     return <p>No Projects available.</p>;
   } else {
     return (
-      <section className="py-36 md:py-24 md:px-8 w-full" id="projects">
-        <div className="w-2/3 md:w-full mx-auto flex flex-col gap-24">
+      <section className="py-36 md:py-24 md:px-8 lg:px-8 w-full" id="projects">
+        <div className="w-2/3 md:w-full lg:w-full mx-auto flex flex-col gap-24">
           <div className="text-center flex items-center flex-col justify-center">
             <h2 className="text-primary md:text-2xl text-3xl font-bold leading-12 tracking-[2rem] md:tracking-widest">
               FEATURED
@@ -35,10 +35,10 @@ async function projects() {
 
               return (
                 <div
-                  className="flex gap-24 md:gap-16 flex-row md:flex-col md:items-start"
+                  className="flex gap-24 md:gap-16 flex-row md:flex-col lg:flex-col md:items-start"
                   key={index}
                 >
-                  <div className="relative w-2/4 md:w-full md:h-[250px]">
+                  <div className="relative w-2/4 md:w-full lg:w-full md:h-[250px] lg:h-[250px]">
                     {sliderImages.length > 0 ? (
                       <>
                         <div className="absolute w-2/3 h-1/2">

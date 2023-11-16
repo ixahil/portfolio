@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useTheme } from "next-themes";
-import { BsSun } from "react-icons/bs";
-import { FiMoon } from "react-icons/fi";
-import { useState, useEffect } from "react";
+import { useTheme } from 'next-themes';
+import { BsSun } from 'react-icons/bs';
+import { FiMoon } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
 
 type Props = {
   taglineDay: String;
@@ -26,10 +26,10 @@ const ThemeSwitch = ({ taglineDay, taglineNight }: Props) => {
   if (!taglineDay || !taglineNight) {
     return (
       <>
-        {theme === "dark" ? (
-          <BsSun size={30} cursor="pointer" onClick={() => setTheme("light")} />
+        {theme === 'dark' ? (
+          <BsSun size={30} cursor="pointer" onClick={() => setTheme('light')} />
         ) : (
-          <FiMoon size={30} cursor="pointer" onClick={() => setTheme("dark")} />
+          <FiMoon size={30} cursor="pointer" onClick={() => setTheme('dark')} />
         )}
       </>
     );
@@ -37,16 +37,16 @@ const ThemeSwitch = ({ taglineDay, taglineNight }: Props) => {
 
   return (
     <>
-      {theme === "dark" ? (
-        <div className="flex gap-4 items-center">
+      {theme === 'dark' ? (
+        <div className="flex items-center gap-4">
           <span>{taglineNight}</span>
 
-          <BsSun size={30} cursor="pointer" onClick={() => setTheme("light")} />
+          <BsSun size={30} cursor="pointer" onClick={() => setTheme('light')} />
         </div>
       ) : (
-        <div className="flex gap-4  items-center">
+        <div className="flex items-center  gap-4">
           <span>{taglineDay}</span>
-          <FiMoon size={30} cursor="pointer" onClick={() => setTheme("dark")} />
+          <FiMoon size={30} cursor="pointer" onClick={() => setTheme('dark')} />
         </div>
       )}
     </>

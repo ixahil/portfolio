@@ -43,7 +43,7 @@ async function projects() {
                       <>
                         <div className="relative h-3/4 w-full lg:h-[350px]">
                           <Image
-                            className="rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out group-hover:scale-105 dark:border-dark-lighter md:w-full"
+                            className="rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out hover:absolute hover:z-10 hover:scale-110 dark:border-dark-lighter md:w-full"
                             alt={project.title}
                             src={project.images[0].imageURL}
                             blurDataURL={project.images[0].imageURL}
@@ -54,7 +54,7 @@ async function projects() {
                           />
                           {sliderImages.length > 3 && (
                             <Image
-                              className="absolute bottom-0 right-0 rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out group-hover:scale-105 dark:border-dark-lighter md:w-4/5 lg:top-32"
+                              className="absolute bottom-0 right-0 rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out hover:scale-110 dark:border-dark-lighter md:w-4/5 lg:top-32"
                               alt={project.title}
                               src={project.images[3].imageURL}
                               blurDataURL={project.images[3].imageURL}

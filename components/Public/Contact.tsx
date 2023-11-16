@@ -57,14 +57,20 @@ const Contact = () => {
           </h1>
           <div className="mb-4">
             <h2 className="mb-2 text-lg font-semibold">Mail</h2>
-            <a href="mailto:sahilshaiikh@hotmail.com" className="flex items-center gap-2">
+            <a
+              href="mailto:sahilshaiikh@hotmail.com"
+              className="flex items-center gap-2 transition duration-300 ease-in-out hover:scale-105"
+            >
               <Mail size={28} />
               sahilshaiikh@hotmail.com
             </a>
           </div>
           <div className="mb-4">
             <h2 className="mb-2 text-lg font-semibold">Skype</h2>
-            <a href="skype:live:sahilshaiikh?chat" className="flex items-center gap-2">
+            <a
+              href="skype:live:sahilshaiikh?chat"
+              className="flex items-center gap-2 transition duration-300 ease-in-out hover:scale-105"
+            >
               <SiSkype size="28" />
               Let's Chat
             </a>

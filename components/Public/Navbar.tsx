@@ -256,10 +256,18 @@ const Navbar = (props: Props) => {
                 <ThemeSwitch taglineDay={'Not a Day Dreamer?'} taglineNight={'Not a Night Owl?'} />
               </div>
               <div className="flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-0">
-                <Link href={'https://github.com/ixahil'} target="_blank">
+                <Link
+                  href={'https://github.com/ixahil'}
+                  target="_blank"
+                  className="transition duration-300 ease-in-out hover:scale-110"
+                >
                   <BsGithub size={30} cursor="pointer" />
                 </Link>
-                <Link href={'https://www.linkedin.com/in/ixahil/'} target="_blank">
+                <Link
+                  href={'https://www.linkedin.com/in/ixahil/'}
+                  target="_blank"
+                  className="transition duration-300 ease-in-out hover:scale-110"
+                >
                   <TiSocialLinkedinCircular size={40} cursor="pointer" />
                 </Link>
               </div>

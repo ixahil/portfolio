@@ -97,9 +97,9 @@ const Setting = ({ initialValues }: Props) => {
   });
   const { isSubmitting, handleChange, handleSubmit, values, errors, touched } = formik;
 
-  const fileName = values.resume.split('\\')[3];
+  const fileName = values?.resume?.split('\\')[3] || '';
 
-  const logo = values.logo?.split(' ') || '';
+  const logo = values?.logo?.split(' ') || '';
 
   return (
     <div className="h-full p-16">

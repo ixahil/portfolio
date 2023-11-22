@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaNodeJs, FaReact } from 'react-icons/fa6';
 import { SiExpress, SiMongodb } from 'react-icons/si';
 import { SiMysql } from 'react-icons/si';

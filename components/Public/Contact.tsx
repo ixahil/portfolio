@@ -2,14 +2,23 @@
 import { Mail } from 'lucide-react';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { BsSkype } from 'react-icons/bs';
-import { FaSkype } from 'react-icons/fa6';
 import { SiSkype } from 'react-icons/si';
 interface FormObject {
   [key: string]: string; // This type allows keys (property names) of type string, and values of type string
 }
 
-const Contact = () => {
+type Props = {
+  data: {
+    instagram: string;
+    linkedin: string;
+    git: string;
+    email: string;
+    resume: string;
+    name: string;
+  };
+};
+
+const Contact = ({ data }: Props) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -62,7 +71,7 @@ const Contact = () => {
               className="flex items-center gap-2 transition duration-300 ease-in-out hover:scale-105"
             >
               <Mail size={28} />
-              sahilshaiikh@hotmail.com
+              {data.email}
             </a>
           </div>
           <div className="mb-4">

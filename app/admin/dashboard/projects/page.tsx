@@ -1,7 +1,6 @@
-import { columns } from "@/components/Admin/shared/dataTable/ProjectTbColumns";
-import { DataTable } from "@/components/Admin/shared/dataTable/data-table";
-import { getAllProjects } from "@/utils/Admin/fetch/GetProjects";
-import React, { Suspense } from "react";
+import { columns } from '@/components/Admin/shared/dataTable/ProjectTbColumns';
+import { DataTable } from '@/components/Admin/shared/dataTable/data-table';
+import { getAllProjects } from '@/utils/Admin/fetch/GetProjects';
 
 type Props = {};
 

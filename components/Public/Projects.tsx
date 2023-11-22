@@ -2,9 +2,6 @@ import Link from 'next/link';
 import { getAllProjects } from '@/utils/public/api/GetData';
 import TechStackIcon from './landingPage/TechStackIcons';
 import Image from 'next/image';
-import { Suspense } from 'react';
-import { Skeleton } from '@nextui-org/react';
-import Loading from '@/app/loading';
 import { ArrowUpRightFromCircle, GithubIcon } from 'lucide-react';
 
 async function projects() {

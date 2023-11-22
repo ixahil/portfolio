@@ -21,10 +21,9 @@ import {
   TableHeader,
   TableRow
 } from '@/components/Admin/ui/table';
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import { DataTablePagination } from './DataTablePagination';
 import { DataTableViewOptions } from './DataTableViewOptions';
-import Loading from '@/app/loading';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

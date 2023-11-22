@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "next-themes";
+import React, { useEffect, useState } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 type ThemeComponentProps = {
   children: React.ReactNode; // Corrected the type here for children
@@ -20,7 +20,7 @@ const ThemeProviderComponent = ({ children }: ThemeComponentProps) => {
   }
 
   return (
-    <ThemeProvider defaultTheme="default" attribute="class">
+    <ThemeProvider defaultTheme="light" attribute="class">
       {children}
     </ThemeProvider>
   );

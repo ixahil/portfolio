@@ -12,7 +12,9 @@ import debounce from 'lodash/debounce';
 import { Link as LinkScroll } from 'react-scroll';
 import { AnimatePresence, motion } from 'framer-motion';
 
-type Props = {};
+type Props = {
+  logoName: String;
+};
 
 const myFont = localFont({
   src: [
@@ -24,10 +26,12 @@ const myFont = localFont({
   ]
 });
 
-const Navbar = (props: Props) => {
+const Navbar = ({ logoName }: Props) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [active, setActive] = useState<Number>(1);
   const [isScrollPast, setIsScrollPast] = useState(false);
+
+  const logo = logoName.split(' ');
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -185,7 +189,7 @@ const Navbar = (props: Props) => {
             /> */}
             <div className="flex rounded-full bg-dark px-6 py-2 pt-5 font-bold">
               <h1 className={`text-3xl ${myFont.className} cursor-pointer`}>
-                &lt;Dev. <span className="text-primaryLight">Sahil </span>&gt;
+                &lt;{logo[0]} <span className="text-primaryLight">{logo[1]} </span>&gt;
               </h1>
             </div>
             <div className="flex">

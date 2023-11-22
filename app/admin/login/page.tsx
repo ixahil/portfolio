@@ -1,34 +1,32 @@
-"use client";
+'use client';
 
 // import "./login.scss";
-import { useState } from "react";
-import { useFormik } from "formik";
+import { useState } from 'react';
+import { useFormik } from 'formik';
 // import { useSignIn } from "react-auth-kit";
-import * as Yup from "yup";
-import { Eye, EyeOff } from "lucide-react";
+import * as Yup from 'yup';
+import { Eye, EyeOff } from 'lucide-react';
 // import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import axios, { AxiosError } from "axios";
-import localFont from "next/font/local";
-import { SyncLoader } from "react-spinners";
-import Link from "next/link";
+import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import axios, { AxiosError } from 'axios';
+import localFont from 'next/font/local';
+import { SyncLoader } from 'react-spinners';
+import Link from 'next/link';
 
 const loginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Invalid email")
-    .required("Please enter your email!"),
-  password: Yup.string().required("Please enter your password!").min(6),
+  email: Yup.string().email('Invalid email').required('Please enter your email!'),
+  password: Yup.string().required('Please enter your password!').min(6)
 });
 
 const myFont = localFont({
   src: [
     {
-      path: "../../fonts/Agustina.woff",
-      weight: "normal",
-      style: "normal",
-    },
-  ],
+      path: '../../fonts/Agustina.woff',
+      weight: 'normal',
+      style: 'normal'
+    }
+  ]
 });
 
 const Login = () => {
@@ -38,28 +36,24 @@ const Login = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: ''
     },
     validationSchema: loginSchema,
     onSubmit: async (values: any) => {
       try {
-        const response = await axios.post(
-          process.env.NEXT_PUBLIC_API_V1 + "login",
-          values,
-          {
-            withCredentials: true,
-          }
-        );
+        const response = await axios.post(process.env.NEXT_PUBLIC_API_V1 + 'login', values, {
+          withCredentials: true
+        });
 
         if (response.status === 200) {
-          toast.success("Logged in Successfully!");
-          router.push("/admin/dashboard/home");
+          toast.success('Logged in Successfully!');
+          router.push('/admin/dashboard/home');
         } else if (response.status === 401) {
-          toast.error("Invalid Credentials!");
+          toast.error('Invalid Credentials!');
         } else {
-          toast.error("Something Wrong!");
-          throw new Error("Invalid credentials");
+          toast.error('Something Wrong!');
+          throw new Error('Invalid credentials');
         }
       } catch (error) {
         if (error instanceof AxiosError) {
@@ -68,48 +62,36 @@ const Login = () => {
             const axiosErr = error.response.data.message;
             toast.error(axiosErr);
           } else {
-            toast.error(
-              "An error occurred with Axios. Please try again later."
-            );
+            toast.error('An error occurred with Axios. Please try again later.');
           }
         } else {
           // Handle other types of errors
           console.error(error); // Log the error for debugging
-          toast.error("An error occurred. Please try again later.");
+          toast.error('An error occurred. Please try again later.');
         }
       }
-    },
+    }
   });
 
-  const { errors, touched, values, handleChange, handleSubmit, isSubmitting } =
-    formik;
+  const { errors, touched, values, handleChange, handleSubmit, isSubmitting } = formik;
 
   return (
     <>
       {/* <!-- component --> */}
-      <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12 text-dark">
-        <div className="p-10 xs:p-0 mx-auto w-full max-w-md">
-          <h1
-            className={`logo font-bold text-center text-4xl mb-5 ${myFont.className}`}
-          >
+      <div className="flex min-h-screen flex-col justify-center bg-gray-100 text-dark sm:py-12">
+        <div className="xs:p-0 mx-auto w-full max-w-md p-10">
+          <h1 className={`logo mb-5 text-center text-4xl font-bold ${myFont.className}`}>
             <span>&lt; Sahil Shaikh /&gt;</span>
           </h1>
-          <div className="bg-white shadow w-full rounded-lg divide-y divide-gray relative">
-            <div
-              className={`px-5 py-7 ${
-                isSubmitting ? "opacity-50 pointer-events-none" : ""
-              }`}
-            >
-              <div className="text-center absolute top-[25%] right-[40%] z-20">
+          <div className="divide-gray relative w-full divide-y rounded-lg bg-white shadow">
+            <div className={`px-5 py-7 ${isSubmitting ? 'pointer-events-none opacity-50' : ''}`}>
+              <div className="absolute right-[40%] top-[25%] z-20 text-center">
                 <SyncLoader color="#0a64bc" size={15} loading={isSubmitting} />
               </div>
               {/* Conditionally render the spinner when isSubmitting is true */}
 
               <form onSubmit={handleSubmit}>
-                <label
-                  htmlFor="email"
-                  className="font-semibold text-sm text-gray-600 pb-1 block"
-                >
+                <label htmlFor="email" className="block pb-1 text-sm font-semibold text-gray-600">
                   E-mail
                 </label>
                 <input
@@ -118,37 +100,37 @@ const Login = () => {
                   type="text"
                   name="email"
                   className={`${
-                    errors.email && touched.email && "border-red-500"
-                  } border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full`}
+                    errors.email && touched.email && 'border-red-500'
+                  } mb-5 mt-1 w-full rounded-lg border px-3 py-2 text-sm`}
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="password"
-                  className=" font-semibold text-sm text-gray-600 pb-1 block"
+                  className=" block pb-1 text-sm font-semibold text-gray-600"
                 >
                   Password
                 </label>
                 <div className="relative">
                   <input
                     id="password"
-                    type={!show ? "password" : "text"}
+                    type={!show ? 'password' : 'text'}
                     name="password"
                     className={`${
-                      errors.password && touched.password && "border-red-500"
-                    }  border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full`}
+                      errors.password && touched.password && 'border-red-500'
+                    }  mb-5 mt-1 w-full rounded-lg border px-3 py-2 text-sm`}
                     value={values.password}
                     onChange={handleChange}
                   />
                   {!show ? (
                     <EyeOff
-                      className="absolute top-3 right-2 cursor-pointer"
+                      className="absolute right-2 top-3 cursor-pointer"
                       size={20}
                       onClick={() => setShow(true)}
                     />
                   ) : (
                     <Eye
-                      className="absolute top-3 right-2 cursor-pointer"
+                      className="absolute right-2 top-3 cursor-pointer"
                       size={20}
                       onClick={() => setShow(false)}
                     />
@@ -156,26 +138,24 @@ const Login = () => {
                 </div>
 
                 {errors.password && touched.password && (
-                  <span className="text-red-500 py-2 block">
-                    {errors.password?.toString()}
-                  </span>
+                  <span className="block py-2 text-red-500">{errors.password?.toString()}</span>
                 )}
 
                 <div>
                   <button
                     disabled={isSubmitting}
                     type="submit"
-                    className={`transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block ${
-                      isSubmitting && "disabled"
+                    className={`inline-block w-full rounded-lg bg-blue-500 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition duration-200 hover:bg-blue-600 hover:shadow-md focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 ${
+                      isSubmitting && 'disabled'
                     }`}
                   >
-                    <span className="inline-block mr-2">Login</span>
+                    <span className="mr-2 inline-block">Login</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      className="w-4 h-4 inline-block"
+                      className="inline-block h-4 w-4"
                     >
                       <path
                         strokeLinecap="round"
@@ -192,19 +172,19 @@ const Login = () => {
               <div className="grid grid-cols-3 gap-1">
                 <button
                   type="button"
-                  className="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
+                  className="inline-block w-full rounded-lg border border-gray-200 py-2.5 text-center text-sm font-normal text-gray-500 shadow-sm transition duration-200 hover:shadow-md"
                 >
                   MailUp
                 </button>
                 <button
                   type="button"
-                  className="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
+                  className="inline-block w-full rounded-lg border border-gray-200 py-2.5 text-center text-sm font-normal text-gray-500 shadow-sm transition duration-200 hover:shadow-md"
                 >
                   Google
                 </button>
                 <button
                   type="button"
-                  className="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
+                  className="inline-block w-full rounded-lg border border-gray-200 py-2.5 text-center text-sm font-normal text-gray-500 shadow-sm transition duration-200 hover:shadow-md"
                 >
                   Github
                 </button>
@@ -212,14 +192,14 @@ const Login = () => {
             </div>
             <div className="py-5">
               <div className="grid grid-cols-2 gap-1">
-                <div className="text-center sm:text-left whitespace-nowrap">
-                  <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                <div className="whitespace-nowrap text-center sm:text-left">
+                  <button className="mx-5 cursor-pointer rounded-lg px-5 py-4 text-sm font-normal text-gray-500 ring-inset transition duration-200 hover:bg-gray-100 focus:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      className="w-4 h-4 inline-block align-text-top"
+                      className="inline-block h-4 w-4 align-text-top"
                     >
                       <path
                         strokeLinecap="round"
@@ -228,17 +208,17 @@ const Login = () => {
                         d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
                       />
                     </svg>
-                    <span className="inline-block ml-1">Forgot Password</span>
+                    <span className="ml-1 inline-block">Forgot Password</span>
                   </button>
                 </div>
-                <div className="text-center sm:text-right whitespace-nowrap">
-                  <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                <div className="whitespace-nowrap text-center sm:text-right">
+                  <button className="mx-5 cursor-pointer rounded-lg px-5 py-4 text-sm font-normal text-gray-500 ring-inset transition duration-200 hover:bg-gray-100 focus:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      className="w-4 h-4 inline-block align-text-bottom	"
+                      className="inline-block h-4 w-4 align-text-bottom	"
                     >
                       <path
                         strokeLinecap="round"
@@ -247,7 +227,7 @@ const Login = () => {
                         d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
                       />
                     </svg>
-                    <span className="inline-block ml-1">Help</span>
+                    <span className="ml-1 inline-block">Help</span>
                   </button>
                 </div>
               </div>
@@ -255,15 +235,15 @@ const Login = () => {
           </div>
           <div className="py-5">
             <div className="grid grid-cols-2 gap-1">
-              <div className="text-center sm:text-left whitespace-nowrap">
-                <Link href={"/"}>
-                  <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+              <div className="whitespace-nowrap text-center sm:text-left">
+                <Link href={'/'}>
+                  <button className="mx-5 cursor-pointer rounded-lg px-5 py-4 text-sm font-normal text-gray-500 ring-inset transition duration-200 hover:bg-gray-200 focus:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      className="w-4 h-4 inline-block align-text-top"
+                      className="inline-block h-4 w-4 align-text-top"
                     >
                       <path
                         strokeLinecap="round"
@@ -272,9 +252,7 @@ const Login = () => {
                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                       />
                     </svg>
-                    <span className="inline-block ml-1">
-                      Back to Dev.Sahil.com
-                    </span>
+                    <span className="ml-1 inline-block">Back to Dev.Sahil.com</span>
                   </button>
                 </Link>
               </div>

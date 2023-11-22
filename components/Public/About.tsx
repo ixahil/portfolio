@@ -3,8 +3,21 @@ import React from 'react';
 import { TfiLinkedin } from 'react-icons/tfi';
 import { SiGithub } from 'react-icons/si';
 import { Avatar } from '@nextui-org/react';
+import Link from 'next/link';
 
-const About = () => {
+type Props = {
+  data: {
+    instagram: string;
+    linkedin: string;
+    git: string;
+    email: string;
+    resume: string;
+    name: string;
+    position: string;
+  };
+};
+
+const About = ({ data }: Props) => {
   return (
     <section
       className="flex h-full w-full flex-col gap-8 bg-gradient-to-r from-primary to-[#2b0e30] md:gap-4 md:p-8"
@@ -12,8 +25,8 @@ const About = () => {
     >
       <div className="mx-auto flex w-5/6 items-center justify-evenly gap-8 md:w-full md:flex-col md:justify-center">
         <div className="flex flex-col gap-4 py-24 md:py-0">
-          <h1 className="text-4xl text-text-light md:text-3xl">Sahil Shaikh</h1>
-          <h2 className="text-2xl text-dark md:text-xl">Web Developer</h2>
+          <h1 className="text-4xl text-text-light md:text-3xl">{data.name}</h1>
+          <h2 className="text-2xl text-dark md:text-xl">{data.position}</h2>
           <p className="text-justify text-[#c8c7c8]">
             I've worked on a variety of projects over the years and I'm proud of the progress I've
             made. Many of these projects are open-source and available for others to explore and
@@ -23,12 +36,16 @@ const About = () => {
             to new ideas and feedback.
           </p>
           <div className="flex gap-2">
-            <div className="cursor-pointer rounded-sm border-2 border-dark bg-dark p-4 hover:bg-transparent">
-              <TfiLinkedin fill="white" className="text-xl" />
-            </div>
-            <div className="cursor-pointer rounded-sm border-2 border-dark bg-dark p-4 hover:bg-transparent">
-              <SiGithub fill="white" className="text-xl" />
-            </div>
+            <Link href={data.linkedin}>
+              <div className="cursor-pointer rounded-sm border-2 border-dark bg-dark p-4 hover:bg-transparent">
+                <TfiLinkedin fill="white" className="text-xl" />
+              </div>
+            </Link>
+            <Link href={data.git}>
+              <div className="cursor-pointer rounded-sm border-2 border-dark bg-dark p-4 hover:bg-transparent">
+                <SiGithub fill="white" className="text-xl" />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="m-auto">

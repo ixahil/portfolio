@@ -1,23 +1,16 @@
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-  User,
-} from "@nextui-org/react";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User } from '@nextui-org/react';
 type UserInfoProps = {};
 
 function UserInfo({}: UserInfoProps) {
   return (
-    <div className="flex items-center gap-4 text-text-dark dark:text-text-light">
+    <div className="flex items-center gap-4">
       <Dropdown placement="bottom-start">
         <DropdownTrigger>
           <User
             as="button"
             avatarProps={{
               isBordered: true,
-              src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+              src: 'https://i.pravatar.cc/150?u=a042581f4e29026024d'
             }}
             className="transition-transform"
             description="@ixhil"

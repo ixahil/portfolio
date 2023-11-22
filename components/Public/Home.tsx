@@ -1,10 +1,19 @@
-import React from 'react';
 import SocialIcons from '@/utils/public/SocialIcons';
 import { ChevronDownCircle, CornerRightDown } from 'lucide-react';
 import TechIconsHome from '@/utils/Admin/shared/TechIconsHome';
 import Link from 'next/link';
+type Props = {
+  data: {
+    instagram: string;
+    linkedin: string;
+    git: string;
+    email: string;
+    resume: string;
+  };
+};
+const Home = ({ data }: Props) => {
+  const resume = process.env.NEXT_PUBLIC_BACKEND_FOLDER + data.resume;
 
-const Home = () => {
   return (
     <section
       id="home"
@@ -29,7 +38,7 @@ const Home = () => {
             about creating high-quality code that follows best practices and industry standards. I
             am always looking for new challenges and opportunities to grow as a developer.
           </p>
-          <SocialIcons />
+          <SocialIcons data={data} />
           <a
             href="#contact"
             className="rounded-md border-1 border-[#1aa1ed] bg-[#1aa1ed] p-3 text-center text-light hover:bg-transparent hover:text-dark dark:hover:text-light"
@@ -37,9 +46,8 @@ const Home = () => {
             Let's Connect
           </a>
           <a
-            href="/files/SahilCV.pdf"
+            href={resume}
             className="button rounded-md border-1 border-[#302e2e] bg-[#302e2e] p-3 text-center text-light hover:border-[#1aa1ed] hover:bg-transparent hover:text-dark dark:hover:text-light"
-            download="Resume-SahilShaikh.pdf"
           >
             Download Resume
           </a>

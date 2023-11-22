@@ -1,18 +1,15 @@
-"use client";
+'use client';
 
-import classNames from "classnames";
-import Link from "next/link";
-import React, { useState, useMemo } from "react";
-import localFont from "next/font/local";
+import classNames from 'classnames';
+import Link from 'next/link';
+import React, { useState, useMemo } from 'react';
+import localFont from 'next/font/local';
 
-import {
-  IconLogout,
-  CollapsIcon,
-} from "@/utils/Admin/shared/icons/SidebarIcons";
-import { MenuItem, menuItems } from "@/utils/Admin/shared/menu/MenuItems";
+import { IconLogout, CollapsIcon } from '@/utils/Admin/shared/icons/SidebarIcons';
+import { menuItems } from '@/utils/Admin/shared/menu/MenuItems';
 
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 type MenuInterface = {
   id: number; // lowercase 'number', not 'Number'
@@ -24,11 +21,11 @@ type MenuInterface = {
 const AgustinaRegular = localFont({
   src: [
     {
-      path: "../../../../public/fonts/Agustina.woff",
-      weight: "normal",
-      style: "normal",
-    },
-  ],
+      path: '../../../../public/fonts/Agustina.woff',
+      weight: 'normal',
+      style: 'normal'
+    }
+  ]
 });
 
 const Sidebar = () => {
@@ -37,31 +34,28 @@ const Sidebar = () => {
 
   const pathname = usePathname();
 
-  const activeMenu = useMemo(
-    () => menuItems.find((menu) => menu.link === pathname),
-    [pathname]
-  );
+  const activeMenu = useMemo(() => menuItems.find((menu) => menu.link === pathname), [pathname]);
 
   const wrapperClasses = classNames(
-    "px-4 pt-8 pb-4 bg-light flex justify-between flex-col md:w-20 dark:bg-dark border-r-2 border-light-lighter dark:border-dark-lighter h-full",
+    'px-4 pt-8 pb-4 bg-light flex justify-between flex-col md:w-20 dark:bg-dark border-r-2 border-light-lighter dark:border-dark-lighter h-full',
     {
-      "w-50": !toggleCollapse,
-      "w-20": toggleCollapse,
+      'w-50': !toggleCollapse,
+      'w-20': toggleCollapse
     }
   );
 
   const collapseIconClasses = classNames(
-    "p-4 rounded bg-light-lighter absolute right-0 dark:bg-[#282828] shadow-md",
+    'p-4 rounded bg-light-lighter absolute right-0 dark:bg-[#282828] shadow-md',
     {
-      "rotate-180": toggleCollapse,
+      'rotate-180': toggleCollapse
     }
   );
 
   const getNavItemClasses = (menu: Partial<MenuInterface> = {}) => {
     return classNames(
-      "flex items-center cursor-pointer hover:bg-light-lighter rounded-lg w-full overflow-hidden whitespace-nowrap dark:hover:bg-[#282828]",
+      'flex items-center cursor-pointer hover:bg-light-lighter rounded-lg w-full overflow-hidden whitespace-nowrap dark:hover:bg-[#282828]',
       {
-        ["bg-light-lighter dark:bg-[#282828]"]: activeMenu?.id === menu.id,
+        ['bg-light-lighter dark:bg-[#282828]']: activeMenu?.id === menu.id
       }
     );
   };
@@ -82,31 +76,28 @@ const Sidebar = () => {
         onMouseLeave={onMouseOver}
       >
         <div className="flex flex-col">
-          <div className="flex items-center justify-between relative flex-col gap-4">
-            <div className="flex items-center pl-1 gap-4">
-              <div className="w-auto h-auto">
+          <div className="relative flex flex-col items-center justify-between gap-4">
+            <div className="flex items-center gap-4 pl-1">
+              <div className="h-auto w-auto">
                 <Image
                   src="/logo.png"
                   height={75}
                   width={75}
                   alt="logo"
-                  className="w-auto h-auto"
+                  className="h-auto w-auto"
                 />
               </div>
               {isCollapsible && (
-                <button
-                  className={collapseIconClasses}
-                  onClick={handleSidebarToggle}
-                >
+                <button className={collapseIconClasses} onClick={handleSidebarToggle}>
                   <CollapsIcon />
                 </button>
               )}
             </div>
             <span
               className={classNames(
-                `mt-2 text-dark dark:text-light md:hidden text-3xl font-bold ${AgustinaRegular.className}`,
+                `mt-2 text-3xl font-bold text-dark dark:text-light md:hidden ${AgustinaRegular.className}`,
                 {
-                  hidden: toggleCollapse,
+                  hidden: toggleCollapse
                 }
               )}
             >
@@ -114,23 +105,20 @@ const Sidebar = () => {
             </span>
           </div>
 
-          <div className="flex flex-col items-start mt-8 gap-2">
+          <div className="mt-8 flex flex-col items-start gap-2">
             {menuItems.map((menuItem, index) => {
               const { icon: Icon, ...menu } = menuItem; // Destructure each menuItem
               const classes = getNavItemClasses(menu);
               return (
                 <div className={classes} key={index}>
-                  <Link
-                    href={menu.link}
-                    className="flex py-4 px-3 items-center"
-                  >
-                    <div style={{ width: "2.5rem" }}>
+                  <Link href={menu.link} className="flex items-center px-3 py-4">
+                    <div style={{ width: '2.5rem' }}>
                       <Icon />
                     </div>
                     {!toggleCollapse && (
                       <span
                         className={classNames(
-                          "text-md font-medium text-dark dark:text-light md:hidden"
+                          'text-md font-medium text-dark dark:text-light md:hidden'
                         )}
                       >
                         {menu.label}
@@ -160,19 +148,17 @@ const Sidebar = () => {
 
         <div className={`${getNavItemClasses({})}`}>
           <Link
-            href={"/"}
-            className="flex py-4 px-3 items-center dark:bg-dark hover:dark:bg-[#282828]"
+            href={'/'}
+            className="flex items-center px-3 py-4 dark:bg-dark hover:dark:bg-[#282828]"
           >
-            <div style={{ width: "2.5rem" }}>
+            <div style={{ width: '2.5rem' }}>
               <IconLogout />
             </div>
             {!toggleCollapse && (
               <span
-                className={classNames(
-                  "text-md font-medium text-dark dark:text-light md:hidden"
-                )}
+                className={classNames('text-md font-medium text-dark dark:text-light md:hidden')}
               >
-                {"Logout"}
+                {'Logout'}
               </span>
             )}
           </Link>

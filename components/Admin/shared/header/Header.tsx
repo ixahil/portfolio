@@ -3,8 +3,8 @@
 import ThemeSwitcher from '@/utils/Admin/themes/ThemeSwitcher';
 import { Bell, ChevronDown } from 'lucide-react';
 import React from 'react';
-import { Avatar, User } from '@nextui-org/react';
-import Link from 'next/link';
+// import { Avatar, User } from '@nextui-org/react';
+// import Link from 'next/link';
 import UserInfo from '@/utils/Admin/userInfo/UserInfo';
 
 type Props = {};

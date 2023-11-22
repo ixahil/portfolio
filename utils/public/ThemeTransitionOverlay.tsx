@@ -1,7 +1,7 @@
-"use client";
-import { ReactNode, useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
+'use client';
+import { ReactNode, useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { motion } from 'framer-motion';
 
 type Props = {
   children: ReactNode;
@@ -16,12 +16,12 @@ export const ThemeTransitionOverlay = ({ children }: Props) => {
 
   return (
     <>
-      {theme === "dark" ? (
+      {theme === 'dark' ? (
         <motion.div
           className="transition-overlay"
-          initial={{ opacity: 0, backgroundColor: "#000" }}
-          animate={{ opacity: 0.8, backgroundColor: "rgba(0, 0, 0, 0.8)" }}
-          exit={{ opacity: 0, backgroundColor: "rgba(0, 0, 0, 0)" }}
+          initial={{ opacity: 0, backgroundColor: '#000' }}
+          animate={{ opacity: 0.8, backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
+          exit={{ opacity: 0, backgroundColor: 'rgba(0, 0, 0, 0)' }}
         ></motion.div>
       ) : (
         <></>

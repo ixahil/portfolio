@@ -1,6 +1,6 @@
 'use client';
 import { useFormContext } from '@/context/FormContext';
-import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { AiFillDelete, AiFillEdit, AiOutlineUpload } from 'react-icons/ai';
 import ImageUploading from 'react-images-uploading';
 
@@ -13,7 +13,7 @@ type Props = {
 
 export function ImageGallery() {
   const { formData, updateFormData } = useFormContext();
-  const [images, setImages] = React.useState(formData.images);
+  const [images, setImages] = useState(formData.images);
   const maxNumber = 69;
 
   // useEffect(() => {
@@ -30,6 +30,7 @@ export function ImageGallery() {
     // console.log(imageList, addUpdateIndex);
     setImages(imageList);
     formData.images = imageList;
+    console.log(imageList);
   };
 
   return (

@@ -15,7 +15,6 @@ import {
 } from '@/components/Admin/ui/dropdown-menu';
 import { DataTableColumnHeader } from './DataTableColumnHeader';
 import toast from 'react-hot-toast';
-import { useDisclosure } from '@nextui-org/react';
 import Modal from '../modal/Modal';
 
 // types

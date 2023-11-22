@@ -9,6 +9,7 @@ import inquiryRouter from "./routes/inquiry.route.js";
 import notificationRouter from "./routes/notification.route.js";
 import analyticsRouter from "./routes/analytics.route.js";
 import layoutRouter from "./routes/layout.route.js";
+import siteDataRouter from "./routes/siteData.route.js";
 
 configDotenv();
 
@@ -43,6 +44,7 @@ app.use("/public/", express.static("public"));
 app.use(
   "/api/v1",
   userRouter,
+  siteDataRouter,
   projectsRouter,
   inquiryRouter,
   notificationRouter,

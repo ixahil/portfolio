@@ -101,6 +101,8 @@ const Setting = ({ initialValues }: Props) => {
 
   const logo = values?.logo?.split(' ') || '';
 
+  const resume = process.env.NEXT_PUBLIC_BACKEND_FOLDER + values.resume;
+
   return (
     <div className="h-full p-16">
       <form className="h-full" onSubmit={handleSubmit}>
@@ -220,7 +222,7 @@ const Setting = ({ initialValues }: Props) => {
                   formik.setFieldValue('file', event.currentTarget.files?.[0] || null);
                 }}
               />
-              <Link className="text-xl font-semibold" href={values.resume}>
+              <Link className="text-xl font-semibold" href={resume}>
                 Open {fileName}
               </Link>
             </div>

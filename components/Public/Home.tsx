@@ -39,18 +39,20 @@ const Home = ({ data }: Props) => {
             am always looking for new challenges and opportunities to grow as a developer.
           </p>
           <SocialIcons data={data} />
-          <a
-            href="#contact"
-            className="rounded-md border-1 border-[#1aa1ed] bg-[#1aa1ed] p-3 text-center text-light hover:bg-transparent hover:text-dark dark:hover:text-light"
-          >
-            Let's Connect
-          </a>
-          <a
-            href={resume}
-            className="button rounded-md border-1 border-[#302e2e] bg-[#302e2e] p-3 text-center text-light hover:border-[#1aa1ed] hover:bg-transparent hover:text-dark dark:hover:text-light"
-          >
-            Download Resume
-          </a>
+          <div className="flex gap-8">
+            <a
+              href="#contact"
+              className="rounded-md border-1 border-[#1aa1ed] bg-[#1aa1ed] p-3 px-11 text-center text-light transition duration-300 ease-in-out hover:scale-105 hover:bg-transparent hover:text-dark dark:hover:text-light"
+            >
+              Let's Connect
+            </a>
+            <a
+              href={resume}
+              className="button rounded-md border-1 border-[#302e2e] bg-[#302e2e] p-3 px-6 text-center text-light transition duration-300 ease-in-out hover:scale-105 hover:border-[#1aa1ed] hover:bg-transparent hover:text-dark dark:hover:text-light"
+            >
+              Download Resume
+            </a>
+          </div>
         </div>
         <div className="h-full border-2 border-[#302e2e]"></div>
         <div className="flex w-1/2 flex-col gap-8 pt-12 md:w-full md:pt-0">

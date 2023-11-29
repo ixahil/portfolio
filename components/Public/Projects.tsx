@@ -49,7 +49,8 @@ async function projects() {
                             width={500}
                             height={500}
                           />
-                          {sliderImages.length > 3 && (
+
+                          {sliderImages.length > 3 ? (
                             <Image
                               className="absolute bottom-0 right-0 rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out hover:scale-110 dark:border-dark-lighter md:w-4/5 lg:top-32"
                               alt={project.title}
@@ -60,6 +61,19 @@ async function projects() {
                               width={500}
                               height={500}
                             />
+                          ) : (
+                            sliderImages.length > 1 && (
+                              <Image
+                                className="absolute bottom-0 right-0 rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out hover:scale-110 dark:border-dark-lighter md:w-4/5 lg:top-32"
+                                alt={project.title}
+                                src={project.images[1].imageURL}
+                                blurDataURL={project.images[1].imageURL}
+                                placeholder="blur"
+                                sizes="(min-width: 768px) 33vw, (min-width: 640px) 33vw"
+                                width={500}
+                                height={500}
+                              />
+                            )
                           )}
                         </div>
                       </>

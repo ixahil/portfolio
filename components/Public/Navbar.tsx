@@ -177,7 +177,7 @@ const Navbar = ({ logoName }: Props) => {
             </motion.div>
           </>
         ) : (
-          <header className="bg-gradient-header relative flex flex-wrap items-center justify-between bg-dark px-32 py-4 text-text-light md:hidden lg:hidden xl:hidden 2xl:px-16">
+          <header className="relative flex flex-wrap items-center justify-between bg-dark px-32 py-5 text-text-light md:hidden lg:hidden xl:hidden 2xl:px-16">
             {/* <Image
               src="/images/header-bg.jpg"
               alt="header-bg"
@@ -187,8 +187,8 @@ const Navbar = ({ logoName }: Props) => {
               objectFit="cover"
               className="z-[-1]"
             /> */}
-            <div className="flex rounded-full bg-dark px-6 py-2 pt-5 font-bold">
-              <h1 className={`text-3xl ${myFont.className} cursor-pointer`}>
+            <div className="flex rounded-full px-6 py-2 pt-5 font-bold">
+              <h1 className={`text-4xl ${myFont.className} cursor-pointer`}>
                 &lt;{logo[0]} <span className="text-primaryLight">{logo[1]} </span>&gt;
               </h1>
             </div>

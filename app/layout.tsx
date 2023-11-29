@@ -10,9 +10,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Dev Sahil Portfolio',
+  title: 'Sahil Shaikh - Full Stack Developer (Mern Stack Developer)',
   description:
-    'I am a backend developer with expertise in Node.js. I have experience in building scalable, secure, and reliable web applications using various frameworks and technologies.'
+    'I am a Full Stack developer with expertise in Node.js. I have experience in building scalable, secure, and reliable web apps using various frameworks and techs.',
+  robots: 'index,follow',
+  keywords:
+    'full stack developer, web developer, mern, mern developer, mern stack, nodejs, react, software developer, sahil shaikh'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

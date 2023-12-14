@@ -62,18 +62,19 @@ async function projects() {
                               height={500}
                             />
                           ) : (
-                            sliderImages.length > 1 && (
-                              <Image
-                                className="absolute bottom-0 right-0 rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out hover:scale-110 dark:border-dark-lighter md:w-4/5 lg:top-32"
-                                alt={project.title}
-                                src={project.images[1].imageURL}
-                                blurDataURL={project.images[1].imageURL}
-                                placeholder="blur"
-                                sizes="(min-width: 768px) 33vw, (min-width: 640px) 33vw"
-                                width={500}
-                                height={500}
-                              />
-                            )
+                            // sliderImages.length > 1 && (
+                            //   <Image
+                            //     className="absolute bottom-0 right-0 rounded-lg border-1 object-contain shadow-sm shadow-overlay transition duration-300 ease-in-out hover:scale-110 dark:border-dark-lighter md:w-4/5 lg:top-32"
+                            //     alt={project.title}
+                            //     src={project.images[1].imageURL}
+                            //     blurDataURL={project.images[1].imageURL}
+                            //     placeholder="blur"
+                            //     sizes="(min-width: 768px) 33vw, (min-width: 640px) 33vw"
+                            //     width={500}
+                            //     height={500}
+                            //   />
+                            // )
+                            <></>
                           )}
                         </div>
                       </>
@@ -130,11 +131,11 @@ async function projects() {
                         __html: project.description
                       }}
                     ></div>
-                    <Link href={'/projects/' + project._id}>
+                    {/* <Link href={'/projects/' + project._id}>
                       <button className="read-more-button cursor-pointer rounded-md border-2 border-primary bg-primary px-10 py-3 text-text-light hover:border-primary hover:bg-transparent hover:text-dark dark:bg-primary dark:hover:bg-transparent dark:hover:text-light md:px-6">
                         Read More About the Project
                       </button>
-                    </Link>
+                    </Link> */}
                     <div className="justify-left flex flex-wrap gap-2 border-b-2 py-5 dark:border-dark-lighter md:p-2">
                       {project.selectedTech.map((tech: string, index: number) => (
                         <TechStackIcon tech={tech} key={index} />

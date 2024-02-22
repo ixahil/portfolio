@@ -20,7 +20,7 @@ export default async function PublicLayout({ children }: { children: React.React
   return (
     <>
       <ThemeProviderComponent>
-        <Navbar logoName={data.logo} />
+        <Navbar logoName={data?.logo} />
         <main className="mx-auto flex h-full w-full flex-col text-text-dark dark:bg-dark dark:text-text-light ">
           <HomePage data={data} />
         </main>

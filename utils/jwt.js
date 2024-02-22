@@ -30,10 +30,10 @@ export const sendToken = (user, statusCode, res) => {
   if (process.env.NODE_ENV === "production") {
     accessTokenOptions.sameSite = "None";
     refreshTokenOptions.sameSite = "None";
-    accessTokenOptions.domain = "www.sahildev.pro";
-    refreshTokenOptions.domain = "www.sahildev.pro";
-    accessTokenOptions.secure = true;
-    refreshTokenOptions.secure = true;
+    accessTokenOptions.domain = "https://www.sahildev.pro/";
+    refreshTokenOptions.domain = "https://www.sahildev.pro/";
+    accessTokenOptions.secure = false;
+    refreshTokenOptions.secure = false;
   }
 
   res.cookie("access_token", accessToken, accessTokenOptions);
